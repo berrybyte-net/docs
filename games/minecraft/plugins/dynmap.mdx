@@ -21,7 +21,7 @@ This guide will walk you through installation and usage of Dynmap on your [Minec
 To install and configure Dynmap on your Minecraft server, follow these steps:
 
 1. Download the latest version of the Dynmap plugin from [SpigotMC](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) or the Dynmap mod from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/dynmapforge) (if you're running a modded server).
-2. Place the downloaded JAR file in the `plugins`/`mods` (depends on your server software; `plugins` for Bukkit-based servers, `mods` for Forge and Fabric) folder of your Minecraft server. Refer to [this guide](../../../lime/importing-files) for help.
+2. Place the downloaded JAR file in the `plugins`/`mods` (depends on your server software; `plugins` for Bukkit-based servers, `mods` for Forge and Fabric) folder of your Minecraft server. Refer to [this guide](/panel/importing-files) for help.
 3. Restart the server. The plugin will automatically be installed and activated
 4. When the server has fully started, stop the server to start configuring the plugin
 5. Create a port in the "**Network**" on the game panel
@@ -35,7 +35,7 @@ To use a custom domain for Dynmap instead of a long numerical IP, you can use a 
 
 #### With Lime at BerryByte
 
-If you have a [Minecraft server from BerryByte](https://berrybyte.net/minecraft), we've simplified all steps below to a few buttons on [Lime](https://game.berrybyte.net), where you can easily set up a reverse proxy for Dynmap using the [Proxies Manager](lime/proxies) tool. We take care of SSL certificates and all the configuration for you.
+If you have a [Minecraft server from BerryByte](https://berrybyte.net/minecraft), we've simplified all steps below to a few buttons on [Lime](https://game.berrybyte.net), where you can easily set up a reverse proxy for Dynmap using the Proxies Manager tool. We take care of SSL certificates and all the configuration for you.
 
 1. Create a DNS record for your custom domain to point to `cotton.api.berrybyte.network`. If you're using [Cloudflare](https://cloudflare.com), make sure to set the proxy status to DNS only.
 2. Head to the Proxies Manager tool and click on the "**Create Proxy**" button.
@@ -123,7 +123,7 @@ If you are having trouble using Dynmap, here are a few common issues and their s
 
 ## Related Guides
 
-- [Reverse Proxy Setup](/panel/proxies) - Use custom domains with BerryByte's proxy manager
+- [Server Network Configuration](/panel/overview) - Learn about server networking features
 - [Installing Plugins](/games/minecraft/installing-mods) - General plugin installation guide
 - [Server Performance Optimization](/games/minecraft/aikars-flags) - Optimize server for plugin usage
 - [Chunky Plugin](/games/minecraft/plugins/chunky) - Pre-generate chunks for better map performance
