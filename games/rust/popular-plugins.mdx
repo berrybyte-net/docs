@@ -1,0 +1,284 @@
+---
+title: "Best Rust Server Plugins - Essential uMod Plugins for Enhanced Gameplay"
+sidebarTitle: "Popular plugins"
+description: "Discover the most popular and essential Rust server plugins for uMod. Complete guide to admin tools, player features, economy systems, and quality-of-life improvements."
+---
+
+# Best Rust Server Plugins - Essential uMod Plugins
+
+Transform your Rust server with these essential plugins that enhance gameplay, improve administration, and create engaging player experiences. This curated list covers the most popular and reliable plugins used by successful Rust servers worldwide.
+
+All plugins require [uMod framework](/games/rust/install-oxide) installed on your [Rust server](https://berrybyte.net/rust-server-hosting). Each plugin includes installation instructions, configuration tips, and usage examples.
+
+## Admin & Moderation Tools
+
+### Admin Hammer
+**Essential building and admin tool**
+
+- **Purpose:** Enhanced building tools for admins
+- **Features:** Instant building, no resource costs, advanced placement
+- **Commands:** `/ah` - Toggle admin hammer mode
+- **Download:** [umod.org/plugins/admin-hammer](https://umod.org/plugins/admin-hammer)
+
+**Quick Setup:**
+1. Upload `AdminHammer.cs` to `oxide/plugins/`
+2. Grant permission: `oxide.grant user STEAMID64 adminhammer.use`
+3. Use `/ah` in-game to toggle
+
+### Vanish
+**Invisible admin mode for monitoring**
+
+- **Purpose:** Make admins invisible to players
+- **Features:** Complete invisibility, no collision, silent movement
+- **Commands:** `/vanish` - Toggle invisibility
+- **Permissions:** `vanish.use`, `vanish.damage`
+- **Download:** [umod.org/plugins/vanish](https://umod.org/plugins/vanish)
+
+**Configuration:**
+```json
+{
+  "Enable damage to vanished players": false,
+  "Enable vanish on admin connect": true,
+  "Show vanish status in chat": false
+}
+```
+
+### Admin Radar
+**Real-time player monitoring system**
+
+- **Purpose:** Track all players on server map
+- **Features:** Live player positions, ESP overlay, teleport to players
+- **Commands:** `/radar` - Open admin radar interface
+- **Perfect for:** Monitoring cheaters, helping lost players
+- **Download:** [umod.org/plugins/admin-radar](https://umod.org/plugins/admin-radar)
+
+## Player Features & Quality of Life
+
+### Teleportation
+**Complete teleport and home system**
+
+- **Purpose:** Player teleportation and home management
+- **Features:** Set homes, teleport to players, admin teleport
+- **Commands:** `/home`, `/sethome`, `/tpr`, `/tpa`
+- **Cooldowns:** Configurable delays prevent abuse
+- **Download:** [umod.org/plugins/teleportation](https://umod.org/plugins/teleportation)
+
+**Essential Settings:**
+```json
+{
+  "Home - Max homes per player": 3,
+  "TPR - Cooldown": 600,
+  "Home - Cooldown": 300,
+  "Block teleport in combat": true
+}
+```
+
+### Kits
+**Starter and VIP item packages**
+
+- **Purpose:** Provide item kits to players
+- **Features:** Multiple kit types, cooldowns, permissions
+- **Commands:** `/kit`, `/kit list`, `/kit starter`
+- **Use cases:** Starter kits, VIP rewards, admin tools
+- **Download:** [umod.org/plugins/kits](https://umod.org/plugins/kits)
+
+**Popular Kit Examples:**
+- **Starter:** Basic tools and food for new players
+- **VIP:** Enhanced items for supporters
+- **PvP:** Combat gear for arena events
+
+### Economics
+**Server economy and currency system**
+
+- **Purpose:** Add money system to server
+- **Features:** Player balances, transactions, shop integration
+- **Commands:** `/balance`, `/pay`, `/eco give`
+- **Integrates with:** Shop plugins, reward systems
+- **Download:** [umod.org/plugins/economics](https://umod.org/plugins/economics)
+
+## PvP & Combat Enhancements
+
+### Remove Tool
+**Safe building removal system**
+
+- **Purpose:** Allow players to remove their own structures
+- **Features:** Refund resources, time limits, authorization
+- **Commands:** `/remove` - Toggle remove mode
+- **Settings:** Configurable refund rates and time limits
+- **Download:** [umod.org/plugins/remove-tool](https://umod.org/plugins/remove-tool)
+
+### Clans
+**Team management and alliance system**
+
+- **Purpose:** Organize players into groups
+- **Features:** Clan chat, shared ownership, alliances
+- **Commands:** `/clan create`, `/clan invite`, `/c <message>`
+- **Benefits:** Enhanced teamwork, organized PvP
+- **Download:** [umod.org/plugins/clans](https://umod.org/plugins/clans)
+
+### Rust:IO Clans
+**Advanced clan system with web integration**
+
+- **Purpose:** Professional clan management
+- **Features:** Web interface, detailed stats, leaderboards
+- **Integration:** Works with Rust:IO ecosystem
+- **Perfect for:** Large competitive servers
+- **Download:** [umod.org/plugins/rust-io-clans](https://umod.org/plugins/rust-io-clans)
+
+## Economy & Trading
+
+### Shop
+**Player and admin shop system**
+
+- **Purpose:** Buy/sell items with server economy
+- **Features:** Admin shops, player shops, price controls
+- **Commands:** `/shop`, `/shop buy`, `/shop sell`
+- **Requires:** Economics plugin for currency
+- **Download:** [umod.org/plugins/shop](https://umod.org/plugins/shop)
+
+### Trade
+**Secure player-to-player trading**
+
+- **Purpose:** Safe item trading between players
+- **Features:** Trade windows, confirmation system, logging
+- **Commands:** `/trade <player>` - Initiate trade
+- **Security:** Prevents scamming and item duplication
+- **Download:** [umod.org/plugins/trade](https://umod.org/plugins/trade)
+
+### Rewards
+**Achievement and reward system**
+
+- **Purpose:** Reward players for activities
+- **Features:** Kill rewards, gathering bonuses, playtime rewards
+- **Integration:** Works with Economics plugin
+- **Customizable:** Configure rewards for any activity
+- **Download:** [umod.org/plugins/rewards](https://umod.org/plugins/rewards)
+
+## Server Management
+
+### Auto Door Close
+**Automatic door management**
+
+- **Purpose:** Automatically close doors after delay
+- **Features:** Configurable timers, door type support
+- **Benefits:** Reduces door spam, improves performance
+- **Settings:** Separate timers for different door types
+- **Download:** [umod.org/plugins/auto-door-close](https://umod.org/plugins/auto-door-close)
+
+### Stack Size Controller
+**Modify item stack sizes**
+
+- **Purpose:** Customize how many items stack together
+- **Features:** Individual item configuration, multipliers
+- **Use cases:** Increase convenience, balance gameplay
+- **Popular:** 2x-5x stack multipliers for quality of life
+- **Download:** [umod.org/plugins/stack-size-controller](https://umod.org/plugins/stack-size-controller)
+
+### Gather Manager
+**Resource gathering multiplier**
+
+- **Purpose:** Modify resource collection rates
+- **Features:** Per-resource multipliers, tool-specific rates
+- **Commands:** `/gather` - View current rates
+- **Balance:** 2x-3x rates popular for casual servers
+- **Download:** [umod.org/plugins/gather-manager](https://umod.org/plugins/gather-manager)
+
+## Event & Mini-Game Plugins
+
+### Rust Kits Arena
+**PvP arena and tournament system**
+
+- **Purpose:** Organized PvP events and arenas
+- **Features:** Multiple arena types, tournaments, spectating
+- **Commands:** `/arena join`, `/arena leave`
+- **Perfect for:** Competitive events, skill practice
+- **Download:** [umod.org/plugins/rust-kits-arena](https://umod.org/plugins/rust-kits-arena)
+
+### Helicopter
+**Enhanced helicopter events**
+
+- **Purpose:** Improved patrol helicopter mechanics
+- **Features:** Configurable loot, spawn times, difficulty
+- **Customization:** Adjust health, damage, rewards
+- **Popular:** Increased frequency for more action
+- **Download:** [umod.org/plugins/helicopter](https://umod.org/plugins/helicopter)
+
+### Bradley APC
+**Armored Personnel Carrier events**
+
+- **Purpose:** Enhanced Bradley APC encounters
+- **Features:** Custom loot tables, spawn control
+- **Balance:** Adjust difficulty and rewards
+- **Integration:** Works with other event plugins
+- **Download:** [umod.org/plugins/bradley-apc](https://umod.org/plugins/bradley-apc)
+
+## Installation Best Practices
+
+### Plugin Installation Order
+
+1. **Install uMod framework** first
+2. **Add admin tools** (Vanish, Admin Hammer)
+3. **Install core features** (Teleportation, Kits)
+4. **Add economy system** (Economics, Shop)
+5. **Configure permissions** for all plugins
+
+### Performance Considerations
+
+- **Start with essentials** - Add plugins gradually
+- **Monitor server performance** - Check CPU/RAM usage
+- **Regular updates** - Keep plugins current
+- **Remove unused plugins** - Clean up regularly
+
+### Configuration Tips
+
+- **Test on development server** first
+- **Backup configs** before major changes
+- **Document custom settings** for team reference
+- **Review logs regularly** for errors
+
+## Plugin Compatibility
+
+### Compatible Plugin Combinations
+
+**Basic Server Package:**
+- Teleportation + Kits + Remove Tool + Auto Door Close
+
+**Economy Server Package:**
+- Economics + Shop + Rewards + Clans
+
+**PvP Server Package:**
+- Clans + Rust:IO + Arena + Enhanced Events
+
+**Casual Server Package:**
+- Gather Manager + Stack Size Controller + Quality of Life plugins
+
+## Related Guides
+
+- [Installing Oxide/uMod](/games/rust/install-oxide) - Plugin framework setup
+- [Admin Commands](/games/rust/admin-commands) - Server management commands
+- [Setup Rust Server](/games/rust/setup-server) - Initial server configuration
+- [Common Server Issues](/games/rust/common-issues) - Troubleshooting help
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="How many plugins can I install safely?">
+Most servers run 10-20 plugins without issues. Monitor performance and add gradually to find your server's limit.
+</Accordion>
+
+<Accordion title="Do plugins affect server wipes?">
+Plugin data may persist through map wipes but is usually cleared during full wipes. Check individual plugin documentation.
+</Accordion>
+
+<Accordion title="Can players see what plugins are installed?">
+Players can see plugins through commands they have access to. Some plugins have hidden modes for admin-only features.
+</Accordion>
+
+<Accordion title="How do I update plugins safely?">
+Backup your server, update plugins one at a time, and test functionality before updating multiple plugins simultaneously.
+</Accordion>
+
+</AccordionGroup>
+
+Need help choosing plugins for your server? Join our [Discord community](https://berrybyte.net/discord) for recommendations from experienced server owners.

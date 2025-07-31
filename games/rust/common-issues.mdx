@@ -1,0 +1,369 @@
+---
+title: "Rust Server Common Issues & Troubleshooting Guide - Fix Server Problems"
+sidebarTitle: "Common server issues"
+description: "Comprehensive troubleshooting guide for Rust server problems. Fix connection issues, performance problems, crashes, and common server errors with step-by-step solutions."
+---
+
+# Rust Server Common Issues & Troubleshooting Guide
+
+Running a Rust server comes with various challenges. This comprehensive troubleshooting guide covers the most common issues server owners face, from connection problems to performance optimization, with practical solutions for each problem.
+
+Whether you're hosting on [BerryByte](https://berrybyte.net/rust-server-hosting) or self-hosting, these solutions will help you maintain a stable, high-performance Rust server.
+
+## Connection Issues
+
+### Players Can't Connect to Server
+
+**Symptoms:**
+- "Connection Failed" errors
+- Server not appearing in browser
+- Timeout errors during connection
+
+**Solutions:**
+
+#### Check Server Status
+1. **Verify server is running** in control panel
+2. **Check server console** for error messages
+3. **Confirm server startup** completed successfully
+
+#### Port Configuration
+1. **Verify port 28015** is open (UDP)
+2. **Check firewall settings** on server
+3. **Confirm port forwarding** (self-hosted servers)
+4. **Test port accessibility** with online tools
+
+#### Network Troubleshooting
+```bash
+# Test server connectivity
+ping your-server-ip
+telnet your-server-ip 28015
+```
+
+### Server Not Showing in Browser
+
+**Common causes and fixes:**
+
+#### Steam Server Registration
+- **Wait 10-15 minutes** for new servers to appear
+- **Restart server** to re-register with Steam
+- **Check Steam server status** at [steamstat.us](https://steamstat.us)
+
+#### Server Configuration
+```bash
+# Ensure these settings in server config
++server.hostname "Your Server Name"
++server.description "Server Description"
++server.url "http://yourwebsite.com"
++server.headerimage "http://yoursite.com/image.jpg"
+```
+
+### High Ping and Lag Issues
+
+**Performance optimization steps:**
+
+#### Server Location
+- **Choose server closest** to player base
+- **Consider multiple locations** for global players
+- **Monitor ping times** regularly
+
+#### Network Optimization
+```bash
+# Server startup parameters for better networking
++server.tickrate 30
++server.netcache_size 100
++fps.limit 60
+```
+
+## Performance Problems
+
+### Low Server FPS
+
+**Symptoms:**
+- Server FPS below 20-30
+- Stuttering gameplay
+- Delayed player actions
+
+**Solutions:**
+
+#### Resource Allocation
+1. **Increase RAM allocation** (minimum 8GB, recommended 16GB+)
+2. **Ensure adequate CPU cores** (4+ cores recommended)
+3. **Use SSD storage** for better I/O performance
+
+#### World Size Optimization
+```bash
+# Reduce world size for better performance
++server.worldsize 3000  # Instead of 4000
++server.maxplayers 50   # Reduce if needed
+```
+
+#### Plugin Management
+1. **Audit installed plugins** - remove unnecessary ones
+2. **Update plugins regularly** - newer versions often perform better
+3. **Monitor plugin resource usage** - identify performance hogs
+
+### Memory Issues
+
+**High RAM usage solutions:**
+
+#### Garbage Collection
+```bash
+# Force garbage collection
+gc.collect
+
+# Monitor memory usage
+pool.print_memory
+```
+
+#### Memory Optimization Settings
+```bash
+# Startup parameters for memory management
++gc.buffer 256
++pool.mode 2
+```
+
+### Server Crashes
+
+**Common crash causes and fixes:**
+
+#### Plugin-Related Crashes
+1. **Check plugin compatibility** with current Rust version
+2. **Review error logs** in `oxide/logs/`
+3. **Disable plugins one by one** to identify culprit
+4. **Update or remove problematic plugins**
+
+#### Memory-Related Crashes
+1. **Increase server RAM** allocation
+2. **Monitor memory usage** trends
+3. **Implement automatic restarts** during low-population hours
+
+#### Corrupted World Files
+1. **Restore from backup** if available
+2. **Generate new world** with different seed
+3. **Check storage device** for hardware issues
+
+## Admin and Permission Issues
+
+### Admin Commands Not Working
+
+**Troubleshooting steps:**
+
+#### Verify Admin Status
+```bash
+# Check if you're properly set as admin
+status
+# Look for your name in admin list
+```
+
+#### Permission Configuration
+```bash
+# Re-add admin permissions
+ownerid STEAMID64 "YourName" "Admin"
+server.writecfg
+```
+
+#### uMod Permission Issues
+```bash
+# Grant admin permissions in uMod
+oxide.grant user STEAMID64 admin
+oxide.usergroup add STEAMID64 admin
+```
+
+### Plugin Commands Not Responding
+
+**Common solutions:**
+
+#### Plugin Status Check
+```bash
+# Verify plugin is loaded
+oxide.plugins
+
+# Reload problematic plugin
+oxide.reload PluginName
+```
+
+#### Permission Verification
+```bash
+# Check user permissions
+oxide.show user STEAMID64
+
+# Grant specific plugin permissions
+oxide.grant user STEAMID64 pluginname.use
+```
+
+## World and Map Issues
+
+### World Generation Problems
+
+**Symptoms:**
+- Blank or corrupted terrain
+- Missing monuments
+- Unusual landscape features
+
+**Solutions:**
+
+#### Regenerate World
+```bash
+# Change world seed to generate new map
++server.seed 12345
+# Restart server to apply changes
+```
+
+#### Verify World Size
+```bash
+# Ensure world size is appropriate
++server.worldsize 4000  # Standard size
+# Smaller sizes: 3000, 2000, 1000
+```
+
+### Save File Corruption
+
+**Recovery steps:**
+
+#### Restore from Backup
+1. **Stop server immediately**
+2. **Restore latest backup** from control panel
+3. **Test world integrity** before going live
+
+#### Manual Save Recovery
+1. **Navigate to** `server/SERVERNAME/` folder
+2. **Look for** `.sav` backup files
+3. **Replace corrupted** save with backup
+4. **Restart server** and test
+
+## Update and Maintenance Issues
+
+### Server Won't Update
+
+**Update troubleshooting:**
+
+#### Manual Update Process
+```bash
+# Stop server first
+# Run SteamCMD update
+steamcmd +force_install_dir ./rust_server/ +login anonymous +app_update 258550 +quit
+```
+
+#### File Permission Issues
+1. **Check file permissions** on server directory
+2. **Ensure SteamCMD** has write access
+3. **Run as administrator** if needed (Windows)
+
+#### Disk Space Problems
+1. **Check available storage** space
+2. **Clean up old logs** and temporary files
+3. **Remove unused plugins** and files
+
+### Plugin Compatibility After Updates
+
+**Post-update checklist:**
+
+#### Plugin Verification
+1. **Check plugin compatibility** with new Rust version
+2. **Update plugins** to latest versions
+3. **Test critical plugins** before opening server
+
+#### Configuration Review
+1. **Backup current configs** before updating
+2. **Compare config changes** after update
+3. **Restore custom settings** if overwritten
+
+## Player-Related Issues
+
+### Player Data Corruption
+
+**Symptoms:**
+- Players spawn as fresh spawns
+- Lost player progress
+- Inventory/blueprint issues
+
+**Solutions:**
+
+#### Player Data Recovery
+1. **Check player data backups** in control panel
+2. **Restore individual player files** if available
+3. **Use admin commands** to restore items/blueprints
+
+#### Prevention Measures
+1. **Enable automatic backups** for player data
+2. **Regular manual backups** before major changes
+3. **Monitor player data** file sizes for corruption
+
+### Authentication Issues
+
+**Steam authentication problems:**
+
+#### VAC Authentication Errors
+1. **Restart Steam client** completely
+2. **Verify game files** integrity
+3. **Check VAC status** and wait if issues exist
+
+#### Server-Side Authentication
+```bash
+# Check server authentication settings
++server.secure 1  # Enable VAC protection
+```
+
+## Monitoring and Prevention
+
+### Server Health Monitoring
+
+**Key metrics to track:**
+
+#### Performance Metrics
+- **Server FPS** (target: 25-30+)
+- **RAM usage** (should not exceed 80%)
+- **CPU usage** (sustained high usage indicates issues)
+- **Network latency** (ping times)
+
+#### Log Monitoring
+1. **Review server logs** daily
+2. **Check plugin error logs** regularly
+3. **Monitor crash reports** and patterns
+
+### Preventive Maintenance
+
+**Regular maintenance tasks:**
+
+#### Weekly Tasks
+- **Review server performance** metrics
+- **Check for plugin updates**
+- **Clean up log files**
+- **Test backup restoration**
+
+#### Monthly Tasks
+- **Full server backup** before major changes
+- **Review and update plugins**
+- **Analyze player feedback** and issues
+- **Plan server optimizations**
+
+## Related Guides
+
+- [Setup Rust Server](/games/rust/setup-server) - Initial server configuration
+- [Admin Commands](/games/rust/admin-commands) - Server management tools
+- [Installing Oxide/uMod](/games/rust/install-oxide) - Plugin framework setup
+- [Popular Plugins](/games/rust/popular-plugins) - Essential server plugins
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="Why does my server crash during peak hours?">
+High player counts increase resource usage. Monitor RAM/CPU usage and consider upgrading hardware or reducing max players during peak times.
+</Accordion>
+
+<Accordion title="How often should I restart my Rust server?">
+Most servers benefit from daily restarts during low-population hours to clear memory and apply updates.
+</Accordion>
+
+<Accordion title="What causes 'Connection Failed' errors?">
+Usually network issues, server overload, or Steam authentication problems. Check server status and network connectivity first.
+</Accordion>
+
+<Accordion title="How do I recover from a corrupted world save?">
+Stop the server immediately and restore from the most recent backup. If no backup exists, you may need to generate a new world.
+</Accordion>
+
+</AccordionGroup>
+
+Still experiencing issues? Join our [Discord community](https://berrybyte.net/discord) for help from experienced server administrators and our support team.

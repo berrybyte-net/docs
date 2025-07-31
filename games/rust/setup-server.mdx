@@ -1,0 +1,146 @@
+---
+title: "How to Setup a Rust Dedicated Server - Complete Multiplayer Configuration Guide"
+sidebarTitle: "Setup Rust server"
+description: "Step-by-step guide to setting up a Rust dedicated server for multiplayer survival gameplay. Learn server requirements, configuration settings, and how to start your Rust server in minutes."
+---
+
+# How to Setup a Rust Dedicated Server
+
+Setting up your own Rust dedicated server gives you complete control over your survival multiplayer experience. Whether you're hosting for friends or building a community server, this guide covers everything from initial setup to advanced configuration for optimal Rust server performance.
+
+[Rust](https://store.steampowered.com/app/252490/Rust/) is a hardcore multiplayer survival game where players must gather resources, build bases, and survive against other players and the environment. **[BerryByte](https://berrybyte.net/rust-server-hosting)** provides powerful Rust server hosting with instant setup, NVMe SSD storage, and 24/7 uptime.
+
+## Rust Server Requirements
+
+Before setting up your Rust dedicated server, ensure your system meets these minimum requirements:
+
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| **CPU** | 4 cores | 6+ cores |
+| **RAM** | 8GB | 16GB+ |
+| **Storage** | 20GB SSD | 50GB+ NVMe SSD |
+| **Network** | 100Mbps | 1Gbps |
+
+## Quick Setup with BerryByte
+
+1. **Select your plan** at [berrybyte.net/rust-server-hosting](https://berrybyte.net/rust-server-hosting)
+2. **Choose server location** closest to your players
+3. **Complete checkout** and check your email
+4. **Login to game panel** at [game.berrybyte.net](https://game.berrybyte.net)
+5. **Start your server** - it's ready to play immediately!
+
+Your Rust server will be online within minutes with automatic updates and DDoS protection included.
+
+## Manual Server Setup (Advanced)
+
+### Step 1: Install SteamCMD
+
+**Windows:**
+1. Download SteamCMD from [Valve's website](https://developer.valvesoftware.com/wiki/SteamCMD)
+2. Extract to `C:\steamcmd\`
+3. Run `steamcmd.exe`
+
+**Linux:**
+```bash
+sudo apt update
+sudo apt install steamcmd
+```
+
+### Step 2: Download Rust Server Files
+
+**Windows:**
+```cmd
+steamcmd.exe +force_install_dir c:\rust_server\ +login anonymous +app_update 258550 +quit
+```
+
+**Linux:**
+```bash
+steamcmd +force_install_dir ./rust_server/ +login anonymous +app_update 258550 +quit
+```
+
+### Step 3: Configure Server Settings
+
+1. **Navigate to server directory**
+2. **Create startup script** with these parameters:
+   - `-batchmode` - Run without graphics
+   - `+server.port 28015` - Set server port
+   - `+server.identity "myserver"` - Server identity folder
+   - `+server.seed 12345` - World seed
+   - `+server.worldsize 4000` - Map size
+   - `+server.maxplayers 100` - Player limit
+
+**Example Windows batch file:**
+```batch
+RustDedicated.exe -batchmode +server.port 28015 +server.identity "myserver" +server.seed 12345 +server.worldsize 4000 +server.maxplayers 100 +server.hostname "My Rust Server" +server.description "Welcome to my server"
+```
+
+### Step 4: Port Forwarding
+
+Open these ports on your router/firewall:
+- **28015** (UDP) - Game port
+- **28016** (TCP) - RCON port (optional)
+
+## Server Configuration Options
+
+### Basic Settings
+
+- **server.hostname** - Server name in browser
+- **server.description** - Server description
+- **server.maxplayers** - Maximum players (default: 100)
+- **server.worldsize** - Map size (1000-4000)
+- **server.seed** - World generation seed
+
+### Advanced Settings
+
+- **server.tickrate** - Server update rate (default: 30)
+- **server.saveinterval** - Auto-save frequency (seconds)
+- **decay.scale** - Building decay multiplier
+- **gather.rate** - Resource gathering multiplier
+
+## Common Server Issues
+
+### Server Won't Start
+- **Check port availability** - Ensure port 28015 isn't in use
+- **Verify file integrity** - Re-download server files if corrupted
+- **Check system resources** - Ensure adequate RAM and CPU
+
+### Players Can't Connect
+- **Verify port forwarding** - Check router configuration
+- **Check firewall settings** - Allow Rust through Windows Firewall
+- **Confirm server status** - Ensure server is running and responsive
+
+### Performance Issues
+- **Reduce world size** - Smaller maps use less resources
+- **Lower max players** - Fewer players = better performance
+- **Increase RAM allocation** - Add more system memory
+
+## Related Guides
+
+- [Join Rust Server](/games/rust/join-server) - Connect to your server
+- [Installing Oxide/uMod](/games/rust/install-oxide) - Add plugin support
+- [Admin Commands](/games/rust/admin-commands) - Server management commands
+- [Server Backups](/panel/backups) - Protect your server data
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="How much RAM does a Rust server need?">
+A Rust server requires minimum 8GB RAM, but 16GB+ is recommended for optimal performance with 50+ players.
+</Accordion>
+
+<Accordion title="Can I change the map after server creation?">
+Yes, you can change the world seed and size, but this will generate a completely new map and reset all player progress.
+</Accordion>
+
+<Accordion title="How often should I wipe my Rust server?">
+Most servers wipe monthly on the first Thursday when Rust updates. Some servers do weekly or bi-weekly wipes depending on community preference.
+</Accordion>
+
+<Accordion title="What's the difference between map wipe and BP wipe?">
+Map wipe resets the world and buildings. BP (blueprint) wipe also resets player research progress and learned blueprints.
+</Accordion>
+
+</AccordionGroup>
+
+Need help with your Rust server? Join our [Discord community](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).

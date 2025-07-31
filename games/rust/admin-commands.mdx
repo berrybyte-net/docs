@@ -1,0 +1,342 @@
+---
+title: "Complete Rust Admin Commands Guide - Server Management & Player Control"
+sidebarTitle: "Admin commands"
+description: "Comprehensive guide to Rust server admin commands for player management, server control, and moderation. Includes vanilla commands and uMod plugin commands with examples."
+---
+
+# Complete Rust Admin Commands Guide
+
+Master your Rust server administration with this comprehensive command reference. Whether you're managing players, controlling server settings, or troubleshooting issues, these admin commands give you complete control over your multiplayer survival server.
+
+This guide covers both vanilla Rust commands and enhanced [uMod plugin commands](/games/rust/install-oxide) for [Rust servers](https://berrybyte.net/rust-server-hosting).
+
+## Getting Admin Access
+
+### Method 1: Server Console (Recommended)
+
+1. **Access server console** (varies by host)
+2. **Add yourself as admin:**
+   ```
+   ownerid STEAMID64 "YourName" "reason"
+   ```
+3. **Save configuration:**
+   ```
+   server.writecfg
+   ```
+
+### Method 2: Configuration File
+
+1. **Edit `server/cfg/users.cfg`**
+2. **Add line:**
+   ```
+   ownerid STEAMID64 "YourName" "Admin"
+   ```
+3. **Restart server** to apply changes
+
+### Method 3: In-Game (If Already Admin)
+
+```
+/addowner STEAMID64
+/addmoderator STEAMID64
+```
+
+## Essential Admin Commands
+
+### Player Management
+
+#### Kick Players
+```bash
+kick "PlayerName" "Reason"
+kick STEAMID64 "Reason"
+```
+**Examples:**
+- `kick "BadPlayer" "Griefing"`
+- `kick 76561198000000000 "Cheating"`
+
+#### Ban Players
+```bash
+ban "PlayerName" "Reason"
+ban STEAMID64 "Reason"
+banid STEAMID64 "Reason"
+```
+**Permanent bans:**
+- `ban "Cheater123" "Aimbot detected"`
+- `banid 76561198000000000 "Toxic behavior"`
+
+#### Unban Players
+```bash
+unban STEAMID64
+removeid STEAMID64
+```
+
+#### Mute/Unmute Players
+```bash
+mute "PlayerName"
+unmute "PlayerName"
+```
+
+### Teleportation Commands
+
+#### Teleport to Player
+```bash
+teleport "YourName" "TargetPlayer"
+teleportpos "PlayerName" x y z
+```
+
+#### Teleport Player to You
+```bash
+teleport "PlayerName" "YourName"
+```
+
+#### Teleport to Coordinates
+```bash
+teleportpos "PlayerName" 1000 100 1000
+```
+
+### Item & Inventory Management
+
+#### Give Items
+```bash
+give "PlayerName" "ItemName" Amount
+giveid "PlayerName" ItemID Amount
+```
+**Popular items:**
+- `give "Player" "rifle.ak" 1`
+- `give "Player" "ammo.rifle" 100`
+- `give "Player" "wood" 1000`
+
+#### Clear Inventory
+```bash
+inventory.clear "PlayerName"
+```
+
+#### Give All Items
+```bash
+giveall "ItemName" Amount
+```
+
+## Server Control Commands
+
+### Server Information
+```bash
+status                    # Show server status
+players                   # List connected players
+serverinfo               # Display server details
+fps                      # Show server FPS
+```
+
+### World Management
+```bash
+save                     # Save world data
+quit                     # Shutdown server
+restart                  # Restart server (if supported)
+```
+
+### Weather & Time
+```bash
+weather.cloud 0-1        # Cloud coverage (0=clear, 1=overcast)
+weather.fog 0-1          # Fog density
+weather.rain 0-1         # Rain intensity
+weather.wind 0-1         # Wind strength
+
+env.time 12              # Set time (0-24 hours)
+env.day                  # Set to daytime
+env.night                # Set to nighttime
+```
+
+### Entity Management
+```bash
+entity.spawn "EntityName"     # Spawn entity at crosshair
+entity.spawnat "EntityName" x y z  # Spawn at coordinates
+entity.kill                   # Kill entity at crosshair
+```
+
+**Common entities:**
+- `entity.spawn "helicopter"`
+- `entity.spawn "bradleyapc"`
+- `entity.spawn "supply_drop"`
+
+## uMod Plugin Commands
+
+### Permission Management
+```bash
+oxide.grant user STEAMID64 PermissionName
+oxide.revoke user STEAMID64 PermissionName
+oxide.grant group GroupName PermissionName
+
+oxide.usergroup add STEAMID64 GroupName
+oxide.usergroup remove STEAMID64 GroupName
+
+oxide.show perms          # List all permissions
+oxide.show groups         # List permission groups
+```
+
+### Plugin Management
+```bash
+oxide.load PluginName     # Load plugin
+oxide.unload PluginName   # Unload plugin
+oxide.reload PluginName   # Reload plugin
+oxide.plugins             # List loaded plugins
+```
+
+### Admin Tools (With Plugins)
+
+#### Vanish Commands
+```bash
+/vanish                   # Toggle invisibility
+/vanish list              # Show vanished admins
+```
+
+#### God Mode
+```bash
+/god                      # Toggle invincibility
+/god "PlayerName"         # Toggle for specific player
+```
+
+#### No Clip
+```bash
+/noclip                   # Toggle no-clip mode
+```
+
+## Advanced Commands
+
+### Performance Monitoring
+```bash
+perf 1                    # Enable performance monitoring
+gc.collect                # Force garbage collection
+pool.print_memory         # Show memory pool usage
+pool.print_prefabs        # Show prefab usage
+```
+
+### Debug Commands
+```bash
+debug.log 1               # Enable debug logging
+debug.checktriggers       # Check trigger issues
+debug.lookingat           # Show entity you're looking at
+```
+
+### Network Commands
+```bash
+net.connect "IP:PORT"     # Connect to server
+net.disconnect            # Disconnect from server
+net.reconnect             # Reconnect to server
+```
+
+## Command Shortcuts & Aliases
+
+### Quick Access Commands
+```bash
+/tp "Player"              # Teleport to player
+/tphere "Player"          # Teleport player to you
+/give "Item" Amount       # Give items
+/heal                     # Heal yourself
+/feed                     # Feed yourself
+```
+
+### Batch Commands
+```bash
+/giveall "Item" Amount    # Give item to all players
+/healall                  # Heal all players
+/tpall                    # Teleport all players to you
+```
+
+## Command Usage Tips
+
+### Finding Player Information
+```bash
+players                   # Get player list with SteamIDs
+status                    # Detailed player information
+```
+
+### Using SteamID64
+- **More reliable** than player names
+- **Doesn't change** if player changes name
+- **Required for** permanent bans and permissions
+
+### Command Syntax Rules
+- **Use quotes** around names with spaces: `"Player Name"`
+- **Case sensitive** for some commands
+- **Tab completion** works in most consoles
+- **Check spelling** - typos cause command failures
+
+## Common Admin Scenarios
+
+### Dealing with Cheaters
+1. **Spectate suspicious player:**
+   ```bash
+   /vanish
+   teleport "YourName" "SuspiciousPlayer"
+   ```
+
+2. **Gather evidence** and take screenshots
+
+3. **Ban permanently:**
+   ```bash
+   ban "PlayerName" "Cheating - Evidence: Screenshot"
+   ```
+
+### Server Events
+1. **Spawn helicopter:**
+   ```bash
+   entity.spawn "helicopter"
+   ```
+
+2. **Create supply drop:**
+   ```bash
+   entity.spawn "supply_drop"
+   ```
+
+3. **Teleport all to event:**
+   ```bash
+   /tpall
+   ```
+
+### Emergency Situations
+1. **Stop server attacks:**
+   ```bash
+   /vanish
+   /god
+   ```
+
+2. **Mass kick griefers:**
+   ```bash
+   kick "Griefer1" "Mass griefing"
+   kick "Griefer2" "Mass griefing"
+   ```
+
+3. **Save and restart if needed:**
+   ```bash
+   save
+   restart
+   ```
+
+## Related Guides
+
+- [Installing Oxide/uMod](/games/rust/install-oxide) - Enable enhanced admin commands
+- [Popular Plugins](/games/rust/popular-plugins) - Additional admin tools
+- [Setup Rust Server](/games/rust/setup-server) - Initial server configuration
+- [Common Server Issues](/games/rust/common-issues) - Troubleshooting help
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="How do I find a player's SteamID64?">
+Use the `players` or `status` command in console, or check Steam profiles and use online SteamID converters.
+</Accordion>
+
+<Accordion title="Can I undo admin commands?">
+Most commands can't be undone. Always backup your server before major changes and use commands carefully.
+</Accordion>
+
+<Accordion title="Why don't some commands work?">
+Ensure you have proper admin permissions, check command spelling, and verify if the command requires specific plugins.
+</Accordion>
+
+<Accordion title="How do I remove admin rights?">
+Use `removeowner STEAMID64` or edit the users.cfg file to remove admin entries.
+</Accordion>
+
+</AccordionGroup>
+
+Need help with server administration? Join our [Discord community](https://berrybyte.net/discord) for support from experienced Rust server admins.

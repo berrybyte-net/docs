@@ -111,7 +111,13 @@
               {
                 "group": "Rust",
                 "pages": [
-                  "games/rust/introduction"
+                  "games/rust/introduction",
+                  "games/rust/setup-server",
+                  "games/rust/join-server",
+                  "games/rust/install-oxide",
+                  "games/rust/popular-plugins",
+                  "games/rust/admin-commands",
+                  "games/rust/common-issues"
                 ]
               },
               {
