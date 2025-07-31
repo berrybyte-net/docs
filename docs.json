@@ -42,7 +42,6 @@
                 "pages": [
                   "panel/overview",
                   "panel/backups",
-                  "panel/server-slices",
                   "panel/importing-files",
                   "panel/recycle-bin",
                   "panel/sub-users"
