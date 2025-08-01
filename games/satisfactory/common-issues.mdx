@@ -1,0 +1,358 @@
+---
+title: "Satisfactory Server Common Issues & Troubleshooting Guide - Fix Factory Problems"
+sidebarTitle: "Common server issues"
+description: "Comprehensive troubleshooting guide for Satisfactory server problems. Fix connection issues, factory performance problems, crashes, and common multiplayer errors with step-by-step solutions."
+---
+
+# Satisfactory Server Common Issues & Troubleshooting Guide
+
+Running a Satisfactory server comes with unique challenges related to factory complexity and multiplayer coordination. This comprehensive troubleshooting guide covers the most common issues server owners face, from connection problems to factory performance optimization, with practical solutions for each problem.
+
+Whether you're hosting on [BerryByte](https://berrybyte.net/satisfactory-server-hosting) or self-hosting, these solutions will help you maintain a stable, high-performance Satisfactory server.
+
+## Connection Issues
+
+### Players Can't Connect to Server
+
+**Symptoms:**
+- "Failed to connect" errors
+- Server not appearing in browser
+- Connection timeout during join attempts
+
+**Solutions:**
+
+#### Check Server Status
+1. **Verify server is running** in control panel
+2. **Check server console** for error messages
+3. **Confirm startup completed** successfully
+4. **Test local connection** first
+
+#### Port Configuration
+1. **Verify port 7777** is open (UDP)
+2. **Check beacon port 15000** (UDP)
+3. **Confirm query port 15777** (UDP)
+4. **Test port accessibility** with online tools
+
+#### Network Troubleshooting
+```bash
+# Test server connectivity
+ping your-server-ip
+telnet your-server-ip 7777
+```
+
+### Server Not Showing in Browser
+
+**Common causes and fixes:**
+
+#### Steam Server Registration
+- **Wait 5-10 minutes** for new servers to appear
+- **Restart server** to re-register with Steam
+- **Check Steam server status** at [steamstat.us](https://steamstat.us)
+- **Verify beacon port** is properly configured
+
+#### Server Configuration
+```ini
+# Ensure proper server settings
+[/Script/FactoryGame.FGServerSubsystem]
+mServerName=Your Factory Server
+mServerDescription=Welcome to our factory!
+```
+
+### Version Mismatch Errors
+
+**Game version compatibility issues:**
+
+#### Client-Server Version Sync
+1. **Update Satisfactory** through Steam
+2. **Verify game files** integrity
+3. **Check server version** with administrator
+4. **Coordinate updates** with all players
+
+## Performance Problems
+
+### Factory Lag and Low FPS
+
+**Symptoms:**
+- Server FPS below 20-30
+- Stuttering during factory operation
+- Delayed player actions and building
+
+**Solutions:**
+
+#### Factory Optimization
+1. **Reduce active machines** - Use power switches for unused areas
+2. **Simplify belt networks** - Avoid complex routing
+3. **Remove decorative elements** - Focus on functionality
+4. **Implement factory zones** - Separate production areas
+
+#### Server Resource Allocation
+```ini
+# Performance optimization settings
+[/Script/FactoryGame.FGServerSubsystem]
+mAutoPause=True
+mAutoSaveInterval=600
+mNetworkQuality=3
+```
+
+### Memory Issues and Crashes
+
+**High RAM usage and server instability:**
+
+#### Memory Management
+1. **Increase server RAM** allocation (16GB+ recommended)
+2. **Enable auto-pause** when no players online
+3. **Regular server restarts** - Daily during low-activity hours
+4. **Monitor memory usage** trends
+
+#### Save File Optimization
+```bash
+# Clean up save files
+# Remove old autosaves
+# Compress backup files
+# Monitor save file sizes
+```
+
+### Factory Performance Degradation
+
+**Symptoms:**
+- Machines running slowly
+- Belt throughput issues
+- Power grid instability
+
+**Solutions:**
+
+#### Production Line Analysis
+1. **Identify bottlenecks** - Check machine efficiency
+2. **Optimize belt routing** - Direct paths preferred
+3. **Balance power consumption** - Add generators as needed
+4. **Review factory layout** - Minimize transport distances
+
+## Multiplayer Coordination Issues
+
+### Player Desynchronization
+
+**Symptoms:**
+- Players see different factory states
+- Building conflicts and overlaps
+- Inventory synchronization problems
+
+**Solutions:**
+
+#### Synchronization Fixes
+1. **Coordinate building times** - Avoid simultaneous construction
+2. **Regular save/reload** - Resync server state
+3. **Stable connections** - Ensure all players have good ping
+4. **Restart server** if desync persists
+
+### Building Conflicts
+
+**Multiple players building in same area:**
+
+#### Conflict Prevention
+1. **Assign factory zones** - Designate areas per player
+2. **Communication protocols** - Use voice chat during building
+3. **Planning sessions** - Coordinate major construction
+4. **Version control** - Save before major changes
+
+### Resource Management Disputes
+
+**Sharing resources and factory access:**
+
+#### Resource Coordination
+1. **Establish resource zones** - Designate mining areas
+2. **Shared storage systems** - Central resource hubs
+3. **Production assignments** - Divide manufacturing roles
+4. **Communication tools** - Discord or in-game chat
+
+## Save File and World Issues
+
+### Corrupted Save Files
+
+**Symptoms:**
+- Server won't load world
+- Missing factory sections
+- Player progress lost
+
+**Solutions:**
+
+#### Save File Recovery
+1. **Stop server immediately** when corruption detected
+2. **Restore from backup** - Use most recent clean save
+3. **Check save file integrity** - Verify file sizes
+4. **Test world loading** before going live
+
+#### Backup Strategy
+```bash
+# Automated backup script example
+# Daily backups with rotation
+# Test restore procedures
+# Multiple backup locations
+```
+
+### World Generation Problems
+
+**Issues with world loading or terrain:**
+
+#### World Troubleshooting
+1. **Verify save file** compatibility with server version
+2. **Check world size** and complexity
+3. **Monitor loading times** - Large worlds take longer
+4. **Consider world reset** if severely corrupted
+
+## Mod-Related Issues
+
+### Mod Compatibility Problems
+
+**Symptoms:**
+- Server crashes with mods enabled
+- Players can't connect with different mods
+- Factory elements not working properly
+
+**Solutions:**
+
+#### Mod Synchronization
+1. **Ensure identical mod lists** - All players need same mods
+2. **Check mod versions** - Update to latest compatible versions
+3. **Test mod combinations** - Verify compatibility
+4. **Remove problematic mods** - Identify and disable conflicting mods
+
+### Mod Performance Impact
+
+**Mods causing server lag:**
+
+#### Mod Optimization
+1. **Audit installed mods** - Remove unnecessary ones
+2. **Monitor mod performance** - Check resource usage
+3. **Update mods regularly** - Latest versions often perform better
+4. **Use performance-friendly mods** - Choose optimized alternatives
+
+## Update and Maintenance Issues
+
+### Server Won't Update
+
+**Update troubleshooting:**
+
+#### Manual Update Process
+```bash
+# Stop server first
+# Run SteamCMD update
+steamcmd +force_install_dir ./satisfactory_server/ +login anonymous +app_update 1690800 +quit
+```
+
+#### Update Verification
+1. **Check server version** after update
+2. **Verify file integrity** - Ensure complete download
+3. **Test server startup** - Confirm successful update
+4. **Backup before updates** - Always save working configuration
+
+### Configuration Reset After Updates
+
+**Settings reverting to defaults:**
+
+#### Configuration Preservation
+1. **Backup config files** before updates
+2. **Document custom settings** for easy restoration
+3. **Compare configs** after updates
+4. **Restore custom settings** if overwritten
+
+## Factory-Specific Problems
+
+### Production Line Failures
+
+**Symptoms:**
+- Machines not producing items
+- Belt flow interruptions
+- Resource shortages
+
+**Solutions:**
+
+#### Production Troubleshooting
+1. **Check power supply** - Ensure adequate power generation
+2. **Verify resource flow** - Trace belt paths for blockages
+3. **Machine efficiency** - Check for overclocking issues
+4. **Recipe verification** - Ensure correct inputs available
+
+### Belt System Issues
+
+**Conveyor belt problems:**
+
+#### Belt Optimization
+1. **Reduce belt complexity** - Simplify routing where possible
+2. **Check belt capacity** - Ensure adequate throughput
+3. **Monitor item flow** - Identify bottlenecks
+4. **Use smart splitters** - Optimize resource distribution
+
+### Power Grid Problems
+
+**Electrical system failures:**
+
+#### Power Troubleshooting
+1. **Calculate power demand** - Ensure sufficient generation
+2. **Check power line connections** - Verify grid connectivity
+3. **Monitor power consumption** - Identify high-usage areas
+4. **Implement power switches** - Control factory sections
+
+## Monitoring and Prevention
+
+### Server Health Monitoring
+
+**Key metrics to track:**
+
+#### Performance Indicators
+- **Server FPS** - Target: 25-30+ FPS
+- **Memory usage** - Should not exceed 80%
+- **CPU utilization** - Monitor during peak factory operation
+- **Network latency** - Keep player ping under 100ms
+
+### Preventive Maintenance
+
+**Regular maintenance schedule:**
+
+#### Daily Tasks
+- **Check server status** and performance metrics
+- **Monitor player connections** and feedback
+- **Review factory efficiency** reports
+- **Backup critical save files**
+
+#### Weekly Tasks
+- **Clean up save files** - Remove old autosaves
+- **Update mods** and server software
+- **Review factory layouts** for optimization
+- **Test backup restoration** procedures
+
+#### Monthly Tasks
+- **Comprehensive performance** review
+- **Hardware utilization** analysis
+- **Factory redesign** planning sessions
+- **Server configuration** optimization
+
+## Related Guides
+
+- [Setup Satisfactory Server](/games/satisfactory/setup-server) - Initial server configuration
+- [Performance Optimization](/games/satisfactory/performance-optimization) - Optimize factory performance
+- [Installing Mods](/games/satisfactory/install-mods) - Mod installation and management
+- [Popular Factory Mods](/games/satisfactory/popular-mods) - Essential mod recommendations
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="Why does my server crash when factories get large?">
+Large factories consume significant server resources. Optimize by reducing active machines, simplifying belt networks, and ensuring adequate RAM allocation.
+</Accordion>
+
+<Accordion title="How do I fix player desynchronization issues?">
+Coordinate building times, ensure stable connections for all players, and restart the server if desync persists. Regular saves help maintain synchronization.
+</Accordion>
+
+<Accordion title="What causes 'Failed to connect' errors?">
+Usually network issues, incorrect ports, or server overload. Check port configuration (7777, 15000, 15777) and verify server status.
+</Accordion>
+
+<Accordion title="How do I recover from corrupted save files?">
+Stop the server immediately and restore from the most recent backup. Implement regular automated backups to prevent data loss.
+</Accordion>
+
+</AccordionGroup>
+
+Still experiencing issues? Join our [Discord community](https://berrybyte.net/discord) for help from experienced factory builders and our support team.

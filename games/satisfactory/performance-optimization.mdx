@@ -1,0 +1,304 @@
+---
+title: "Satisfactory Server Performance Optimization - Factory Lag Fix & FPS Improvement"
+sidebarTitle: "Performance optimization"
+description: "Complete guide to optimizing Satisfactory server performance and reducing factory lag. Learn server settings, factory design tips, and hardware optimization for smooth gameplay."
+---
+
+# Satisfactory Server Performance Optimization Guide
+
+Optimize your Satisfactory server performance to handle massive factories without lag or frame drops. This comprehensive guide covers server configuration, factory design optimization, and hardware tuning to ensure smooth multiplayer factory building experiences.
+
+Large-scale factories can strain server resources, but proper optimization keeps your [Satisfactory server](https://berrybyte.net/satisfactory-server-hosting) running smoothly even with complex automated production lines.
+
+## Server Configuration Optimization
+
+### Basic Performance Settings
+
+Edit `GameUserSettings.ini` for optimal performance:
+
+```ini
+[/Script/FactoryGame.FGServerSubsystem]
+mAutoPause=True
+mAutoSaveOnDisconnect=True
+mAutoSaveInterval=600
+mNetworkQuality=3
+mServerRestartTimeSlot=04:00
+```
+
+**Key Settings Explained:**
+- `mAutoPause=True` - Pauses server when no players online
+- `mAutoSaveInterval=600` - Save every 10 minutes (reduce for stability)
+- `mNetworkQuality=3` - Maximum network quality for smooth multiplayer
+- `mServerRestartTimeSlot` - Daily restart during low-activity hours
+
+### Advanced Server Parameters
+
+**Startup Parameters for Performance:**
+```bash
+-USEALLAVAILABLECORES -NoVerifyGC -NoAsyncLoadingThread -UseMultithreadForDS
+```
+
+**Memory Management:**
+```bash
+-Xmx16G -Xms8G -XX:+UseG1GC -XX:MaxGCPauseMillis=50
+```
+
+### Network Optimization
+
+**Reduce network lag with these settings:**
+
+```ini
+[/Script/Engine.GameNetworkManager]
+TotalNetBandwidth=32000
+MaxDynamicBandwidth=16000
+MinDynamicBandwidth=4000
+```
+
+**Connection Quality Settings:**
+- Increase bandwidth limits for better multiplayer experience
+- Adjust based on server internet connection capacity
+- Monitor network usage during peak factory operation
+
+## Factory Design Optimization
+
+### Conveyor Belt Optimization
+
+**Reduce belt-related lag:**
+
+#### Belt Density Management
+- **Limit belt crossings** - Avoid complex belt intersections
+- **Use vertical space** - Stack belts instead of spreading horizontally
+- **Minimize belt length** - Shorter belts = better performance
+- **Avoid unnecessary splitters** - Direct routing when possible
+
+#### Smart Belt Design
+```
+Good: Direct belt routing
+[Miner] → [Belt] → [Constructor] → [Belt] → [Storage]
+
+Avoid: Excessive splitting
+[Miner] → [Splitter] → [Splitter] → [Merger] → [Constructor]
+```
+
+### Machine Placement Optimization
+
+**Efficient factory layouts:**
+
+#### Centralized Production
+- **Group similar machines** together
+- **Minimize pipe/belt distances** between machines
+- **Use local storage** for intermediate products
+- **Batch production** instead of continuous streams
+
+#### Power Distribution
+- **Central power spine** with branch distribution
+- **Avoid long power lines** across the map
+- **Use power switches** to disable unused factory sections
+- **Monitor power consumption** and optimize generators
+
+### Building Optimization
+
+**Reduce rendering load:**
+
+#### Foundation Usage
+- **Use minimal foundations** - Only where necessary
+- **Avoid decorative foundations** in hidden areas
+- **Group foundation placement** for efficiency
+- **Remove unused foundations** regularly
+
+#### Wall and Structure Optimization
+- **Limit decorative walls** in large factories
+- **Use simple wall designs** over complex patterns
+- **Avoid excessive lighting** in automated areas
+- **Remove unnecessary structural elements**
+
+## Hardware and System Optimization
+
+### Server Hardware Requirements
+
+**Recommended specifications for large factories:**
+
+| Factory Size | CPU | RAM | Storage |
+|--------------|-----|-----|---------|
+| **Small (1-2 players)** | 4 cores | 8GB | 20GB SSD |
+| **Medium (3-4 players)** | 6 cores | 16GB | 40GB NVMe |
+| **Large (Complex factories)** | 8+ cores | 32GB | 60GB+ NVMe |
+
+### Memory Management
+
+**Optimize RAM usage:**
+
+#### Server Memory Settings
+```ini
+[SystemSettings]
+r.Streaming.PoolSize=2048
+r.Streaming.MaxTempMemoryAllowed=256
+```
+
+#### Garbage Collection
+- **Enable auto-pause** when server empty
+- **Regular server restarts** (daily recommended)
+- **Monitor memory usage** trends
+- **Clear cache files** periodically
+
+### Storage Optimization
+
+**Improve I/O performance:**
+
+#### Save File Management
+- **Regular save cleanup** - Remove old autosaves
+- **Compress save files** when backing up
+- **Use SSD storage** for server files
+- **Monitor disk space** usage
+
+#### File System Optimization
+```bash
+# Linux optimization
+echo 'vm.swappiness=10' >> /etc/sysctl.conf
+echo 'vm.vfs_cache_pressure=50' >> /etc/sysctl.conf
+```
+
+## Factory Performance Monitoring
+
+### Performance Metrics to Track
+
+**Key indicators of factory performance:**
+
+#### Server Metrics
+- **Server FPS** - Target: 30+ FPS
+- **Memory usage** - Should not exceed 80%
+- **CPU utilization** - Monitor during peak hours
+- **Network latency** - Keep under 100ms
+
+#### Factory Metrics
+- **Machine efficiency** - Identify bottlenecks
+- **Power consumption** - Optimize generator usage
+- **Belt throughput** - Monitor item flow rates
+- **Production rates** - Track output efficiency
+
+### Monitoring Tools
+
+**Built-in Performance Tools:**
+- Press `Ctrl + Shift + L` for performance overlay
+- Use console command `stat fps` for FPS display
+- Monitor task manager for resource usage
+- Check server logs for performance warnings
+
+## Common Performance Issues
+
+### Factory Lag Solutions
+
+**Symptoms and fixes:**
+
+#### Low Server FPS
+**Causes:**
+- Too many active machines
+- Complex belt networks
+- Excessive decorative elements
+
+**Solutions:**
+1. **Reduce active machines** - Use power switches
+2. **Simplify belt routing** - Direct paths preferred
+3. **Remove decorations** in automated areas
+4. **Implement factory zones** - Separate production areas
+
+#### Memory Leaks
+**Symptoms:**
+- Gradually increasing RAM usage
+- Server becomes unresponsive
+- Frequent crashes during gameplay
+
+**Solutions:**
+1. **Regular server restarts** - Daily recommended
+2. **Clear save file cache** - Remove temporary files
+3. **Monitor mod memory usage** - Disable problematic mods
+4. **Upgrade server RAM** - If consistently high usage
+
+### Network Performance Issues
+
+**Multiplayer lag solutions:**
+
+#### High Ping/Latency
+**Optimization steps:**
+1. **Choose closer server location** - Reduce physical distance
+2. **Optimize network settings** - Increase bandwidth limits
+3. **Use wired connections** - Ethernet over WiFi
+4. **Limit background applications** - Close bandwidth-heavy programs
+
+#### Desync Issues
+**Synchronization problems:**
+1. **Ensure stable connections** - All players
+2. **Coordinate building times** - Avoid simultaneous construction
+3. **Regular save/reload** - Resync server state
+4. **Monitor packet loss** - Check connection quality
+
+## Optimization Best Practices
+
+### Factory Planning
+
+**Design for performance from the start:**
+
+#### Modular Design
+- **Separate production areas** by function
+- **Use local storage** for each module
+- **Implement power zones** with switches
+- **Plan expansion areas** in advance
+
+#### Efficient Layouts
+- **Minimize transport distances** between production stages
+- **Use vertical building** to save horizontal space
+- **Group similar machines** for easier management
+- **Plan belt routing** before building
+
+### Maintenance Schedule
+
+**Regular optimization tasks:**
+
+#### Daily Tasks
+- **Monitor server performance** metrics
+- **Check for error messages** in logs
+- **Verify player connection** quality
+- **Review factory efficiency** reports
+
+#### Weekly Tasks
+- **Clean up save files** and remove old autosaves
+- **Review factory layouts** for optimization opportunities
+- **Update server software** and mods
+- **Backup optimized configurations**
+
+#### Monthly Tasks
+- **Comprehensive performance** review
+- **Hardware utilization** analysis
+- **Factory redesign** planning
+- **Server hardware** upgrade evaluation
+
+## Related Guides
+
+- [Setup Satisfactory Server](/games/satisfactory/setup-server) - Initial server configuration
+- [Installing Mods](/games/satisfactory/install-mods) - Mod performance considerations
+- [Popular Factory Mods](/games/satisfactory/popular-mods) - Performance-friendly mods
+- [Common Server Issues](/games/satisfactory/common-issues) - Troubleshooting help
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="Why does my factory cause server lag?">
+Large factories with many active machines, complex belt networks, and excessive decorations can strain server resources. Optimize by reducing active machines and simplifying designs.
+</Accordion>
+
+<Accordion title="How often should I restart my Satisfactory server?">
+Daily restarts during low-activity hours help clear memory leaks and maintain optimal performance, especially for large factories.
+</Accordion>
+
+<Accordion title="What's the best server hardware for large factories?">
+For complex factories, use 8+ CPU cores, 32GB RAM, and NVMe SSD storage. Monitor usage and upgrade as factory complexity increases.
+</Accordion>
+
+<Accordion title="Do mods affect server performance?">
+Some mods can impact performance, especially those adding visual effects or complex mechanics. Monitor performance when adding mods and remove problematic ones.
+</Accordion>
+
+</AccordionGroup>
+
+Need help optimizing your factory server? Join our [Discord community](https://berrybyte.net/discord) for performance tips from experienced factory builders.

@@ -1,0 +1,85 @@
+---
+title: "How to Setup a Satisfactory Dedicated Server - Complete Factory Building Server Guide"
+sidebarTitle: "Setup a Satisfactory server"
+description: "Step-by-step guide to setting up a Satisfactory dedicated server for multiplayer factory building. Learn server requirements, configuration settings, and how to start your factory server in minutes."
+---
+
+# How to Setup a Satisfactory Dedicated Server
+
+Setting up your own Satisfactory dedicated server enables seamless multiplayer factory building with friends. This guide covers everything from initial setup to configuration for optimal server performance.
+
+## Server Requirements
+
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| **CPU** | 4 cores | 6+ cores |
+| **RAM** | 8GB | 16GB+ |
+| **Storage** | 15GB SSD | 30GB+ NVMe SSD |
+
+## Quick Setup with BerryByte
+
+1. Go to [berrybyte.net/satisfactory-server-hosting](https://berrybyte.net/satisfactory-server-hosting)
+2. Select your plan and server location
+3. Complete checkout and check your email
+4. Login to [game.berrybyte.net](https://game.berrybyte.net)
+5. Start your server - ready to play immediately!
+
+## Manual Server Setup (Advanced)
+
+### Download Server Files
+
+**Windows:**
+```cmd
+steamcmd.exe +force_install_dir c:\satisfactory_server\ +login anonymous +app_update 1690800 +quit
+```
+
+**Linux:**
+```bash
+steamcmd +force_install_dir ./satisfactory_server/ +login anonymous +app_update 1690800 +quit
+```
+
+### Start the Server
+
+**Windows:**
+```batch
+FactoryServer.exe -Port=7777 -BeaconPort=15000 -ServerQueryPort=15777 -log -unattended
+```
+
+**Linux:**
+```bash
+./FactoryServer.sh -Port=7777 -BeaconPort=15000 -ServerQueryPort=15777 -log -unattended
+```
+
+### Port Forwarding
+
+Open these ports:
+- **7777** (UDP) - Game port
+- **15000** (UDP) - Beacon port  
+- **15777** (UDP) - Query port
+
+## Basic Configuration
+
+Edit `GameUserSettings.ini`:
+
+```ini
+[/Script/FactoryGame.FGServerSubsystem]
+mAutoPause=True
+mAutoSaveOnDisconnect=True
+mServerRestartTimeSlot=02:00
+mNetworkQuality=3
+```
+
+## Common Issues
+
+- **Server won't start**: Check ports aren't in use, verify file integrity
+- **Players can't connect**: Check port forwarding and firewall settings
+- **Performance issues**: Increase RAM, enable auto-pause when empty
+
+## Related Guides
+
+- [Join Satisfactory Server](/games/satisfactory/join-server) - Connect to your server
+- [Installing Mods](/games/satisfactory/install-mods) - Add factory enhancement mods
+- [Performance Optimization](/games/satisfactory/performance-optimization) - Optimize factory performance
+- [Common Server Issues](/games/satisfactory/common-issues) - Fix server problems
+
+Need help? Join our [Discord community](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).

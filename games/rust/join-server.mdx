@@ -1,172 +1,69 @@
 ---
-title: "How to Join a Rust Server - Complete Connection Guide for Multiplayer Survival"
-sidebarTitle: "Join Rust server"
+title: "How to Join a Rust Server"
+sidebarTitle: "Join a Rust server"
 description: "Learn how to connect to Rust servers through Steam, direct IP connection, and server browser. Includes troubleshooting tips for connection issues and server finding methods."
 ---
 
-# How to Join a Rust Server - Complete Connection Guide
+# How to Join a Rust Server
 
-Connecting to a Rust server is your gateway to multiplayer survival gameplay. This guide covers all methods to join Rust servers, from using the in-game browser to direct IP connections, plus troubleshooting common connection problems.
+Connecting to a Rust server opens up multiplayer survival gameplay. This guide covers all methods to join Rust servers and troubleshoot common connection problems.
 
-## Find Your Rust Server IP Address
+## Finding the IP address
 
-Before joining your [Rust server](https://berrybyte.net/rust-server-hosting), you'll need the server's IP address and port number.
+Before you can join your [Rust server](https://berrybyte.net/rust-server-hosting), you'll need the server's IP address and port number.
 
-### For BerryByte Customers
+1. Login to the [game control panel](https://game.berrybyte.net)
+2. Locate the IP:port below the name of the server
+3. Click on the highlighted area and it will copy the IP to your clipboard
 
-1. **Login to game panel** at [game.berrybyte.net](https://game.berrybyte.net)
-2. **Locate your server** in the server list
-3. **Copy the IP:Port** displayed below the server name
-4. **Click to copy** - the address copies to your clipboard automatically
+## Joining the multiplayer Rust server
 
-## Method 1: In-Game Server Browser
+### Method 1: Server Browser (Easiest)
 
-The easiest way to find and join Rust servers:
+1. Launch Rust from Steam
+2. Click **Play Game** from main menu
+3. Select server type (Official, Community, or Modded)
+4. Use filters to find your server
+5. Click **Connect** on your chosen server
 
-1. **Launch Rust** from Steam
-2. **Click "Play Game"** from main menu
-3. **Select server type:**
-   - **Official** - Facepunch servers
-   - **Community** - Player-hosted servers
-   - **Modded** - Servers with plugins/mods
-4. **Use filters** to narrow results:
-   - Population, map size, region
-5. **Click "Connect"** on your chosen server
+### Method 2: Direct IP Connection
 
-## Method 2: Direct IP Connection
+1. Open Rust and go to main menu
+2. Press **F1** to open console
+3. Type: `client.connect IP:PORT`
+4. Press **Enter** to connect
 
-Connect directly using your server's IP address:
+### Method 3: Steam Friends
 
-1. **Open Rust** and go to main menu
-2. **Press F1** to open console
-3. **Type:** `client.connect IP:PORT`
-4. **Example:** `client.connect 192.168.1.100:28015`
-5. **Press Enter** to connect
+1. Open Steam friends list
+2. Right-click friend playing Rust
+3. Select **Join Game**
 
-## Method 3: Steam Server Browser
+## Common Issues
 
-Use Steam's built-in server browser:
+- **"Connection Failed" error**: Server may be offline or IP address incorrect
+  - **Solution**: Check server status and verify IP address
 
-1. **Open Steam** client
-2. **Go to View** → **Servers**
-3. **Click "Add Server"** tab
-4. **Enter server IP:Port**
-5. **Click "Add Server"**
-6. **Right-click server** → **Connect**
+- **"Server Full" message**: Server has reached player capacity
+  - **Solution**: Wait for slot or try different time
 
-## Method 4: Steam Friends
+- **"VAC Authentication Error"**: Steam authentication issues
+  - **Solution**: Restart Steam, verify game files, wait 5-10 minutes
 
-Join servers your friends are playing on:
+- **High ping/lag**: Network connectivity issues
+  - **Solution**: Choose closer servers, use wired connection, close bandwidth apps
 
-1. **Open Steam** friends list
-2. **Find friend** playing Rust
-3. **Right-click their name**
-4. **Select "Join Game"**
-5. **Rust will launch** and connect automatically
+## Server Types
 
-## Connection Troubleshooting
-
-### "Connection Failed" Error
-
-**Common causes and solutions:**
-
-- **Server offline** - Check server status with host
-- **Wrong IP/Port** - Verify connection details
-- **Firewall blocking** - Allow Rust through firewall
-- **Steam offline** - Restart Steam client
-
-### "Server Full" Message
-
-**When servers reach capacity:**
-
-- **Wait for slot** - Some servers have queues
-- **Try different time** - Peak hours are busiest
-- **Find alternative** - Look for similar servers
-- **VIP access** - Some hosts offer priority slots
-
-### "VAC Authentication Error"
-
-**Steam VAC system issues:**
-
-1. **Restart Steam** completely
-2. **Verify game files** in Steam
-3. **Check VAC status** at [steamstat.us](https://steamstat.us)
-4. **Wait 5-10 minutes** then retry
-
-### High Ping/Lag Issues
-
-**Improve connection performance:**
-
-- **Choose closer servers** - Select your region
-- **Check internet speed** - Ensure stable connection
-- **Close bandwidth apps** - Stop downloads/streaming
-- **Use wired connection** - Ethernet over WiFi
-
-## Server Types Explained
-
-### Official Servers
-- **Managed by Facepunch** (Rust developers)
-- **Vanilla gameplay** - no mods or plugins
-- **Regular wipe schedule** - monthly updates
-- **High population** - often full
-
-### Community Servers
-- **Player-hosted** servers
-- **Custom rules** - varied gameplay styles
-- **Different wipe schedules** - weekly to monthly
-- **Moderated** - active admin presence
-
-### Modded Servers
-- **Enhanced gameplay** - plugins and mods
-- **Quality of life** improvements
-- **Custom features** - teleport, kits, economy
-- **Varied experiences** - PvE, roleplay, creative
-
-## Finding the Right Server
-
-### Consider These Factors:
-
-- **Population** - 50-150 players for active gameplay
-- **Ping** - Under 100ms for smooth experience
-- **Wipe schedule** - Match your playtime availability
-- **Server rules** - PvP, PvE, or mixed gameplay
-- **Map size** - Larger maps for exploration
-
-### Popular Server Features:
-
-- **2x/3x gather rates** - Faster resource collection
-- **Starter kits** - Basic items for new players
-- **Teleport systems** - Quick travel options
-- **Economy plugins** - Trading and shops
-- **Clans/teams** - Group management tools
+- **Official**: Facepunch servers, vanilla gameplay, monthly wipes
+- **Community**: Player-hosted, custom rules, varied wipe schedules
+- **Modded**: Enhanced gameplay with plugins and quality-of-life improvements
 
 ## Related Guides
 
 - [Setup Rust Server](/games/rust/setup-server) - Host your own server
-- [Admin Commands](/games/rust/admin-commands) - Server management
 - [Installing Oxide/uMod](/games/rust/install-oxide) - Add plugins
+- [Admin Commands](/games/rust/admin-commands) - Server management
 - [Common Server Issues](/games/rust/common-issues) - Troubleshooting help
-
-## Frequently Asked Questions
-
-<AccordionGroup>
-
-<Accordion title="Why can't I find my server in the browser?">
-New servers may take 10-15 minutes to appear in the browser. Try direct IP connection or wait for server registration.
-</Accordion>
-
-<Accordion title="What does 'Server not responding' mean?">
-The server is either offline, restarting, or experiencing network issues. Wait a few minutes and try reconnecting.
-</Accordion>
-
-<Accordion title="Can I save my spot on a full server?">
-Most servers don't have reservation systems. Some VIP programs offer queue priority or reserved slots.
-</Accordion>
-
-<Accordion title="How do I know if a server wipes regularly?">
-Check the server description or website. Most servers display wipe schedule in their name or description.
-</Accordion>
-
-</AccordionGroup>
 
 Having connection issues? Join our [Discord community](https://berrybyte.net/discord) for help from other players and support staff.
