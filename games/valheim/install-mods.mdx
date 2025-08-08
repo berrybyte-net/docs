@@ -1,0 +1,105 @@
+---
+title: "How to Install BepInEx Mods on Valheim Server"
+sidebarTitle: "Installing BepInEx Mods"
+description: "Complete guide to installing BepInEx mods on your Valheim server. Learn step-by-step installation, file management, and popular mod recommendations for enhanced Viking gameplay."
+tags: "valheim, valheim mods, bepinex, valheim server mods, valheim modding, valheim server hosting"
+---
+
+# How to Install BepInEx Mods on Valheim Server
+
+BepInEx is the modding framework for Valheim that allows you to install mods and enhance your Viking survival experience. This guide shows you how to install BepInEx and mods on your Valheim server.
+
+<Warning>
+Always backup your server before installing mods.
+</Warning>
+
+## Installing BepInEx on Your Server
+
+1. Login to your **[game control panel](https://game.berrybyte.net)**
+2. Stop your server
+3. **[Create a backup](/panel/backups)** of your server
+4. Download **[BepInEx_x64](https://github.com/BepInEx/BepInEx/releases)** (latest version)
+5. Extract the ZIP file
+6. Upload all extracted files to your server's root directory via **File Manager**
+7. Start your server once to generate configuration files
+8. Stop the server - BepInEx is now installed
+
+## Installing Mods on Your Server
+
+1. Download mods from **[Nexus Mods](https://www.nexusmods.com/valheim)** or **[Thunderstore](https://valheim.thunderstore.io/)**
+2. Extract the mod files (usually `.dll` files)
+3. Upload the `.dll` files to `BepInEx/plugins/` folder via **File Manager**
+4. Restart your server
+
+**Note:** Some mods require client installation. Check the mod description to see if players need to install it locally.
+
+## Popular Mods
+
+**Valheim Plus** - Comprehensive gameplay overhaul with customizable features  
+**Equipment and Quick Slots** - Additional equipment slots and hotkeys  
+**Craft From Containers** - Auto-craft from nearby chests  
+**Build Camera** - Better camera for construction  
+**Server devcommands** - Admin commands and tools
+
+For a complete list, see our **[Popular Viking Mods](./popular-mods)** guide.
+
+## Client Installation
+
+Some mods require players to install them locally:
+
+1. Install BepInEx on local Valheim installation
+2. Download and install the same mods as the server
+3. Ensure mod versions match exactly
+4. Launch Valheim through Steam
+
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="Do all players need to install the same mods?">
+It depends on the mod type. Server-side mods (like admin tools) only need server installation, while gameplay mods usually require all players to have matching installations.
+</Accordion>
+
+<Accordion title="Can I install mods on an existing world?">
+Yes, most mods can be added to existing worlds. However, always create a backup first as some mods may cause compatibility issues with existing save data.
+</Accordion>
+
+<Accordion title="Why is my server crashing after installing mods?">
+Check the BepInEx log files for error messages. Common causes include mod conflicts, missing dependencies, or incompatible mod versions. Remove mods one by one to identify the problem.
+</Accordion>
+
+<Accordion title="How do I update BepInEx mods?">
+Download the latest version of the mod and replace the old files in the plugins folder. Always check the mod's changelog for any configuration changes or new requirements.
+</Accordion>
+
+<Accordion title="Can I use multiple mod managers?">
+It's recommended to use only one mod manager to avoid conflicts. Choose either r2modman or Thunderstore Mod Manager and stick with it for consistency.
+</Accordion>
+
+<Accordion title="What happens if I remove a mod from an active server?">
+Removing mods from an active server can cause issues if the mod has modified world data. Always test mod removal on a backup first and inform players of any required changes.
+</Accordion>
+
+<Accordion title="Why won't my server start after installing mods?">
+Check the BepInEx/LogOutput.log file for error messages, remove recently installed mods one by one to identify conflicts, and verify all mod files are in the correct directories.
+</Accordion>
+
+<Accordion title="Players can't connect to my modded server - what's wrong?">
+Ensure all players have the same client-side mods installed, check that server-only mods don't require client installation, and verify mod versions match between server and clients.
+</Accordion>
+
+<Accordion title="My server has performance issues after installing mods - how do I fix it?">
+Monitor server performance after installing each mod, as some mods can significantly impact performance. Consider reducing player count or upgrading server resources if needed.
+</Accordion>
+
+</AccordionGroup>
+
+## Related Guides
+
+- [Setup Valheim Server](./setup-server) - Server configuration
+- [Popular Viking Mods](./popular-mods) - Best Valheim mods
+- [Join Valheim Server](./join-server) - Connect to your server
+- [Server Backups](/panel/backups) - Protect your world data
+
+Need help? Join our **[Discord community](https://berrybyte.net/discord)** or **[contact support](https://berrybyte.net/tickets)**.

@@ -1,0 +1,242 @@
+---
+title: "Valheim Admin Commands"
+sidebarTitle: "Admin commands"
+description: "Complete reference guide to Valheim admin commands for server management. Learn player management, world control, debugging commands with syntax examples and troubleshooting tips."
+tags: "valheim, valheim admin commands, valheim server management, valheim console commands, valheim dedicated server"
+---
+
+# Valheim Admin Commands
+
+This guide covers all essential admin commands for managing your Valheim server, including player management, world control, and debugging tools.
+
+## Enabling Admin Mode
+
+Before using admin commands, you must enable admin mode on your server.
+
+1. Open the console by pressing **F5** in-game
+2. Type `imacheater` and press Enter to enable admin/debug mode
+3. You'll see "Cheats: True" appear on screen confirming admin mode is active
+
+**Note**: Admin privileges are automatically granted to the server host. For other players, you'll need to add them to the admin list in your server files.
+
+## Player Management Commands
+
+### Basic Player Commands
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `kick` | `kick [player_name]` | Removes a player from the server |
+| `ban` | `ban [player_name]` | Permanently bans a player from the server |
+| `unban` | `unban [player_name]` | Removes a player from the ban list |
+| `banned` | `banned` | Lists all currently banned players |
+
+### Player Information
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `players` | `players` | Shows all connected players and their IDs |
+| `ping` | `ping` | Displays your current ping to the server |
+
+## World Control Commands
+
+### Time and Weather
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `skiptime` | `skiptime [seconds]` | Advances time by specified seconds |
+| `sleep` | `sleep` | Skips to next morning |
+| `tod` | `tod [0-1]` | Sets time of day (0=midnight, 0.5=noon, 1=midnight) |
+| `env` | `env [weather_type]` | Changes weather (Clear, Twilight_Clear, Misty, Darklands_dark, Heath clear, DeepForest Mist, GDKing, Rain, LightRain, ThunderStorm, Eikthyr, GoblinKing, nofogts, SwampRain, Bonemass, Snow, Twilight_Snow, Twilight_Clear, Twilight_Rain, Ashrain, Crypt, SunkenCrypt) |
+
+### World Management
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `save` | `save` | Forces a world save |
+| `resetmap` | `resetmap` | Resets map exploration for all players |
+| `exploremap` | `exploremap` | Reveals the entire map |
+| `resetcharacter` | `resetcharacter` | Resets your character to level 1 |
+
+## Item and Resource Commands
+
+### Spawning Items
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `spawn` | `spawn [item_name] [quantity] [level]` | Spawns items at your location |
+| `removedrops` | `removedrops` | Removes all item drops in the area |
+
+### Common Item Names
+
+**Resources:**
+- `Wood`, `Stone`, `FineWood`, `CoreWood`, `IronScrap`, `Silver`, `BlackMetal`
+- `LeatherScraps`, `DeerHide`, `TrollHide`, `WolfPelt`, `LinenThread`
+
+**Food:**
+- `Honey`, `Mushroom`, `Carrot`, `Turnip`, `Barley`, `Flax`
+- `CookedMeat`, `Sausages`, `FishCooked`, `Bread`
+
+**Tools and Weapons:**
+- `Hammer`, `Axe`, `Pickaxe`, `Hoe`, `Cultivator`
+- `SwordIron`, `SpearFlint`, `BowHuntsman`, `ShieldWood`
+
+## Creature and NPC Commands
+
+### Spawning Creatures
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `spawn` | `spawn [creature_name] [quantity] [level]` | Spawns creatures at your location |
+| `killall` | `killall` | Kills all nearby enemies |
+| `tame` | `tame` | Tames all nearby tameable creatures |
+
+### Common Creature Names
+
+**Enemies:**
+- `Greyling`, `Greydwarf`, `GreydwarfBrute`, `GreydwarfShaman`
+- `Skeleton`, `Draugr`, `DraugrElite`, `Blob`, `Oozer`
+- `Troll`, `Surtling`, `Wraith`, `StoneGolem`
+
+**Tameable Animals:**
+- `Boar`, `Wolf`, `Lox`
+
+## Building and Creative Commands
+
+### Construction Tools
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `debugmode` | `debugmode` | Enables creative building mode (no resource costs) |
+| `god` | `god` | Toggles god mode (invincibility) |
+| `ghost` | `ghost` | Toggles ghost mode (no collision, fly through objects) |
+| `fly` | `fly` | Enables flying mode |
+| `freefly` | `freefly` | Enables free camera mode |
+
+### Building Management
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `removebuilds` | `removebuilds` | Removes all player-built structures in the area |
+| `repair` | `repair` | Repairs all structures within range |
+
+## Server Management Commands
+
+### Performance and Debugging
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `info` | `info` | Shows system information and performance stats |
+| `lodbias` | `lodbias [value]` | Adjusts level of detail bias (0.5-5.0) |
+| `dpsdebug` | `dpsdebug` | Toggles damage per second debug display |
+| `resetspawn` | `resetspawn` | Resets your spawn point to default |
+
+### Network Commands
+
+| Command | Syntax | Description |
+|---------|--------|-------------|
+| `connect` | `connect [ip:port]` | Connects to a specific server |
+| `disconnect` | `disconnect` | Disconnects from current server |
+
+## Common Use Cases and Examples
+
+### Setting Up a New Player
+
+```bash
+# Give new player basic starting gear
+spawn Hammer 1
+spawn Axe 1 
+spawn Pickaxe 1
+spawn Wood 50
+spawn Stone 50
+```
+
+### Hosting Events
+
+```bash
+# Set dramatic weather for boss fights
+env ThunderStorm
+# Spawn boss creature
+spawn Eikthyr 1 3
+# Set time to evening for atmosphere
+tod 0.8
+```
+
+### Server Maintenance
+
+```bash
+# Force save before maintenance
+save
+# Remove dropped items to improve performance
+removedrops
+# Check connected players
+players
+```
+
+### Troubleshooting Player Issues
+
+```bash
+# Reset stuck player's spawn point
+resetspawn
+# Teleport player out of problematic area
+goto [coordinates]
+# Remove problematic structures
+removebuilds
+```
+
+## Troubleshooting Common Issues
+
+<AccordionGroup>
+
+<Accordion title="Commands not working or 'Unknown command' error">
+**Issue**: Admin mode not enabled or incorrect command syntax
+- **Solution**: Ensure you've typed `imacheater` first to enable admin mode
+- **Check**: Verify "Cheats: True" appears on screen after enabling admin mode
+- **Syntax**: Double-check command spelling and parameter format
+</Accordion>
+
+<Accordion title="Can't kick or ban players">
+**Issue**: Insufficient admin privileges or incorrect player name
+- **Solution**: Ensure you're the server host or added to admin list
+- **Player names**: Use exact player names (case-sensitive) or Steam IDs
+- **Check**: Use `players` command to see correct player names
+</Accordion>
+
+<Accordion title="Spawned items not appearing">
+**Issue**: Invalid item name or quantity too high
+- **Solution**: Check item name spelling and use reasonable quantities
+- **Location**: Ensure you have space in inventory or items will drop on ground
+- **Limits**: Some items have maximum stack limits
+</Accordion>
+
+<Accordion title="Weather or time commands not working">
+**Issue**: Incorrect weather name or time format
+- **Solution**: Use exact weather names from the list above
+- **Time format**: Use decimal values (0.0-1.0) for time of day
+- **Persistence**: Weather changes may take a moment to apply
+</Accordion>
+
+<Accordion title="Building commands causing issues">
+**Issue**: Creative mode conflicts with normal gameplay
+- **Solution**: Use `debugmode` to toggle creative building on/off
+- **Resources**: Remember that `debugmode` removes resource requirements
+- **Multiplayer**: Creative mode affects all players on the server
+</Accordion>
+
+<Accordion title="Performance issues after using commands">
+**Issue**: Too many spawned entities or items affecting server performance
+- **Solution**: Use `killall` and `removedrops` to clean up excess entities
+- **Moderation**: Avoid spawning excessive quantities of creatures or items
+- **Restart**: Consider server restart if performance issues persist
+</Accordion>
+
+</AccordionGroup>
+
+## Related Guides
+
+- [Setup Valheim Server](./setup-server) - Initial server configuration and installation
+- [Join Your Valheim Server](./join-server) - Connect to your server and start playing
+- [Installing BepInEx Mods](./install-mods) - Enhance gameplay with modifications
+- [Popular Viking Mods](./popular-mods) - Discover the best Valheim mods
+- [Control Panel Overview](/panel/overview) - Understanding your server management interface
+
+Need help with server management? Join our [Discord community](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets) for assistance.

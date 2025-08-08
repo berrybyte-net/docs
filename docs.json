@@ -135,7 +135,12 @@
               {
                 "group": "Valheim",
                 "pages": [
-                  "games/valheim/introduction"
+                  "games/valheim/introduction",
+                  "games/valheim/setup-server",
+                  "games/valheim/join-server",
+                  "games/valheim/install-mods",
+                  "games/valheim/popular-mods",
+                  "games/valheim/admin-commands"
                 ]
               },
               {

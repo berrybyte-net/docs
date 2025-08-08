@@ -1,0 +1,116 @@
+---
+title: "How to Setup a Valheim Dedicated Server - Complete Viking Server Setup Guide"
+sidebarTitle: "Setup a Valheim server"
+description: "Complete guide to setting up a Valheim dedicated server for multiplayer Viking survival. Learn server requirements, configuration steps, and start your Viking adventure in minutes."
+tags: "valheim, valheim server hosting, valheim dedicated server, valheim multiplayer, valheim viking survival"
+---
+
+# How to Setup a Valheim Dedicated Server
+
+Setting up your own Valheim dedicated server opens up the full Viking survival experience for you and your friends. Create your own procedurally-generated world where up to 10 players can explore, build, and conquer the Norse wilderness together. This guide covers everything you need to get your Valheim server running quickly and efficiently.
+
+**[BerryByte](https://berrybyte.net/valheim-server-hosting)** provides powerful, budget-friendly Valheim server hosting with instant setup, NVMe SSD storage, and 24/7 uptime for seamless Viking gameplay.
+
+## Setting up a Valheim Server with BerryByte
+
+1. Visit **[BerryByte Valheim Server Hosting](https://berrybyte.net/valheim-server-hosting)** and select your desired plan and server location.
+2. Complete the checkout process and check your email inbox for login credentials.
+3. Login to the **[game control panel](https://game.berrybyte.net)** using the credentials provided in your email.
+4. Your Valheim server will be automatically configured and ready to start within minutes.
+5. Click the **Start** button in your control panel to launch your server.
+6. **[Connect to your server](./join-server)** and begin your Viking adventure!
+
+Your Valheim dedicated server is now ready for multiplayer gameplay. You can customize world settings, manage players, and configure mods through the control panel.
+
+## Valheim Server Requirements
+
+| Component | Minimum Requirements | Recommended |
+|-----------|---------------------|-------------|
+| **CPU** | 2 CPU cores | 4+ CPU cores |
+| **RAM** | 4GB | 8GB+ |
+| **Storage** | 2GB SSD | 10GB+ NVMe SSD |
+| **Network** | 1Mbps upload | 10Mbps+ upload |
+| **Players** | Up to 5 players | Up to 10 players |
+
+## Self-hosting a Valheim Dedicated Server
+
+If you prefer to host your own Valheim server, you can set it up using SteamCMD on Windows or Linux.
+
+### Installing the Valheim Server
+
+**On Windows:**
+1. Download and install **[SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD)**.
+2. Create a folder for your Valheim server (e.g., `C:\ValheimServer`).
+3. Run the following command in SteamCMD:
+```bash
+steamcmd.exe +force_install_dir C:\ValheimServer +login anonymous +app_update 896660 +quit
+```
+
+**On Linux:**
+1. Install SteamCMD using your package manager.
+2. Create a directory for your server: `mkdir ~/valheim_server`
+3. Run the installation command:
+```bash
+steamcmd +force_install_dir ~/valheim_server +login anonymous +app_update 896660 +quit
+```
+
+### Starting Your Valheim Server
+
+**Windows:**
+```bash
+valheim_server.exe -name "My Valheim Server" -port 2456 -world "MyWorld" -password "mypassword" -public 1
+```
+
+**Linux:**
+```bash
+./valheim_server.x86_64 -name "My Valheim Server" -port 2456 -world "MyWorld" -password "mypassword" -public 1
+```
+
+### Server Launch Parameters
+
+- **-name**: Your server name (visible in server browser)
+- **-port**: Server port (default: 2456)
+- **-world**: World name for save files
+- **-password**: Server password (required for connections)
+- **-public**: Set to 1 to list in public server browser
+
+## Quick Setup Tips
+
+- Choose your server location closest to your players for best performance
+- Set a strong password to prevent unauthorized access
+- Enable automatic backups to protect your progress
+- Test server connectivity before inviting friends
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+
+<Accordion title="Why won't my Valheim server start?">
+Check that ports 2456-2458 UDP are open and verify you have sufficient RAM allocation. Ensure SteamCMD installation completed successfully.
+</Accordion>
+
+<Accordion title="Players can't connect to my server - what's wrong?">
+Confirm the server password is correct and the server is running in your control panel. Check that firewall settings allow Valheim traffic.
+</Accordion>
+
+<Accordion title="My server has poor performance and lag - how do I fix it?">
+Increase RAM allocation for larger worlds or reduce the player count. Monitor CPU usage during peak gameplay and consider upgrading your server plan.
+</Accordion>
+
+<Accordion title="What are the minimum system requirements for a Valheim server?">
+A Valheim server requires at least 4GB RAM, 2 CPU cores, and 2GB of storage. For better performance with more players, we recommend 8GB+ RAM and 4+ CPU cores.
+</Accordion>
+
+</AccordionGroup>
+
+## Related Guides
+
+- [Join Your Valheim Server](./join-server) - Connect to your server and start playing
+- [Installing BepInEx Mods](./install-mods) - Enhance gameplay with modifications
+- [Valheim Admin Commands](./admin-commands) - Manage your server and players
+- [Server Configuration](./configure-server) - Customize world settings and gameplay
+- [Control Panel Overview](/panel/overview) - Understanding your server management interface
+
+Ready to start your Viking adventure? **[Get your Valheim server](https://berrybyte.net/valheim-server-hosting)** and begin exploring the Norse wilderness with friends today!
+
+Need help? Join our **[Discord community](https://berrybyte.net/discord)** or **[contact support](https://berrybyte.net/tickets)** for assistance.

@@ -1,82 +1,75 @@
 ---
-title: "How to Install Satisfactory Mods"
-sidebarTitle: "Installing mods"
-description: "Step-by-step guide to installing Satisfactory mods using Satisfactory Mod Manager (SMM). Learn mod installation, server setup, and popular factory enhancement mods."
+title: "How to Install Mods"
+description: "Learn how to install mods on your Satisfactory server using the Satisfactory Mod Manager"
 ---
 
-# How to Install Satisfactory Mods
+# How to Install Mods
 
-Satisfactory mods enhance your factory building experience with quality-of-life improvements, new building options, and enhanced gameplay mechanics. This guide covers mod installation using Satisfactory Mod Manager (SMM).
+While Satisfactory does not officially support mods, you can use the Satisfactory Mod Manager to install them on your server. You can download the Satisfactory Mod Manager from [this link](https://ficsit.app/).
 
-## Installing Mods with SMM
+<Warning>
+Satisfactory servers are in early access in the vanilla game. Adding mods can and most likely will increase the likelihood that you run into crashes and issues. Make sure to backup your save if you don't want to break your game and lose progress.
 
-### Download and Setup SMM
+Not all mods work on servers. You must read each mod's documentation to ensure it will work on a server.
+</Warning>
 
-1. Go to [smm.ficsit.app](https://smm.ficsit.app)
-2. Download and install SMM
-3. Launch Satisfactory Mod Manager
-4. Select your Satisfactory installation directory
-5. Choose "Modded" profile
+## Steps
 
-### Install Mods
+### 1. Install the Satisfactory Mod Manager
 
-1. Browse the mod catalog in SMM
-2. Search for desired mods
-3. Click **Install** on chosen mods
-4. Wait for download and installation
-5. Launch game through SMM
+Download and install the Satisfactory Mod Manager from the official website.
 
-## Server Mod Installation
+### 2. Connect to Your Server
 
-### BerryByte Customers
+1. Open the Satisfactory Mod Manager
+2. Click **Manage Servers**
+3. Enter your server connection details:
+   - **SFTP username and password** (found in your server's Settings tab)
+   - **Server IP address**
+   - **Path**: Use the default path provided
+4. Click **Add**
 
-1. Login to [game.berrybyte.net](https://game.berrybyte.net)
-2. Go to **Mods** section
-3. Upload mod files or use mod manager
-4. Configure mod settings
-5. Restart server
+### 3. Verify Server Connection
 
-### Self-Hosted Servers
+If done correctly, you should see your server listed in the server management interface.
 
-1. Stop the server
-2. Install mods using SMM
-3. Configure server mod settings
-4. Start server with mods enabled
+### 4. Select Server Target
 
-## Essential Mods
+1. Click the dropdown menu
+2. Select **Early Access (Remote 1)**
+3. This will select the server as the target for mod installation
 
-### Smart Foundations
-- Enhanced foundation building tools
-- Auto-alignment and grid snapping
-- Available through SMM
+### 5. Install Mods
 
-### Refined Power
-- Advanced power generation systems
-- New generators and monitoring tools
-- Better power grid management
+1. Browse the available mods in the mod manager
+2. Select a mod that supports Linux dedicated servers (like Refined Power)
+3. Click install
 
-### Conveyor Improvements
-- Belt counters and flow indicators
-- Throughput displays
-- Factory optimization tools
+<Note>
+It is recommended to install mods one at a time to ensure they work properly. Some mods may show a compatibility message - you cannot install these until the developer adds server support.
+</Note>
+
+### 6. Install Mods Locally
+
+1. Each mod will take some time to install depending on the size
+2. Once server installation is finished, switch the source back to **Early Access (Steam)**
+3. Install the same mods on your PC
+
+<Warning>
+All players connecting to the server must also use the Satisfactory Mod Manager to install their mods locally. They only need to install them on their own computers, not on the server.
+</Warning>
+
+### 7. Verify Installation
+
+You can verify that your mods have been installed by:
+
+1. Opening your server's file manager
+2. Navigating to `/steamcmd/satisfactory/FactoryGame/Mods/`
+3. Checking that the mod files are present
 
 ## Troubleshooting
 
-- **Mods not loading**: Verify SMM installation, check compatibility
-- **Game crashes**: Disable all mods, enable one by one to find issues
-- **Multiplayer issues**: Ensure all players have identical mods
-
-## Common Issues
-
-- **Version mismatch**: Update mods through SMM
-- **Missing dependencies**: Install required mods first
-- **Performance issues**: Limit active mods, monitor FPS
-
-## Related Guides
-
-- [Popular Factory Mods](/games/satisfactory/popular-mods) - Essential mod recommendations
-- [Setup Satisfactory Server](/games/satisfactory/setup-server) - Server configuration
-- [Performance Optimization](/games/satisfactory/performance-optimization) - Optimize modded gameplay
-- [Common Server Issues](/games/satisfactory/common-issues) - Troubleshooting help
-
-Need help? Join our [Discord community](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).
+- If mods aren't working, ensure all players have the same mods installed locally
+- Check mod compatibility with dedicated servers before installation
+- Consider installing mods one at a time to identify any problematic mods
+- Always backup your save files before installing new mods

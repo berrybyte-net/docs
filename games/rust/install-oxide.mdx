@@ -4,223 +4,86 @@ sidebarTitle: "Installing Oxide/uMod"
 description: "Step-by-step guide to installing Oxide (uMod) plugin framework on your Rust server. Learn installation, configuration, and plugin management for enhanced gameplay features."
 ---
 
-# How to Install Oxide/uMod on Rust Server
+uMod (formerly Oxide) is the plugin framework for Rust servers that enables custom features, admin tools, and enhanced gameplay.
 
-Oxide (now called uMod) is the essential plugin framework that transforms your vanilla Rust server into a feature-rich multiplayer experience. This guide covers complete installation and configuration of uMod to enable plugins, admin tools, and custom gameplay features.
+## Installation
 
-uMod enables thousands of plugins including teleportation, economy systems, admin tools, and quality-of-life improvements that make your [Rust server](https://berrybyte.net/rust-server-hosting) more engaging for players.
+**BerryByte Customers:**
+1. Login to [game.berrybyte.net](https://game.berrybyte.net)
+2. Go to **Startup** tab
+3. Enable "Oxide/uMod" setting
+4. Restart server
 
-## What is uMod (Oxide)?
+**Manual Installation:**
+1. Download latest uMod from [umod.org](https://umod.org/games/rust)
+2. Stop your server
+3. Extract and copy files to server root directory
+4. Start server and verify with `oxide.version` command
 
-uMod is a modding framework that allows Rust servers to run plugins written in C#. It provides:
+## Basic Setup
 
-- **Plugin system** - Add custom features and commands
-- **Admin tools** - Enhanced server management
-- **Player features** - Teleport, kits, economy systems
-- **API access** - Developer tools for custom plugins
+**Important Directories:**
+- `oxide/config/` - Plugin configurations
+- `oxide/plugins/` - Installed plugins
+- `oxide/logs/` - Error logs
 
-## Installation Methods
+**Essential Commands:**
+- `oxide.grant user STEAMID64 admin` - Grant admin permissions
+- `oxide.group add vip` - Create permission group
+- `oxide.usergroup add STEAMID64 vip` - Add user to group
 
-### Method 1: Easy Installation (BerryByte)
+## Installing Plugins
 
-For BerryByte customers, uMod installation is simplified:
+1. Download plugins from [umod.org/plugins](https://umod.org/plugins)
+2. Upload `.cs` files to `oxide/plugins/` folder
+3. Plugins load automatically
+4. Configure in `oxide/config/` if needed
 
-1. **Login to game panel** at [game.berrybyte.net](https://game.berrybyte.net)
-2. **Navigate to Startup** tab in your server
-3. **Find "Oxide/uMod" setting**
-4. **Toggle it to "Enabled"**
-5. **Restart server** to apply changes
+## Popular Plugins
 
-Your server now supports plugins and enhanced admin commands automatically.
+**Admin Tools:** Admin Hammer, Vanish, God Mode  
+**Player Features:** Teleportation, Kits, Economics  
+**Quality of Life:** Auto Door Close, Stack Size Controller, Gather Manager
 
-### Method 2: Manual Installation
+See our **[Popular Plugins](/games/rust/popular-plugins)** guide for more.
 
-For self-hosted servers or other providers:
+## Common Commands
 
-#### Step 1: Download uMod
-
-1. **Visit** [umod.org](https://umod.org/games/rust)
-2. **Download latest** Rust uMod build
-3. **Extract files** to temporary folder
-
-#### Step 2: Install Framework
-
-1. **Stop your Rust server** completely
-2. **Navigate to** server root directory
-3. **Copy uMod files** to server folder:
-   - `oxide` folder → server root
-   - `RustDedicated_Data` files → overwrite existing
-4. **Ensure file permissions** are correct
-
-#### Step 3: Verify Installation
-
-1. **Start your server** normally
-2. **Check console** for uMod loading messages
-3. **Look for** "uMod framework initialized" message
-4. **Test with** `oxide.version` command
-
-## Configuration Setup
-
-### Basic Configuration
-
-uMod creates these important directories:
-
-- **`oxide/config/`** - Plugin configuration files
-- **`oxide/data/`** - Plugin data storage
-- **`oxide/logs/`** - Error and debug logs
-- **`oxide/plugins/`** - Installed plugins
-
-### Server Startup Parameters
-
-Add these parameters to enable uMod features:
-
-```batch
-+oxide.directory "oxide"
-+oxide.config_directory "config"
-+oxide.plugin_directory "plugins"
-```
-
-### Permission System
-
-uMod includes a robust permission system:
-
-1. **Grant admin permissions:**
-   ```
-   oxide.grant user STEAMID64 admin
-   ```
-
-2. **Create permission groups:**
-   ```
-   oxide.group add vip
-   oxide.grant group vip cantp
-   ```
-
-3. **Assign users to groups:**
-   ```
-   oxide.usergroup add STEAMID64 vip
-   ```
-
-## Essential Commands
-
-### Admin Commands
-
-- **`oxide.version`** - Check uMod version
-- **`oxide.reload PluginName`** - Reload specific plugin
-- **`oxide.unload PluginName`** - Unload plugin
-- **`oxide.load PluginName`** - Load plugin
-
-### Permission Commands
-
-- **`oxide.show perms`** - List all permissions
-- **`oxide.show groups`** - List permission groups
-- **`oxide.usergroup add USER GROUP`** - Add user to group
-- **`oxide.grant user USER PERMISSION`** - Grant permission
-
-## Installing Your First Plugin
-
-### Step 1: Download Plugin
-
-1. **Visit** [umod.org/plugins](https://umod.org/plugins)
-2. **Search for plugin** (e.g., "Teleportation")
-3. **Download .cs file**
-
-### Step 2: Install Plugin
-
-1. **Upload plugin** to `oxide/plugins/` folder
-2. **Plugin loads automatically** (check console)
-3. **Configure settings** in `oxide/config/`
-
-### Step 3: Test Plugin
-
-1. **Join your server**
-2. **Test plugin commands** (e.g., `/home`)
-3. **Check permissions** if commands don't work
-
-## Popular Essential Plugins
-
-### Admin Tools
-- **[Admin Hammer](https://umod.org/plugins/admin-hammer)** - Enhanced building tools
-- **[Vanish](https://umod.org/plugins/vanish)** - Invisible admin mode
-- **[God Mode](https://umod.org/plugins/god-mode)** - Invincibility toggle
-
-### Player Features
-- **[Teleportation](https://umod.org/plugins/teleportation)** - Home and teleport system
-- **[Kits](https://umod.org/plugins/kits)** - Starter and VIP kits
-- **[Economics](https://umod.org/plugins/economics)** - Server economy system
-
-### Quality of Life
-- **[Auto Door Close](https://umod.org/plugins/auto-door-close)** - Automatic door closing
-- **[Stack Size Controller](https://umod.org/plugins/stack-size-controller)** - Modify item stacks
-- **[Gather Manager](https://umod.org/plugins/gather-manager)** - Adjust resource rates
-
-## Troubleshooting
-
-### uMod Won't Load
-
-**Common solutions:**
-
-- **Check file permissions** - Ensure server can read files
-- **Verify installation** - Re-download and install uMod
-- **Check server logs** - Look for error messages
-- **Update server** - Ensure Rust server is current
-
-### Plugins Not Working
-
-**Troubleshooting steps:**
-
-1. **Check plugin compatibility** - Verify Rust version support
-2. **Review error logs** - Check `oxide/logs/` folder
-3. **Verify permissions** - Ensure users have required permissions
-4. **Reload plugin** - Use `oxide.reload PluginName`
-
-### Performance Issues
-
-**Optimization tips:**
-
-- **Limit active plugins** - Only install necessary plugins
-- **Monitor resource usage** - Check CPU and RAM impact
-- **Update regularly** - Keep plugins current
-- **Remove unused plugins** - Clean up plugin folder
-
-## Security Considerations
-
-### Admin Access
-- **Limit admin permissions** - Only trusted players
-- **Use Steam64 IDs** - More secure than usernames
-- **Regular permission audits** - Review admin lists
-
-### Plugin Safety
-- **Download from umod.org** - Avoid untrusted sources
-- **Read plugin code** - Review before installation
-- **Test on development server** - Before production use
-
-## Related Guides
-
-- [Popular Plugins](/games/rust/popular-plugins) - Essential plugin recommendations
-- [Admin Commands](/games/rust/admin-commands) - Server management commands
-- [Setup Rust Server](/games/rust/setup-server) - Initial server configuration
-- [Common Server Issues](/games/rust/common-issues) - Troubleshooting help
+- `oxide.version` - Check uMod version
+- `oxide.reload PluginName` - Reload plugin
+- `oxide.show perms` - List permissions
+- `oxide.show groups` - List permission groups
 
 ## Frequently Asked Questions
 
 <AccordionGroup>
 
 <Accordion title="Does uMod affect server performance?">
-uMod has minimal impact, but plugins can affect performance. Monitor resource usage and limit plugins to essentials.
+uMod has minimal impact, but plugins can affect performance. Monitor usage and limit to essential plugins.
 </Accordion>
 
 <Accordion title="Can I install plugins without restarting?">
-Most plugins can be installed and loaded without restart using the `oxide.load` command.
+Most plugins load automatically when uploaded to the plugins folder.
 </Accordion>
 
-<Accordion title="Are uMod plugins safe to use?">
-Plugins from umod.org are generally safe, but always review code and test on development servers first.
+<Accordion title="uMod won't load - what's wrong?">
+Check file permissions, verify installation files, review server logs, and ensure Rust server is updated.
+</Accordion>
+
+<Accordion title="Plugins not working properly?">
+Check plugin compatibility, review error logs in oxide/logs/, verify permissions, and try reloading the plugin.
 </Accordion>
 
 <Accordion title="How do I update uMod?">
-Download the latest version and repeat the installation process. Your plugins and configs are preserved.
+Download latest version and repeat installation process. Plugins and configs are preserved.
 </Accordion>
 
 </AccordionGroup>
 
-Need help with uMod installation? Join our [Discord community](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).
+## Related Guides
+
+- [Popular Plugins](/games/rust/popular-plugins) - Best plugins
+- [Admin Commands](/games/rust/admin-commands) - Server management
+- [Setup Rust Server](/games/rust/setup-server) - Server setup
+
+Need help? Join our [Discord community](https://berrybyte.net/discord).
