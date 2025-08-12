@@ -1,0 +1,210 @@
+---
+title: "Unirse a Servidor Minecraft - Guía Paso a Paso"
+sidebarTitle: "Unirse al servidor"
+description: "Guía detallada para unirse a servidores de Minecraft para juego multijugador. Aprende a encontrar IP del servidor, establecer conexión y resolver problemas comunes."
+---
+
+# Cómo Unirse a un Servidor de Minecraft
+
+Unirse a un servidor de Minecraft te permite jugar con amigos y otros jugadores en mundos compartidos. Esta guía te mostrará exactamente cómo conectarte a tu servidor de BerryByte y invitar a otros a unirse.
+
+## Encontrar la IP de tu Servidor
+
+Antes de poder unirte a tu servidor, necesitas encontrar su dirección IP:
+
+1. **Inicia sesión en tu Panel de Control de BerryByte**
+2. **Selecciona tu servidor** de la lista de servidores
+3. **Encuentra la IP del servidor** en la página de resumen - se verá algo como:
+   - `play.berrybyte.net:25565`
+   - `192.168.1.100:25565`
+
+<Info>
+La IP de tu servidor se muestra prominentemente en el panel de control. Si no puedes encontrarla, asegúrate de que tu servidor esté en funcionamiento.
+</Info>
+
+## Unirse desde Minecraft Java Edition
+
+### Método 1: Agregar a Lista de Servidores (Recomendado)
+
+1. **Abre Minecraft Java Edition**
+2. **Haz clic en "Multijugador"**
+3. **Haz clic en "Agregar servidor"**
+4. **Completa la información**:
+   - **Nombre del servidor**: Elige cualquier nombre (ej: "Mi Servidor BerryByte")
+   - **Dirección del servidor**: Ingresa la IP de tu servidor
+5. **Haz clic en "Listo"**
+6. **Selecciona tu servidor** de la lista y haz clic en "Unirse al servidor"
+
+### Método 2: Conexión Directa
+
+1. **Abre Minecraft Java Edition**
+2. **Haz clic en "Multijugador"**
+3. **Haz clic en "Conexión directa"**
+4. **Ingresa la IP del servidor** en el campo de dirección
+5. **Haz clic en "Unirse al servidor"**
+
+## Unirse desde Minecraft Bedrock Edition
+
+<Warning>
+Los servidores de Minecraft Java Edition no son compatibles nativamente con Bedrock Edition. Necesitarás el plugin Geyser instalado en tu servidor para permitir que jugadores de Bedrock se unan.
+</Warning>
+
+Si tu servidor tiene Geyser instalado:
+
+1. **Abre Minecraft Bedrock Edition**
+2. **Ve a "Jugar" > "Servidores"**
+3. **Desplázate hacia abajo y haz clic en "Agregar servidor"**
+4. **Completa la información**:
+   - **Nombre del servidor**: Elige cualquier nombre
+   - **Dirección del servidor**: Ingresa la IP de tu servidor
+   - **Puerto**: Generalmente 19132 para Geyser
+5. **Haz clic en "Guardar"**
+6. **Selecciona tu servidor** y únete
+
+## Invitar Amigos a tu Servidor
+
+Para que tus amigos se unan a tu servidor:
+
+1. **Comparte la IP del servidor** con ellos
+2. **Proporciona cualquier contraseña** si has configurado una
+3. **Asegúrate de que tu servidor esté en funcionamiento**
+4. **Verifica que tengan la versión correcta** de Minecraft
+
+### Ejemplo de mensaje para amigos:
+```
+¡Únete a mi servidor de Minecraft!
+IP del servidor: play.berrybyte.net:25565
+Versión: 1.20.1
+Contraseña: (si aplica)
+```
+
+## Solución de Problemas de Conexión
+
+### "No se puede resolver el nombre del host"
+- Verifica que hayas ingresado la IP del servidor correctamente
+- Asegúrate de incluir el puerto si es diferente de 25565
+- Verifica tu conexión a internet
+
+### "Connection timed out" (Tiempo de conexión agotado)
+- Confirma que tu servidor esté en funcionamiento en el panel de control
+- Verifica que no haya restricciones de firewall
+- Intenta reiniciar tu servidor desde el panel de control
+
+<Info>
+Para una guía detallada sobre la solución de errores de conexión, consulta nuestra [guía de Connection Timed Out](/es/juegos/minecraft/errores-comunes/conexion-tiempo-agotado).
+</Info>
+
+### "Outdated server/client" (Servidor/cliente desactualizado)
+- Asegúrate de que tu cliente de Minecraft coincida con la versión del servidor
+- Actualiza tu servidor o cliente según sea necesario
+- Verifica la versión del servidor en el panel de control
+
+### "Server is full" (Servidor lleno)
+- Tu servidor ha alcanzado su límite máximo de jugadores
+- Espera a que alguien se desconecte o considera actualizar tu plan
+- Verifica la configuración de max-players en el panel de control
+
+## Configurar Contraseña del Servidor
+
+Para mantener tu servidor privado:
+
+1. **Ve al panel de control de tu servidor**
+2. **Navega a Configuración del Servidor**
+3. **Encuentra la opción "server-password" o similar**
+4. **Establece tu contraseña deseada**
+5. **Reinicia el servidor** para aplicar los cambios
+
+Los jugadores necesitarán ingresar esta contraseña al unirse.
+
+## Gestionar Jugadores
+
+### Hacer Admin a un Jugador
+```
+/op nombre_del_jugador
+```
+
+### Quitar Admin a un Jugador
+```
+/deop nombre_del_jugador
+```
+
+### Banear un Jugador
+```
+/ban nombre_del_jugador razón
+```
+
+### Desbanear un Jugador
+```
+/pardon nombre_del_jugador
+```
+
+### Configurar Whitelist
+```
+/whitelist on
+/whitelist add nombre_del_jugador
+```
+
+## Configuraciones Comunes del Servidor
+
+### Ajustar Límite de Jugadores
+1. Ve a la configuración del servidor en el panel de control
+2. Modifica el valor de `max-players`
+3. Reinicia el servidor
+
+### Configurar Modo de Juego
+```
+/gamemode survival @a    # Supervivencia para todos
+/gamemode creative @a    # Creativo para todos
+/gamemode adventure @a   # Aventura para todos
+```
+
+### Configurar Dificultad
+```
+/difficulty peaceful    # Pacífico
+/difficulty easy       # Fácil
+/difficulty normal     # Normal
+/difficulty hard       # Difícil
+```
+
+## Consejos para una Mejor Experiencia
+
+### Para Administradores del Servidor:
+- **Configura copias de seguridad regulares** antes de hacer cambios importantes
+- **Monitorea el rendimiento del servidor** en el panel de control
+- **Establece reglas claras** para tu comunidad de jugadores
+- **Mantén el servidor actualizado** para seguridad y características
+
+### Para Jugadores:
+- **Guarda tu progreso frecuentemente** (el servidor hace esto automáticamente)
+- **Respeta las reglas del servidor** establecidas por el administrador
+- **Reporta cualquier problema** al administrador del servidor
+- **Mantén tu cliente actualizado** para compatibilidad
+
+## Guías Relacionadas
+
+<CardGroup cols={2}>
+  <Card title="Configuración del Servidor" href="/es/juegos/minecraft/introduccion" icon="settings">
+    Aprende más sobre la configuración de servidores Minecraft
+  </Card>
+  <Card title="Instalar Plugins" href="/games/minecraft/plugins/dynmap" icon="puzzle-piece">
+    Mejora tu servidor con plugins útiles
+  </Card>
+  <Card title="Solución de Problemas" href="/es/juegos/minecraft/errores-comunes/conexion-tiempo-agotado" icon="wrench">
+    Resuelve problemas comunes de conexión
+  </Card>
+  <Card title="Panel de Control" href="/panel/overview" icon="monitor">
+    Domina el panel de control de BerryByte
+  </Card>
+</CardGroup>
+
+## ¿Necesitas Más Ayuda?
+
+Si sigues teniendo problemas para conectarte a tu servidor:
+
+- **[Contacta al Soporte](https://berrybyte.net/contact)** - Nuestro equipo está disponible 24/7
+- **[Únete a Discord](https://discord.gg/Wc9wMZxQ2D)** - Obtén ayuda de la comunidad
+- **[Guías de Solución de Problemas](/es/ayuda/solucion-problemas)** - Más recursos de ayuda
+
+---
+
+¡Disfruta jugando en tu servidor de Minecraft! Recuerda que puedes personalizar tu experiencia con mods, plugins y configuraciones personalizadas.

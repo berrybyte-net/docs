@@ -1,0 +1,229 @@
+---
+title: "Unirse a Servidor Palworld - Guía Completa de Conexión"
+sidebarTitle: "Unirse al servidor"
+description: "Aprende cómo conectarte a servidores de Palworld, encontrar la IP del servidor, configurar conexiones y resolver problemas comunes de conexión."
+---
+
+# Cómo Unirse a un Servidor de Palworld
+
+Unirse a un servidor de Palworld te permite explorar el mundo, capturar Pals y construir junto con amigos y otros jugadores. Esta guía te mostrará exactamente cómo conectarte a tu servidor de BerryByte y invitar a otros a la aventura.
+
+## Encontrar la Información de tu Servidor
+
+Antes de conectarte, necesitas obtener la información de conexión de tu servidor:
+
+1. **Inicia sesión en tu Panel de Control de BerryByte**
+2. **Selecciona tu servidor Palworld** de la lista
+3. **Encuentra la información de conexión**:
+   - **IP del servidor**: Ejemplo `play.berrybyte.net`
+   - **Puerto**: Generalmente `8211` para Palworld
+   - **Contraseña**: Si has configurado una
+
+<Info>
+La información completa del servidor se muestra en el panel de control. Asegúrate de que tu servidor esté en estado "En línea" antes de intentar conectarte.
+</Info>
+
+## Conectarse desde Steam (PC)
+
+### Método 1: Conexión Directa (Recomendado)
+
+1. **Abre Palworld desde Steam**
+2. **Haz clic en "Unirse a Servidor Multijugador"**
+3. **Selecciona "Conectar a Servidor Dedicado"**
+4. **Ingresa la información del servidor**:
+   - **Dirección**: `play.berrybyte.net:8211` (reemplaza con tu IP y puerto)
+   - **Contraseña**: Ingresa si has configurado una
+5. **Haz clic en "Conectar"**
+
+### Método 2: A través de la Lista de Servidores
+
+1. **Abre Palworld**
+2. **Ve a "Unirse a Servidor Multijugador"**
+3. **Busca en la lista de servidores** por el nombre de tu servidor
+4. **Filtra por región** si es necesario para encontrarlo más fácil
+5. **Haz doble clic** en tu servidor para unirte
+
+<Warning>
+Si tu servidor no aparece en la lista pública, asegúrate de que esté configurado como servidor público en el panel de control, o usa el método de conexión directa.
+</Warning>
+
+## Conectarse desde Xbox Game Pass
+
+### Para Servidores Compatibles con Xbox
+
+1. **Abre Palworld en Xbox o PC (Game Pass)**
+2. **Selecciona "Multijugador"**
+3. **Elige "Unirse a Servidor Dedicado"**
+4. **Ingresa la información del servidor**:
+   - **IP del servidor**: Tu IP de BerryByte
+   - **Puerto**: Generalmente `8211`
+   - **Contraseña**: Si aplica
+
+<Info>
+Para que jugadores de Xbox puedan unirse, tu servidor debe estar configurado específicamente para compatibilidad con Xbox. Consulta nuestra [guía de configuración de Xbox](/games/palworld/setup-xbox-dedicated-server).
+</Info>
+
+## Invitar Amigos a tu Servidor
+
+Para que tus amigos se unan:
+
+### Información a Compartir:
+```
+🎮 ¡Únete a mi servidor de Palworld!
+🌐 IP: play.berrybyte.net:8211
+🔒 Contraseña: [tu_contraseña] (si aplica)
+📋 Versión: [versión_del_servidor]
+👥 Slots disponibles: [número_de_jugadores]
+```
+
+### Pasos para Amigos:
+1. **Asegúrense de tener la misma versión** de Palworld
+2. **Usen la información de conexión** que les proporcionaste
+3. **Sigan los pasos de conexión** según su plataforma
+4. **Ingresen la contraseña** si es requerida
+
+## Configurar Contraseña del Servidor
+
+Para mantener tu servidor privado:
+
+1. **Ve al panel de control de tu servidor**
+2. **Navega a "Configuración del Servidor"**
+3. **Busca la opción "ServerPassword"**
+4. **Establece tu contraseña deseada**
+5. **Guarda los cambios y reinicia el servidor**
+
+Los jugadores necesitarán esta contraseña para unirse.
+
+## Solución de Problemas de Conexión
+
+### "No se puede conectar al servidor"
+
+#### Verificaciones Básicas:
+- **Confirma que el servidor esté en línea** en el panel de control
+- **Verifica la IP y puerto** - deben ser exactos
+- **Revisa la contraseña** si has configurado una
+- **Asegúrate de tener la versión correcta** de Palworld
+
+#### Soluciones:
+1. **Reinicia el servidor** desde el panel de control
+2. **Verifica tu conexión a internet**
+3. **Desactiva temporalmente el firewall/antivirus**
+4. **Intenta conectarte desde otra red** para descartar problemas de ISP
+
+### "Servidor lleno"
+- Tu servidor ha alcanzado el límite máximo de jugadores
+- Espera a que alguien se desconecte
+- Considera actualizar a un plan con más slots de jugadores
+
+### "Versión incompatible"
+- **Actualiza tu cliente** de Palworld a la última versión
+- **Verifica la versión del servidor** en el panel de control
+- **Actualiza el servidor** si es necesario
+
+### "Contraseña incorrecta"
+- **Verifica la contraseña** con el administrador del servidor
+- **Asegúrate de no tener espacios extra** al ingresarla
+- **Distingue mayúsculas y minúsculas** si aplica
+
+## Gestión de Jugadores (Para Administradores)
+
+### Comandos Básicos de Admin
+
+Para usar comandos de admin, primero debes [convertirte en administrador](/games/palworld/become-an-admin).
+
+#### Gestionar Jugadores:
+```
+/KickPlayer [nombre_jugador]     # Expulsar jugador
+/BanPlayer [nombre_jugador]      # Banear jugador
+/UnBanPlayer [nombre_jugador]    # Desbanear jugador
+```
+
+#### Información del Servidor:
+```
+/ShowPlayers                     # Mostrar jugadores conectados
+/Info                           # Información del servidor
+/Save                           # Guardar el mundo manualmente
+```
+
+### Configurar Límites de Jugadores
+
+1. **Ve a la configuración del servidor**
+2. **Busca "MaxPlayers"**
+3. **Establece el número deseado** (máximo según tu plan)
+4. **Reinicia el servidor** para aplicar cambios
+
+## Configuraciones Recomendadas
+
+### Para Juego Cooperativo:
+- **Dificultad**: Normal
+- **PvP**: Deshabilitado
+- **Daño de estructuras**: Deshabilitado
+- **Pérdida de objetos**: Reducida
+
+### Para Juego Competitivo:
+- **Dificultad**: Difícil
+- **PvP**: Habilitado
+- **Daño de estructuras**: Habilitado
+- **Pérdida de objetos**: Normal
+
+### Para Servidores de Rol:
+- **Dificultad**: Personalizada
+- **Reglas específicas**: Según la comunidad
+- **Construcción colaborativa**: Habilitada
+
+## Optimizar la Experiencia Multijugador
+
+### Para Administradores:
+- **Configura copias de seguridad regulares**
+- **Monitorea el rendimiento del servidor**
+- **Establece reglas claras** para la comunidad
+- **Mantén el servidor actualizado**
+
+### Para Jugadores:
+- **Respeta las reglas del servidor**
+- **Comunícate con otros jugadores**
+- **Reporta problemas** al administrador
+- **Participa en eventos** de la comunidad
+
+## Características Multijugador de Palworld
+
+### Cooperación:
+- **Construir bases juntos** con amigos
+- **Compartir recursos** y Pals
+- **Explorar el mundo** en grupo
+- **Enfrentar jefes** cooperativamente
+
+### Competencia:
+- **PvP opcional** entre jugadores
+- **Raids a bases** enemigas
+- **Competencias de captura** de Pals
+- **Comercio** entre jugadores
+
+## Guías Relacionadas
+
+<CardGroup cols={2}>
+  <Card title="Configurar Servidor" href="/games/palworld/setup-server" icon="server">
+    Aprende a configurar tu propio servidor Palworld
+  </Card>
+  <Card title="Comandos de Admin" href="/games/palworld/all-admin-commands" icon="terminal">
+    Lista completa de comandos de administrador
+  </Card>
+  <Card title="Instalar Mods" href="/games/palworld/install-mods" icon="puzzle-piece">
+    Mejora tu servidor con mods de la comunidad
+  </Card>
+  <Card title="Solucionar Problemas" href="/games/palworld/fix-server-crashes" icon="wrench">
+    Resuelve problemas comunes del servidor
+  </Card>
+</CardGroup>
+
+## ¿Necesitas Más Ayuda?
+
+Si sigues teniendo problemas para conectarte:
+
+- **[Contacta al Soporte](https://berrybyte.net/contact)** - Nuestro equipo está disponible 24/7
+- **[Únete a Discord](https://discord.gg/Wc9wMZxQ2D)** - Obtén ayuda de la comunidad
+- **[Guías de Solución de Problemas](/es/ayuda/solucion-problemas)** - Más recursos de ayuda
+
+---
+
+¡Disfruta explorando el mundo de Palworld con tus amigos! Recuerda que puedes personalizar tu experiencia con diferentes configuraciones y mods.

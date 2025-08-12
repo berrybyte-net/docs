@@ -376,6 +376,123 @@
             ]
           }
         ]
+      },
+      {
+        "language": "es",
+        "dropdowns": [
+          {
+            "dropdown": "Guías Generales",
+            "icon": "book",
+            "description": "Primeros pasos, facturación y guías de gestión de servidores",
+            "groups": [
+              {
+                "group": "Bienvenido",
+                "pages": [
+                  "es/introduccion",
+                  "es/inicio-rapido"
+                ]
+              },
+              {
+                "group": "Panel de Juego",
+                "pages": []
+              }
+            ]
+          },
+          {
+            "dropdown": "Guías de Juegos",
+            "description": "Guías de configuración y setup de servidores para juegos compatibles",
+            "icon": "gamepad",
+            "groups": [
+              {
+                "group": "Minecraft",
+                "pages": [
+                  "es/juegos/minecraft/introduccion",
+                  "es/juegos/minecraft/unirse-servidor",
+                  "es/juegos/minecraft/errores-comunes/conexion-tiempo-agotado"
+                ]
+              },
+              {
+                "group": "Palworld",
+                "pages": [
+                  "es/juegos/palworld/introduccion",
+                  "es/juegos/palworld/unirse-servidor"
+                ]
+              },
+              {
+                "group": "Rust",
+                "pages": []
+              },
+              {
+                "group": "Satisfactory",
+                "pages": []
+              },
+              {
+                "group": "Valheim",
+                "pages": []
+              },
+              {
+                "group": "V Rising",
+                "pages": []
+              },
+              {
+                "group": "Factorio",
+                "pages": []
+              },
+              {
+                "group": "Sons of the Forest",
+                "pages": []
+              },
+              {
+                "group": "7 Days to Die",
+                "pages": []
+              },
+              {
+                "group": "Enshrouded",
+                "pages": []
+              },
+              {
+                "group": "Soulmask",
+                "pages": []
+              },
+              {
+                "group": "Unturned",
+                "pages": []
+              },
+              {
+                "group": "FiveM",
+                "pages": []
+              },
+              {
+                "group": "CS2",
+                "pages": []
+              },
+              {
+                "group": "Ark SE",
+                "pages": []
+              },
+              {
+                "group": "Conan Exiles",
+                "pages": []
+              },
+              {
+                "group": "Core Keeper",
+                "pages": []
+              },
+              {
+                "group": "Vintage Story",
+                "pages": []
+              },
+              {
+                "group": "Garry's Mod",
+                "pages": []
+              },
+              {
+                "group": "Don't Starve Together",
+                "pages": []
+              }
+            ]
+          }
+        ]
       }
     ]
   },

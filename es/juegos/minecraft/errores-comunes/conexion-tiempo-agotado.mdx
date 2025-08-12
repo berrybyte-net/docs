@@ -1,0 +1,198 @@
+---
+title: "Solucionar Error 'Connection Timed Out' en Minecraft"
+sidebarTitle: "Connection Timed Out"
+description: "Guía completa para solucionar el error 'Connection Timed Out' en Minecraft. Aprende las causas comunes y soluciones paso a paso para conectarte a tu servidor."
+---
+
+# Solucionar Error "Connection Timed Out" en Minecraft
+
+El error "Connection Timed Out" es uno de los problemas de conexión más comunes en Minecraft. Este error ocurre cuando tu cliente de Minecraft no puede establecer una conexión con el servidor dentro del tiempo límite establecido. Esta guía te ayudará a identificar y resolver este problema.
+
+## ¿Qué Significa "Connection Timed Out"?
+
+Este error indica que tu cliente de Minecraft intentó conectarse al servidor pero no recibió una respuesta dentro del tiempo esperado. Puede ser causado por varios factores, desde problemas de red hasta configuraciones incorrectas del servidor.
+
+## Verificaciones Básicas
+
+Antes de proceder con soluciones más avanzadas, verifica estos elementos básicos:
+
+### 1. Estado del Servidor
+- **Verifica en el panel de control** que tu servidor esté en estado "En línea"
+- **Revisa los logs del servidor** para cualquier error o problema
+- **Reinicia el servidor** si ha estado inactivo por mucho tiempo
+
+### 2. Información de Conexión
+- **Confirma la IP del servidor** - debe ser exactamente como aparece en el panel de control
+- **Verifica el puerto** - generalmente 25565, pero puede ser diferente
+- **Revisa la versión** - tu cliente debe coincidir con la versión del servidor
+
+<Info>
+La IP completa del servidor incluye el puerto, por ejemplo: `play.berrybyte.net:25565`. Asegúrate de incluir ambas partes.
+</Info>
+
+## Soluciones Paso a Paso
+
+### Solución 1: Verificar Configuración de Red
+
+#### Reiniciar Conexión de Red
+1. **Desconecta tu router/módem** por 30 segundos
+2. **Reconecta y espera** a que se restablezca completamente la conexión
+3. **Reinicia tu computadora** para limpiar la caché de red
+4. **Intenta conectarte nuevamente** al servidor
+
+#### Verificar Configuración DNS
+1. **Abre el símbolo del sistema** (Windows) o Terminal (Mac/Linux)
+2. **Ejecuta el comando**: `nslookup play.berrybyte.net` (reemplaza con tu IP)
+3. **Verifica que se resuelva** correctamente la dirección
+4. **Considera cambiar DNS** a 8.8.8.8 y 8.8.4.4 (Google DNS)
+
+### Solución 2: Configuración de Firewall
+
+#### Windows Firewall
+1. **Abre el Panel de Control** > Sistema y Seguridad > Firewall de Windows Defender
+2. **Haz clic en "Permitir una aplicación"** a través del firewall
+3. **Busca Minecraft** en la lista o haz clic en "Permitir otra aplicación"
+4. **Asegúrate de que esté marcado** para redes privadas y públicas
+5. **Aplica los cambios** y reinicia Minecraft
+
+#### Antivirus/Software de Seguridad
+- **Revisa tu antivirus** para bloqueos de Minecraft
+- **Añade Minecraft a la lista de excepciones** si es necesario
+- **Desactiva temporalmente** el antivirus para probar (no recomendado permanentemente)
+
+### Solución 3: Problemas del Servidor
+
+#### Verificar Recursos del Servidor
+1. **Revisa el uso de RAM** en el panel de control
+2. **Verifica el uso de CPU** - si está al 100%, el servidor puede estar sobrecargado
+3. **Revisa el espacio en disco** disponible
+4. **Considera actualizar tu plan** si los recursos están al límite
+
+#### Revisar Logs del Servidor
+Busca estos errores comunes en los logs:
+- `java.net.BindException: Address already in use`
+- `OutOfMemoryError`
+- `Connection reset by peer`
+- Plugin errors que puedan estar causando lag
+
+### Solución 4: Configuración de Minecraft
+
+#### Restablecer Configuración de Red
+1. **Cierra Minecraft completamente**
+2. **Ve a la carpeta .minecraft** (Windows: `%appdata%\.minecraft`)
+3. **Renombra el archivo options.txt** a `options.txt.backup`
+4. **Reinicia Minecraft** - se crearán nuevas configuraciones por defecto
+
+#### Verificar Versión de Java
+- **Asegúrate de tener Java actualizado** para tu versión de Minecraft
+- **Para Minecraft 1.17+**: Requiere Java 16 o superior
+- **Para versiones anteriores**: Java 8 es generalmente suficiente
+
+## Soluciones Avanzadas
+
+### Verificar Conectividad con Ping
+
+#### Windows/Mac/Linux:
+```bash
+ping play.berrybyte.net
+```
+
+#### Verificar Puerto Específico:
+```bash
+telnet play.berrybyte.net 25565
+```
+
+Si el ping funciona pero telnet no, el problema está en el puerto específico.
+
+### Verificar Configuración del Router
+
+#### Port Forwarding (Solo si alojas tu propio servidor)
+- **Accede a la configuración de tu router**
+- **Configura port forwarding** para el puerto 25565
+- **Apunta al IP local** de tu computadora
+
+#### UPnP
+- **Habilita UPnP** en la configuración del router si está disponible
+- **Reinicia el router** después de hacer cambios
+
+### Problemas de ISP
+
+#### Contactar al Proveedor de Internet
+Si nada más funciona:
+- **Contacta a tu ISP** para verificar si bloquean puertos de juegos
+- **Pregunta sobre throttling** de tráfico de juegos
+- **Solicita verificación** de la conexión a servidores de juegos
+
+## Errores Relacionados y Soluciones
+
+### "java.net.ConnectException: Connection refused"
+- El servidor está apagado o no acepta conexiones
+- Verifica que el servidor esté en funcionamiento
+
+### "java.io.IOException: An existing connection was forcibly closed"
+- Problema de red intermitente
+- Intenta reconectarte después de unos minutos
+
+### "Internal Exception: java.net.SocketTimeoutException: Read timed out"
+- Conexión lenta o inestable
+- Verifica la calidad de tu conexión a internet
+
+## Prevención de Problemas Futuros
+
+### Para Administradores de Servidor:
+- **Monitorea regularmente** el rendimiento del servidor
+- **Configura alertas** para uso alto de recursos
+- **Mantén copias de seguridad** regulares
+- **Actualiza plugins y software** regularmente
+
+### Para Jugadores:
+- **Mantén Minecraft actualizado**
+- **Verifica tu conexión** antes de reportar problemas
+- **Guarda tu progreso** frecuentemente por si hay desconexiones
+
+## Cuándo Contactar al Soporte
+
+Contacta al soporte de BerryByte si:
+- **Has intentado todas las soluciones** sin éxito
+- **El problema persiste** por más de 24 horas
+- **Múltiples jugadores** experimentan el mismo problema
+- **Los logs del servidor** muestran errores que no entiendes
+
+## Información Útil para el Soporte
+
+Cuando contactes al soporte, incluye:
+- **IP exacta del servidor** que estás intentando usar
+- **Versión de Minecraft** que estás usando
+- **Sistema operativo** (Windows, Mac, Linux)
+- **Mensaje de error completo** si está disponible
+- **Logs del servidor** si tienes acceso
+- **Pasos que ya has intentado**
+
+## Guías Relacionadas
+
+<CardGroup cols={2}>
+  <Card title="Unirse al Servidor" href="/es/juegos/minecraft/unirse-servidor" icon="users">
+    Guía completa para conectarse a servidores Minecraft
+  </Card>
+  <Card title="Configuración del Servidor" href="/es/juegos/minecraft/introduccion" icon="settings">
+    Aprende sobre la configuración de servidores
+  </Card>
+  <Card title="Panel de Control" href="/panel/overview" icon="monitor">
+    Domina el panel de control de BerryByte
+  </Card>
+  <Card title="Soporte General" href="/es/ayuda/solucion-problemas" icon="headset">
+    Más recursos de solución de problemas
+  </Card>
+</CardGroup>
+
+## ¿Necesitas Más Ayuda?
+
+Si este error persiste después de intentar estas soluciones:
+
+- **[Contacta al Soporte](https://berrybyte.net/contact)** - Nuestro equipo técnico puede ayudar con problemas específicos
+- **[Únete a Discord](https://discord.gg/Wc9wMZxQ2D)** - La comunidad puede ofrecer consejos adicionales
+- **[Revisa el Estado del Servicio](https://berrybyte.net/status)** - Verifica si hay problemas conocidos
+
+---
+
+Recuerda que la mayoría de los problemas de "Connection Timed Out" se pueden resolver con paciencia y verificaciones sistemáticas. ¡No te rindas!
