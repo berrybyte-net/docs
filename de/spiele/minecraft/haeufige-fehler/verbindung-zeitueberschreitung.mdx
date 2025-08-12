@@ -1,0 +1,66 @@
+---
+title: "Minecraft 'Connection Timed Out' Fehler beheben - Komplette Lösung"
+description: "Minecraft Connection Timeout beheben: Ursachen finden, Netzwerkprobleme lösen, Server-Ressourcen optimieren. Vollständige deutsche Fehlerbehebungsanleitung."
+tags: "Minecraft Connection Timeout, Minecraft Verbindungsfehler, Minecraft Fehlerbehebung, Server Timeout, Netzwerkprobleme, Minecraft Lag"
+sidebarTitle: "Connection timed out"
+---
+
+# Minecraft 'Connection Timed Out' Fehler beheben
+
+Der "connection timed out" Fehler ist eines der frustrierendsten Probleme, auf die Minecraft-Spieler stoßen, wenn sie versuchen, Servern beizutreten. Diese umfassende Fehlerbehebungsanleitung deckt alle häufigen Ursachen und bewährte Lösungen ab, um dich zurück ins Spiel zu bringen - egal ob das Problem von Netzwerkproblemen, Server-Konfiguration oder Ressourcenbeschränkungen herrührt.
+
+## Ursachen
+
+1. Der Game-Server (oder ein Proxy wie [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/) oder [Velocity](https://papermc.io/software/velocity)) hat unzureichende
+   Ressourcen, um die Anzahl der Spieler zu bewältigen.
+2. Es gibt einen Ausfall/ein Problem mit dem Netzwerk des Hosts - du kannst auf unserer
+   [Status-Seite](https://status.berrybyte.net/) nach Vorfällen suchen.
+3. Der Proxy (z.B. [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/), [Velocity](https://papermc.io/software/velocity) oder [Waterfall](https://papermc.io/software/waterfall)) ist falsch konfiguriert (gilt nur, wenn du
+   einen hast). Überprüfe die Konfigurationsdateien und stelle sicher, dass du ihn korrekt eingerichtet hast.
+4. Es gibt ein Problem mit deinem
+   [ISP](https://en.wikipedia.org/wiki/Internet_service_provider) (Internet Service Provider) - das ist
+   meistens der Fall. Starte deinen Router neu oder kontaktiere deinen Internetanbieter für weitere Hilfe.
+
+## Abhilfe
+
+- Überprüfe die Konfiguration deines Proxys doppelt, falls du einen hast.
+- Starte den Minecraft-Server neu.
+- Schaue, ob jemand anderes diese Probleme auf deinem Server erlebt - wenn nicht, ist es höchstwahrscheinlich ein Problem mit deiner Verbindung. Du kannst dies mit [mcsrvstat.us](https://mcsrvstat.us) testen, einer kostenlosen Website zur Überprüfung des Status eines Minecraft-Servers.
+- Verwende ein VPN oder einen Proxy. Wir empfehlen [Cloudflare's WARP](https://1.1.1.1/) - ein Tool, das dir hilft, dich mit einem Netzwerk mit [optimierten Routen](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-routing/) zu verbinden. Dies ist ein beliebtes Mittel, besonders für schwächere Verbindungen.
+- Erhöhe das [`paper.playerconnection.keepalive`](https://docs.papermc.io/paper/reference/system-properties#paperplayerconnectionkeepalive)
+  Timeout-Flag auf deinem Paper-basierten Minecraft-Server. Um es hinzuzufügen, füge das `-Dpaper.playerconnection.keepalive=90` Flag zu deinen Minecraft-Server-Startflags hinzu; dies erweitert das Keepalive-Timeout auf 90 Sekunden.
+- Erstelle ein [MTR](https://www.cloudflare.com/learning/network-layer/what-is-mtr/) (my trace-route, ein Tool zur Diagnose von Netzwerkpfaden und -routen) und analysiere die Ausgabe. [Teile die Ausgabe](https://berrybyte.net/tickets) mit dem [BerryByte](https://berrybyte.net/)-Team und wir können identifizieren, wo das Problem liegt.
+
+## Häufige Probleme
+
+- **Timeout tritt nur bei bestimmten Spielern auf**: Normalerweise ISP-Routing oder regionale Netzwerkprobleme
+  - **Lösung**: Versuche Cloudflare WARP oder ein VPN zu verwenden, um das Netzwerk-Routing zu ändern
+
+- **Timeout passiert während Stoßzeiten**: Server-Ressourcenbeschränkungen oder Netzwerküberlastung
+  - **Lösung**: Upgrade Server-Ressourcen oder optimiere Server-Performance mit Aikar's Flags
+
+- **Proxy-Server verursachen Timeouts**: Falsch konfiguriertes BungeeCord, Velocity oder Waterfall Setup
+  - **Lösung**: Überprüfe Proxy-Konfigurationsdateien und stelle ordnungsgemäße Server-Verbindungen sicher
+
+- **Intermittierende Timeouts**: Netzwerkinstabilität oder Paketverlust zwischen Client und Server
+  - **Lösung**: Führe MTR-Diagnosen durch und kontaktiere den Hosting-Anbieter mit den Ergebnissen
+
+## Verwandte Anleitungen
+
+### Minecraft-spezifische Fehlerbehebung
+- [Deinem Minecraft-Server beitreten](/de/spiele/minecraft/server-beitreten) - Grundlegende Verbindungsfehlerbehebung
+- [Minecraft Server-Übersicht](/de/spiele/minecraft/einfuehrung) - Vollständige Minecraft-Hosting-Anleitungen
+- [Server-Performance-Optimierung](/games/minecraft/aikars-flags) - Verbessere Server-Ressourcennutzung <Info>Dieser Abschnitt ist derzeit nur auf Englisch verfügbar. [Zur englischen Version →](/games/minecraft/aikars-flags)</Info>
+- [RCON einrichten](/games/minecraft/setting-up-rcon) - Remote-Server-Verwaltung <Info>Dieser Abschnitt ist derzeit nur auf Englisch verfügbar. [Zur englischen Version →](/games/minecraft/setting-up-rcon)</Info>
+
+### Spielübergreifende Verbindungsfehlerbehebung
+- [Palworld Verbindungsprobleme](/de/spiele/palworld/server-beitreten) - Ähnliche Verbindungsfehlerbehebung für Palworld
+- [V Rising Verbindungsprobleme](/games/vrising/join-server) - Survival-Server-Verbindungsfehlerbehebung <Info>Dieser Abschnitt ist derzeit nur auf Englisch verfügbar. [Zur englischen Version →](/games/vrising/join-server)</Info>
+- [Allgemeine Fehlerbehebung](/de/hilfe/troubleshooting) - Umfassende Server-Problemlösung
+
+### Server-Verwaltung
+- [Control Panel Übersicht](/panel/overview) - Überprüfe Server-Gesundheit und -Performance <Info>Dieser Abschnitt ist derzeit nur auf Englisch verfügbar. [Zur englischen Version →](/panel/overview)</Info>
+- [Allgemeine Server-Verwaltung](/de/schnellstart) - Grundlegendes Server-Setup und -Management
+- [Server-Backups](/panel/backups) - Schütze deine Server-Daten <Info>Dieser Abschnitt ist derzeit nur auf Englisch verfügbar. [Zur englischen Version →](/panel/backups)</Info>
+
+Falls keiner dieser Vorschläge hilft oder du Fragen hast, wende dich an uns auf unserem [Discord-Community-Server](https://berrybyte.net/discord).
