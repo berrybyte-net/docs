@@ -1,6 +1,6 @@
 # Image Organization
 
-This document describes the new categorized image structure for the BerryByte Wiki.
+This document describes the new categorized image structure for the berrybyte Wiki.
 
 ## Directory Structure
 

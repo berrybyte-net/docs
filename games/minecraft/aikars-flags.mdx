@@ -8,7 +8,7 @@ description: "Complete guide to implementing Aikar's flags for Minecraft server 
 
 Aikar's Flags are specialized JVM startup parameters designed to dramatically improve Minecraft server performance through optimized garbage collection and memory management. These command-line options enhance your server's stability, reduce lag spikes, and provide smoother gameplay for all players by fine-tuning Java's G1 garbage collector specifically for Minecraft's unique memory usage patterns.
 
-**All Minecraft server lineups from BerryByte come equipped with Aikar's flags by
+**All Minecraft server lineups from berrybyte come equipped with Aikar's flags by
 default.**
 
 Note: Aikar's Flags allocates all available memory to the server (unused memory is wasted memory) which may make the server appear to be using 100% RAM at all times. This is usually not the case.
@@ -43,9 +43,9 @@ java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -XX:+UseG1GC -XX:+ParallelRefProc
 <Note>
   If you're running on a shared hosting (one bulky machine runs multiple
   Minecraft servers) with strict resource allocation (e.g. Docker containers;
-  this applies for BerryByte's Minecraft lineup), it is recommended to leave out
+  this applies for berrybyte's Minecraft lineup), it is recommended to leave out
   roughly 1GB of RAM for the JVM's overhead (this is automatically done at
-  BerryByte).
+  berrybyte).
 </Note>
 
 - `-Xmx`: Sets the maximum amount of memory that the JVM can use. This can help
@@ -63,7 +63,7 @@ java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -XX:+UseG1GC -XX:+ParallelRefProc
 - `-XX:+DisableExplicitGC`: Disables explicit garbage collection, which prevents bad plugin code from affecting your server.
 - `-XX:+AlwaysPreTouch`: Enables pre-touching, which will preallocate all the memory at process start.
 
-<Warning>This flag is removed by default on BerryByte servers, and if you are running the [Pterodactyl](https://pterodactyl.io) panel, you should remove this flag too. This flag pre-allocates all memory to the process on startup, starving and freezing/crashing the docker container. If not, you can ignore this warning.</Warning>
+<Warning>This flag is removed by default on berrybyte servers, and if you are running the [Pterodactyl](https://pterodactyl.io) panel, you should remove this flag too. This flag pre-allocates all memory to the process on startup, starving and freezing/crashing the docker container. If not, you can ignore this warning.</Warning>
 
 - `-XX:G1NewSizePercent`: Sets the percentage of the heap that is used for new
   objects.

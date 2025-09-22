@@ -1,4 +1,4 @@
-# BerryByte Wiki
+# berrybyte Wiki
 
 Public community-written wiki for all game server & virtual server related topics.
 

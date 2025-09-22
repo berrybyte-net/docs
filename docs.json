@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "BerryByte Wiki",
+  "name": "berrybyte Wiki",
   "colors": {
     "primary": "#DC3962",
     "light": "#FF81A0",
