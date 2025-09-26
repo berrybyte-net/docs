@@ -1,0 +1,45 @@
+---
+title: "How to Add Admins to Your FiveM Server"
+sidebarTitle: "Add FiveM Admins"
+description: "Learn how to add admins to your FiveM server with permissions and commands."
+tags: "FiveM admin commands, add FiveM admin, FiveM server permissions, FiveM moderation"
+---
+
+# How to Add Admins to Your FiveM Server
+
+## Getting Player Steam ID
+
+1. Player joins your [FiveM server](https://berrybyte.net/fivem-server-hosting)
+2. Open server console
+3. Type: `status`
+4. Copy their Steam ID (example: `steam:110000103fd1bb1`)
+
+## Adding Admin Permissions
+
+### Method 1: Console Command
+1. Open server console
+2. Type: `add_ace identifier.steam:[steamid] command allow`
+3. Replace `[steamid]` with their Steam ID
+
+Example: `add_ace identifier.steam:110000103fd1bb1 command allow`
+
+### Method 2: server.cfg File
+1. Login to your [FiveM server hosting](https://berrybyte.net/fivem-server-hosting) control panel
+2. Open **File Manager** → **server.cfg**
+3. Add line: `add_ace identifier.steam:[steamid] command allow`
+4. Save and restart server
+
+## Basic Admin Commands
+
+- `kick [id] [reason]` - Kick player
+- `ban [id] [reason]` - Ban player
+- `tp [id1] [id2]` - Teleport player
+- `restart [seconds]` - Restart server
+
+## Remove Admin Access
+
+Use: `remove_ace identifier.steam:[steamid] command allow`
+
+Or remove the line from server.cfg and restart.
+
+Need help? [Chat with us](https://berrybyte.net/contact) or join our [community Discord server](https://discord.com/invite/Pv8DMpXtma).
