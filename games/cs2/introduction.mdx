@@ -7,133 +7,56 @@ tags: "Counter-Strike 2, CS2 server hosting, CS2 dedicated server, CS2 multiplay
 
 # Counter-Strike 2 Server Hosting Guides
 
-Our comprehensive Counter-Strike 2 server hosting guides cover everything from setting up a dedicated server to configuring gameplay settings and managing your competitive community. Whether you're hosting matches for friends or managing a large competitive server, these tutorials will help you create the perfect Counter-Strike 2 multiplayer experience.
-
 [Counter-Strike 2](https://store.steampowered.com/app/730/CounterStrike_2/) is the world's number one tactical FPS game featuring competitive 5v5 matches and various game modes. **[berrybyte](https://berrybyte.net/cs2-server-hosting)** provides powerful, budget-friendly Counter-Strike 2 server hosting with instant setup, NVMe SSD storage, and 24/7 uptime for seamless competitive gameplay.
 
 ## Setup & Installation
 
-Get your Counter-Strike 2 server up and running with these essential setup guides:
-
 <CardGroup cols={2}>
-  <Card title="Server Setup" href="#" icon="server">
-    Guides coming soon
+  <Card title="Join Your Server" href="/games/cs2/how-to-join-cs2-server" icon="users">
+    Connect to your CS2 server for competitive matches
   </Card>
-  <Card title="Join Your Server" href="#" icon="users">
-    Guides coming soon
+  <Card title="Install Custom Maps" href="/games/cs2/install-custom-maps" icon="map">
+    Add custom maps to your Counter-Strike 2 server
   </Card>
-</CardGroup>
-
-## Mods & Plugins
-
-Enhance your Counter-Strike 2 server with modifications:
-
-<CardGroup cols={2}>
-  <Card title="Installing Plugins" href="#" icon="puzzle-piece">
-    Guides coming soon
+  <Card title="Admin Commands" href="/games/cs2/admin-commands" icon="terminal">
+    Use admin commands to manage your server
   </Card>
-  <Card title="Popular Server Plugins" href="#" icon="target">
-    Guides coming soon
-  </Card>
-</CardGroup>
-
-## Configuration & Optimization
-
-Customize your server settings and optimize performance:
-
-<CardGroup cols={2}>
   <Card title="Server Configuration" href="#" icon="settings">
     Guides coming soon
   </Card>
-  <Card title="Performance Optimization" href="#" icon="gauge">
-    Guides coming soon
-  </Card>
 </CardGroup>
-
-## Troubleshooting & FAQs
-
-Resolve common issues and manage your server:
-
-<CardGroup cols={2}>
-  <Card title="Admin Commands" href="#" icon="terminal">
-    Guides coming soon
-  </Card>
-  <Card title="Common Server Issues" href="#" icon="wrench">
-    Guides coming soon
-  </Card>
-</CardGroup>
-
-## Related Guides
-
-Looking for more server management help? Check out these related guides:
-
-- [Server Backups](/panel/backups) - Protect your server data
-- [File Management](/panel/importing-files) - Upload and manage server files
-- [Server Overview](/panel/overview) - Understanding your control panel
 
 ## With a hosting provider
-Creating your own Counter-Strike 2 server is easy. **[berrybyte](https://berrybyte.net/counter-strike-2-server-hosting)** is a budget-friendly and powerful Counter-Strike 2 server host. Our servers are online 24/7 so you can join in at any time of the day.
 
-1. Select your desired plan & location
-2. Complete checkout and check your email inbox
-3. Login to the [game control panel](https://game.berrybyte.net)
-4. Join the server and start your competitive matches!
+Ready to host your own competitive matches? **[berrybyte](https://berrybyte.net/cs2-server-hosting)** offers instant CS2 server setup with:
 
-## Self-hosting a Counter-Strike 2 dedicated server
+- **Instant deployment** - online in minutes
+- **NVMe SSD storage** for fast loading
+- **24/7 uptime** and DDoS protection
+- **Easy admin panel** with one-click installs
 
-You can also alternatively run a server on your own computer/PC with [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) or from Steam library.
-
-### System requirements
-
-A single Counter-Strike 2 server requires at least **4GB RAM**, **4 CPU cores**, and **15GB of storage**.
-
-### Installing game server
-
-**On Linux:**
-`steamcmd +force_install_dir ./cs2_server/ +login anonymous +app_update 730 +quit`
-
-**On Windows:**
-`steamcmd.exe +force_install_dir c:\SteamCMD\cs2_server\ +login anonymous +app_update 730 +quit`
-
-### Starting game server
-
-Run the server by launching the cs2 executable with appropriate server parameters.
-
-**Need some help?** Feel free to [open a ticket](https://berrybyte.net/support) or join our [community Discord server](https://berrybyte.net/discord).
+[Start your CS2 server today →](https://berrybyte.net/cs2-server-hosting)
 
 ## Frequently Asked Questions
 
 <AccordionGroup>
 
-<Accordion title="What are the specs on the servers?">
-Our servers use the latest and greatest hardware on the market, solely using NVMe SSDs and minimum 1Gbps uplink per server.
-
-- CPU: **Intel** or **Ryzen 9** processors
-- **NVMe SSD** in RAID 1 configuration
-- **DDR4** ECC RAM
-- **1Gbps** Network Port
+<Accordion title="How do I connect to my CS2 server?">
+Use the console command `connect [server-ip]:[port]` or add your server to favorites through the community server browser.
 </Accordion>
 
-<Accordion title="How long does setup take?">
-As soon as you place an order, your server is setup instantly to let you start playing on your Counter-Strike 2 server within minutes!
+<Accordion title="Can I install custom maps on my CS2 server?">
+Yes, upload .bsp map files to your server's maps folder and change the map using `changelevel [mapname]` command.
 </Accordion>
 
-<Accordion title="What locations are the servers in?">
-**Seattle, Washington**, (West Coast USA), **Dallas, Texas** (Central USA), **Ashburn, Virginia** (East USA), **London, United Kingdom** (EU), **Germany** (EU), and **Amsterdam** (EU).
+<Accordion title="How do I get admin access on my CS2 server?">
+Use RCON with your server password or install an admin plugin like SourceMod for easier management.
 </Accordion>
 
-<Accordion title="Can I migrate my existing server to berrybyte?">
-Yep! To help ease you into our platform, we offer free server migrations from your old host and help you get settled into berrybyte!
-</Accordion>
-
-<Accordion title="Can I upgrade/downgrade my server later on?">
-Absolutely! You can upgrade and downgrade plans at any time with a few clicks of a button. Head to the client area, select the service, and choose the plan you wish to upgrade to. You'll only be billed the difference (Prorated) during upgrade.
-</Accordion>
-
-<Accordion title="Are the servers DDoS protected?">
-DDoS protection is **included with every server** at no extra cost. Protecting and mitigating your servers against DDoS attacks is our specialty!
+<Accordion title="What's the difference between CS2 and CS:GO servers?">
+CS2 servers use updated Source 2 engine with improved graphics, physics, and networking compared to CS:GO's Source engine.
 </Accordion>
 
 </AccordionGroup>
 
-Create your Counter-Strike 2 server within minutes at [berrybyte.net/cs2-server-hosting](https://berrybyte.net/counter-strike-2-server-hosting).
+Create your Counter-Strike 2 server within minutes at [berrybyte.net/cs2-server-hosting](https://berrybyte.net/cs2-server-hosting).

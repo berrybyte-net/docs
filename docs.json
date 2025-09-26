@@ -209,7 +209,10 @@
               {
                 "group": "CS2",
                 "pages": [
-                  "games/cs2/introduction"
+                  "games/cs2/introduction",
+                  "games/cs2/how-to-join-cs2-server",
+                  "games/cs2/install-custom-maps",
+                  "games/cs2/admin-commands"
                 ]
               },
               {

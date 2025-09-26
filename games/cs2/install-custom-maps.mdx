@@ -1,0 +1,57 @@
+---
+title: "How to Install Custom Maps on Your CS2 Server"
+sidebarTitle: "Install Custom Maps"
+description: "Learn how to install and manage custom maps on your Counter-Strike 2 server."
+tags: "CS2 custom maps, Counter-Strike 2 maps, install CS2 maps, CS2 server maps"
+---
+
+# How to Install Custom Maps on Your CS2 Server
+
+## Installing Custom Maps
+
+1. Login to the [game control panel](https://game.berrybyte.net)
+2. Go to **File Manager** → **csgo** → **maps** folder
+3. Upload your custom map (.bsp file)
+4. **Restart** your server
+
+## Changing Maps
+
+### Via Console
+1. Open server console
+2. Type: `changelevel [mapname]`
+3. Press **Enter**
+
+Example: `changelevel de_dust2_custom`
+
+### Via Config File
+1. Open **server.cfg** in File Manager
+2. Add line: `map [mapname]`
+3. Save and restart server
+
+## Popular Map Sources
+
+- [GameBanana](https://gamebanana.com/games/343) - Large collection of CS2 maps
+- [Steam Workshop](https://steamcommunity.com/app/730/workshop/) - Community maps
+- [MapCore](https://www.mapcore.org/) - Competitive maps
+
+## Map Rotation
+
+To set up automatic map rotation:
+
+1. Open **maplist.txt** in File Manager
+2. Add map names (one per line):
+```
+de_dust2
+de_mirage
+de_inferno
+your_custom_map
+```
+3. Save file and restart [Counter-Strike 2 server](https://berrybyte.net/cs2-server-hosting)
+
+## Common Issues
+
+**Map not loading**: Check .bsp file is in correct maps folder
+
+**Players can't download map**: Ensure map file size isn't too large
+
+Need help? [Chat with us](https://berrybyte.net/contact) or join our [community Discord server](https://discord.com/invite/Pv8DMpXtma).

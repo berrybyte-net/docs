@@ -1,0 +1,59 @@
+---
+title: "How to Use Admin Commands on Your CS2 Server"
+sidebarTitle: "Admin Commands"
+description: "Learn how to use admin commands and manage your Counter-Strike 2 server."
+tags: "CS2 admin commands, Counter-Strike 2 server commands, CS2 server management"
+---
+
+# How to Use Admin Commands on Your CS2 Server
+
+## Accessing Admin Commands
+
+1. Join your [CS2 server](https://berrybyte.net/cs2-server-hosting)
+2. Press **~** to open console
+3. Type admin commands (you need admin privileges)
+
+## Basic Admin Commands
+
+### Player Management
+- `kick [player]` - Kick player from server
+- `ban [player] [minutes]` - Ban player temporarily
+- `banid [minutes] [steamid]` - Ban by Steam ID
+
+### Server Management
+- `changelevel [mapname]` - Change map
+- `restart` - Restart current round
+- `mp_restartgame 1` - Restart match
+
+### Game Settings
+- `mp_roundtime 2` - Set round time (minutes)
+- `mp_maxrounds 30` - Set max rounds
+- `mp_timelimit 0` - Set time limit (0 = no limit)
+
+## Getting Admin Access
+
+### Method 1: RCON
+1. Login to the [game control panel](https://game.berrybyte.net)
+2. Find RCON password in server settings
+3. In CS2 console, type: `rcon_password [password]`
+4. Use commands with `rcon` prefix: `rcon kick player`
+
+### Method 2: Admin Plugin
+1. Install admin plugin (like SourceMod)
+2. Add your Steam ID to admin list
+3. Use commands directly without rcon prefix
+
+## Useful Server Commands
+
+- `status` - Show connected players
+- `maps *` - List available maps  
+- `exec [config]` - Execute config file
+- `say [message]` - Send message to all players
+
+## Common Issues
+
+**Commands not working**: Check you have admin privileges
+
+**RCON authentication failed**: Verify RCON password is correct
+
+Need help? [Chat with us](https://berrybyte.net/contact) or join our [community Discord server](https://discord.com/invite/Pv8DMpXtma).
