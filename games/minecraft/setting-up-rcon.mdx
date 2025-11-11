@@ -1,44 +1,38 @@
 ---
 title: "How to Setup RCON on Your Minecraft Server"
 sidebarTitle: "Enable and setup RCON"
-description: "A guide on how to join a Minecraft server on both Java and Bedrock Edition."
+description: "Guide to enabling RCON for remote server command execution."
 ---
 
-RCON, short for Remote Console, is a tool that allows server admins to execute Minecraft server commands remotely. This tool is incredibly useful for managing your server without having to be in the game.
+RCON (Remote Console) lets you execute Minecraft server commands remotely without being in-game.
 
-## How to Enable RCON
-
-RCON is disabled on Minecraft servers by default, so you'll need to manually enable it. Here's how:
+## Enable RCON
 
 1. Stop your server
-2. Head to **Files -> `server.properties`**
-3. Find `enable-rcon=false` and set it to `enable-rcon=true`
-4. To secure RCON, change `rcon.password` to a secure password and `rcon.port` to a new working port (**Network -> Create Allocation**)
-5. **Save** the file and restart your server
+2. Open **Files -> `server.properties`**
+3. Set `enable-rcon=true`
+4. Set `rcon.password` to a secure password
+5. Set `rcon.port` to a new port (create one in **Network -> Create Allocation**)
+6. Save the file and restart your server
 
-And voilà! RCON is now setup for your server and secure!
-
-## Frequently Asked Questions
+## FAQ
 
 <AccordionGroup>
     <Accordion title="Is RCON secure?">
-    RCON is secure if you use a strong password at the `rcon.password` line in `server.properties` file, and limit who has access to it. You can also change the RCON port at `rcon.port` line to further secure RCON.
+    Yes, if you use a strong password and limit access. Change the port for extra security.
     </Accordion>
-    <Accordion title="Can I use RCON to manage multiple servers?">
-    Yes, RCON can be set up on multiple servers, but each server requires a unique setup and password.
+    <Accordion title="Can I use RCON on multiple servers?">
+    Yes, but each server needs its own setup and password.
     </Accordion>
-    <Accordion title="Can I perform all server commands through RCON?">
-    Most server commands can be executed via RCON, though some actions may require direct server access.
+    <Accordion title="Can I run all commands through RCON?">
+    Most commands work, but some may need direct server access.
     </Accordion>
 </AccordionGroup>
 
 ## Related Guides
 
-- [Server Configuration](/games/minecraft/changing-versions) - Basic server setup and configuration
-- [Control Panel Overview](/panel/overview) - Understanding server management interface
-- [Server Backups](/panel/backups) - Backup before making configuration changes
-- [Network Port Management](/quickstart) - Understanding server ports and networking
-- [Admin Commands](/games/palworld/all-admin-commands) - Cross-game server administration
+- [Server Configuration](/games/minecraft/changing-versions) - Basic server setup
+- [Control Panel Overview](/panel/overview) - Server management interface
+- [Server Backups](/panel/backups) - Backup before changes
 
-Running into an issue with setting up RCON? Shoot us a message on our
-[community Discord server](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).

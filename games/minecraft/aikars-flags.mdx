@@ -1,30 +1,20 @@
 ---
-title: "How to Optimize Minecraft Server Performance with Aikar's Flags - JVM Tuning Guide"
+title: "How to Optimize Minecraft Server Performance with Aikar's Flags"
 sidebarTitle: "Aikar's flags"
-description: "Complete guide to implementing Aikar's flags for Minecraft server optimization. Learn how to configure JVM startup parameters to improve server performance, reduce lag, and optimize garbage collection for better gameplay."
+description: "Guide to implementing Aikar's flags for Minecraft server optimization."
 ---
 
 # How to Optimize Minecraft Server Performance with Aikar's Flags
 
-Aikar's Flags are specialized JVM startup parameters designed to dramatically improve Minecraft server performance through optimized garbage collection and memory management. These command-line options enhance your server's stability, reduce lag spikes, and provide smoother gameplay for all players by fine-tuning Java's G1 garbage collector specifically for Minecraft's unique memory usage patterns.
+Aikar's Flags are JVM startup parameters that improve server performance by optimizing garbage collection and memory management. They reduce lag spikes and provide smoother gameplay.
 
-**All Minecraft server lineups from berrybyte come equipped with Aikar's flags by
-default.**
+**All berrybyte Minecraft servers come with Aikar's flags by default.**
 
-Note: Aikar's Flags allocates all available memory to the server (unused memory is wasted memory) which may make the server appear to be using 100% RAM at all times. This is usually not the case.
+<Note>Aikar's Flags allocates all available memory, so your server may appear to use 100% RAM. This is normal. Install the [Spark plugin](https://spark.lucko.me/download) and run `/spark health` to see actual usage.</Note>
 
-To view actual usage for servers running Aikar's Flags, install the [Spark plugin](https://spark.lucko.me/download) and run the command `/spark health` for accurate memory usage.
+## Setting Up the Flags
 
-## Setting up the flags
-
-Setting up Aikar's Flags for your server is a very simple process, simply update
-the parameters of the command that you use to start up your server with the
-flags listed below.
-
-<Info>
-  Remember to replace `{SERVER_MEMORY}` with the amount of RAM you want to
-  allocate to your server.
-</Info>
+Update your server startup command with the flags below. Replace `{SERVER_MEMORY}` with your RAM amount (e.g., `4096` for 4GB).
 
 ### Less than 12GB of RAM
 
@@ -38,81 +28,42 @@ java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -XX:+UseG1GC -XX:+ParallelRefProc
 java -Xms{SERVER_MEMORY}M -Xmx{SERVER_MEMORY}M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:G1HeapRegionSize=16M -XX:G1ReservePercent=15 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=20 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar paper.jar --nogui
 ```
 
-## Breakdown
+## Flag Breakdown
 
-<Note>
-  If you're running on a shared hosting (one bulky machine runs multiple
-  Minecraft servers) with strict resource allocation (e.g. Docker containers;
-  this applies for berrybyte's Minecraft lineup), it is recommended to leave out
-  roughly 1GB of RAM for the JVM's overhead (this is automatically done at
-  berrybyte).
-</Note>
+<Note>On shared hosting (like berrybyte), leave about 1GB for JVM overhead. This is done automatically.</Note>
 
-- `-Xmx`: Sets the maximum amount of memory that the JVM can use. This can help
-  prevent the server from crashing due to out-of-memory errors.
-- `-Xms`: Sets the initial amount of memory that the JVM uses when starting up.
-  Aikar's flags set this to the same value as `-Xmx`, because unused memory is
-  wasted memory.
-- `-XX:+UseG1GC`: Enables the Garbage-First (G1) Garbage Collector, which is a
-  low-latency garbage collector that adaptively chooses how much memory to give
-  to each region to optimize pause time
-- `-XX:+ParallelRefProcEnabled`: Enables parallel reference processing and lets GC use multiple threads for weak reference checking.
-- `-XX:MaxGCPauseMillis`: Sets the maximum amount of time that the JVM can spend
-  on garbage collection.
-- `-XX:+UnlockExperimentalVMOptions`: Unlocks experimental JVM options which are needed for Aikar's flags.
-- `-XX:+DisableExplicitGC`: Disables explicit garbage collection, which prevents bad plugin code from affecting your server.
-- `-XX:+AlwaysPreTouch`: Enables pre-touching, which will preallocate all the memory at process start.
+Key flags:
+- `-Xmx` / `-Xms`: Maximum and initial memory (set to same value)
+- `-XX:+UseG1GC`: Enables G1 garbage collector for better performance
+- `-XX:+ParallelRefProcEnabled`: Parallel reference processing
+- `-XX:MaxGCPauseMillis`: Maximum garbage collection pause time
+- `-XX:+DisableExplicitGC`: Prevents bad plugin code from affecting GC
 
-<Warning>This flag is removed by default on berrybyte servers, and if you are running the [Pterodactyl](https://pterodactyl.io) panel, you should remove this flag too. This flag pre-allocates all memory to the process on startup, starving and freezing/crashing the docker container. If not, you can ignore this warning.</Warning>
+<Warning>Remove `-XX:+AlwaysPreTouch` on Pterodactyl/containerized servers. It can cause crashes by pre-allocating all memory.</Warning>
 
-- `-XX:G1NewSizePercent`: Sets the percentage of the heap that is used for new
-  objects.
-- `-XX:G1MaxNewSizePercent`: Sets the maximum percentage of the heap that is
-  used for new objects.
-- `-XX:G1HeapRegionSize`: Sets the size of the G1 heap region.
-- `-XX:G1ReservePercent`: Sets the percentage of the heap that is reserved for
-  G1.
-- `-XX:G1HeapWastePercent`: Sets the percentage of the heap that is wasted.
-- `-XX:G1MixedGCCountTarget`: Sets the target number of mixed garbage
-  collections.
-- `-XX:InitiatingHeapOccupancyPercent`: Sets the percentage of the heap that is
-  used before a mixed garbage collection is triggered.
-- `-XX:G1MixedGCLiveThresholdPercent`: Sets the percentage of live objects that
-  are required for a mixed garbage collection to be triggered.
-- `-XX:G1RSetUpdatingPauseTimePercent`: Sets the percentage of time that is
-  spent on updating the remembered set.
-- `-XX:SurvivorRatio`: Sets the ratio of the survivor space to the eden space.
-- `-XX:+PerfDisableSharedMem`: Disables shared memory.
-- `-XX:MaxTenuringThreshold`: Sets the maximum tenuring threshold.
+Other flags fine-tune G1 garbage collection settings. See [Aikar's blog](https://mcflags.emc.gs) for detailed explanations.
 
-<Info>
-  This is only a quick recap, you should give [Aikar's
-  blog](https://mcflags.emc.gs) a read if you're interested on how these really
-  work.
-</Info>
-
-It is important to carefully consider the values you use for each startup flag,
-as setting them too high or too low can have negative impacts on the performance
-of the server. If you are having trouble using Aikar's flags, check the
-`server.log` file in the logs folder of your server for any error messages.
+If you have issues, check `server.log` for error messages.
 
 ## Common Issues
 
-- **Server appears to use 100% RAM**: This is normal behavior with Aikar's flags as they allocate all available memory
-  - **Solution**: Use the Spark plugin and run `/spark health` to check actual memory usage
+**Server shows 100% RAM usage**
+- Normal behavior - flags allocate all available memory
+- Fix: Use Spark plugin and run `/spark health` for actual usage
 
-- **Server crashes with "Cannot allocate memory" error**: Usually occurs when `-XX:+AlwaysPreTouch` is used in containerized environments
-  - **Solution**: Remove the `-XX:+AlwaysPreTouch` flag if running on Pterodactyl or similar container systems
+**Server crashes with "Cannot allocate memory"**
+- Usually caused by `-XX:+AlwaysPreTouch` in containers
+- Fix: Remove `-XX:+AlwaysPreTouch` flag
 
-- **Poor performance after applying flags**: May indicate incorrect memory allocation or incompatible Java version
-  - **Solution**: Ensure you're using Java 11+ and have allocated appropriate RAM amounts (leave 1GB for JVM overhead)
+**Poor performance**
+- Incorrect memory allocation or wrong Java version
+- Fix: Use Java 11+ and leave 1GB for JVM overhead
 
 ## Related Guides
 
-- [Changing Minecraft Versions](/games/minecraft/changing-versions) - Switch server versions for optimal flag compatibility
-- [Connection Timeout Troubleshooting](/games/minecraft/common-errors/connection-timed-out) - Fix performance-related connection issues
-- [Chunky Plugin Setup](/games/minecraft/plugins/chunky) - Pre-generate chunks to reduce server load
-- [Control Panel Overview](/panel/overview) - Monitor server performance and resource usage
-- [Server Backups](/panel/backups) - Backup before applying performance changes
+- [Changing Minecraft Versions](/games/minecraft/changing-versions) - Switch versions
+- [Connection Timeout Fix](/games/minecraft/common-errors/connection-timed-out) - Fix connection issues
+- [Chunky Plugin](/games/minecraft/plugins/chunky) - Pre-generate chunks
+- [Control Panel Overview](/panel/overview) - Monitor performance
 
-If you continue to experience issues with the flags, feel free to ask for help on our [Discord server](https://berrybyte.net/discord). If these flags have helped your server significantly, consider donating to [Aikar](https://donate.emc.gs/MC%20Flags) to support his work.
+Need help? Ask in our [Discord](https://berrybyte.net/discord). Consider [donating to Aikar](https://donate.emc.gs/MC%20Flags) if these flags helped your server.

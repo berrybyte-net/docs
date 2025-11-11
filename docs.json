@@ -59,7 +59,7 @@
                 "pages": [
                   "games/minecraft/introduction",
                   "games/minecraft/join-server",
-                  "games/minecraft/updating-jars",
+                  "games/minecraft/updating",
                   "games/minecraft/changing-versions",
                   "games/minecraft/server-icon",
                   "games/minecraft/setting-up-rcon",

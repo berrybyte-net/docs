@@ -1,59 +1,59 @@
 ---
-title: "How to Upload Custom Worlds to Minecraft Server - Singleplayer to Multiplayer Guide"
+title: "How to Upload Custom Worlds to Minecraft Server"
 sidebarTitle: "Upload a world"
-description: "Complete guide to uploading custom worlds and singleplayer saves to your Minecraft server. Learn how to find world files on Windows and Mac, transfer worlds safely, and configure server settings for custom maps."
+description: "Guide to uploading custom worlds and singleplayer saves to your Minecraft server."
 ---
 
 # How to Upload Custom Worlds to Your Minecraft Server
 
-Transferring your favorite singleplayer worlds or custom maps to your Minecraft server allows you to share amazing builds and adventures with friends. This guide covers the complete process of locating world files on your computer, safely uploading them to your server, and configuring everything for seamless multiplayer gameplay.
+Upload your singleplayer worlds or custom maps to share with friends on your server.
 
-<Warning>Ensure the world version matches your Minecraft server version to prevent corruption or compatibility issues.</Warning> 
+<Warning>Make sure the world version matches your server version to prevent corruption.</Warning> 
 
-## Finding a singleplayer world from your computer
-
-If you wish to upload a singleplayer world from your computer to a [Minecraft server](https://berrybyte.net/minecraft-server-hosting), follow these steps: 
+## Finding Your World Files
 
 ### On Windows:
 
-1. Enter `Windows Key + R` on your keyboard and enter `%AppData%`
-2. Head to the `.minecraft` folder and then `/saves`
-3. Locate the world you wish to upload, and archive the folder with a tool like [WinRAR](https://winrar.com) or [7Zip](https://7zip.com)
+1. Press `Windows Key + R` and type `%AppData%`
+2. Go to `.minecraft/saves`
+3. Find your world folder and archive it with [WinRAR](https://winrar.com) or [7Zip](https://7zip.com)
 
-### On a Mac:
+### On Mac:
 
-1. Navigate to `~/Library/Application Support/minecraft` folder by pasting the file path on your Mac's [Spotlight](https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac)
-2. Right click the world folder, and select "**Compress [fileName]**"
+1. Open Spotlight and paste: `~/Library/Application Support/minecraft`
+2. Go to the `saves` folder
+3. Right-click your world folder and select **Compress**
 
-## Uploading the world to your server
+## Uploading the World
 
-1. Stop the server
-2. [Upload the world archive](/panel/importing-files) to the **File Manager** on the [game panel](https://game.berrybyte.net/)
-3. Select the three dots beside the file, and click "**Unarchive**"
-4. Modify the `level-name` value in `server.properties` file to the name of the world folder
-5. Start the server!
-
-And voilà, you should now be able to use and play your custom world on your Minecraft server!
+1. Stop your server
+2. [Upload the world archive](/panel/importing-files) to the File Manager
+3. Click the three dots next to the file and click **Unarchive**
+4. Open `server.properties` and change `level-name` to match your world folder name
+5. Start your server
 
 ## Common Issues
 
-- **World doesn't load after upload**: Version mismatch or incorrect folder structure
-  - **Solution**: Verify world version matches server version and check folder contains level.dat file
+**World doesn't load**
+- Version mismatch or wrong folder structure
+- Fix: Check world version matches server and ensure folder has `level.dat`
 
-- **Server crashes when loading custom world**: Corrupted world data or missing files
-  - **Solution**: Re-upload the world archive and ensure all world files are included
+**Server crashes**
+- Corrupted world data or missing files
+- Fix: Re-upload the world archive
 
-- **Players spawn in wrong location**: World spawn point not properly configured
-  - **Solution**: Use `/setworldspawn` command or edit level.dat with NBT editor
+**Players spawn in wrong location**
+- Spawn point not configured
+- Fix: Use `/setworldspawn` command
 
-- **Custom world features missing**: Incomplete world upload or version compatibility issues
-  - **Solution**: Ensure complete world folder was uploaded and versions are compatible
+**Features missing**
+- Incomplete upload or version issues
+- Fix: Ensure complete world folder uploaded and versions match
 
 ## Related Guides
 
-- [Converting World Formats](/games/minecraft/convert-world) - Convert between different world file formats
-- [Converting Bedrock to Java](/games/minecraft/convert-bedrock-to-java) - Transfer worlds between editions
-- [File Management](/panel/importing-files) - Learn more about uploading files to your server
-- [Minecraft Introduction](/games/minecraft/introduction) - Learn more about Minecraft server hosting
+- [Converting World Formats](/games/minecraft/convert-world) - Convert between formats
+- [Converting Bedrock to Java](/games/minecraft/convert-bedrock-to-java) - Transfer between editions
+- [File Management](/panel/importing-files) - Uploading files guide
 
-If you're having trouble uploading your world, send us a message on our [community Discord server](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets).

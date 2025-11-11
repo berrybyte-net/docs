@@ -1,44 +1,44 @@
 ---
 title: "Adding Resource Packs to a Minecraft Server"
 sidebarTitle: "Adding resource packs"
-description: "Learn how to host and configure a resource pack for your Minecraft Server."
+description: "Guide to hosting and configuring a resource pack for your Minecraft server."
 ---
 
-Resource packs, also known as texture packs (although they have their differences) can heavily modify how Minecraft looks in-game. You can customize sounds, textures, hotbars, inventories, and more — all enhancing and bringing uniqueness to your [Minecraft server](https://berrybyte.net/minecraft-server-hosting)!
+Resource packs let you customize how Minecraft looks and sounds. Add custom textures, sounds, and UI elements to make your server unique.
 
-## Understanding Size Limits
+## Size Limits
 
-Before you start, you'll need to understand the resource pack size limitations. Minecraft versions **prior to 1.15** have a maximum automatic download size limit of **50MB**, while versions above can accommodate up to **100MB**.
+- **Minecraft 1.14 and below**: 50MB max
+- **Minecraft 1.15+**: 100MB max
 
 ## Find or Create Your Resource Pack
 
-Start by choosing a resource pack. Websites like [CurseForge](https://www.curseforge.com/minecraft/texture-packs) offer a vast selection of community-created packs.
+Download packs from [CurseForge](https://www.curseforge.com/minecraft/texture-packs) or create your own.
 
-If you're crafting your own pack, ensure it's properly archived using tools like 7zip or WinRAR, leading directly into the `/assets` folder,  `pack.mcmeta` file and `pack.png` icon.
-
-{/* Screenshot description: Image showcasing a correctly archived resource pack with the `/assets` folder, `pack.mcmeta`, and `pack.png` visible at the root. */}
+If creating your own, archive it with the `/assets` folder, `pack.mcmeta` file, and `pack.png` icon at the root.
 
 ## Host Your Resource Pack
 
-To have your players be able to download your resource pack, you'll need to host it so it can be downloaded by players in-game. Here are two popular ways to host a resource pack.
+You need to host your resource pack online so players can download it. Here are two options:
 
 ### Using MCPacks
 
-[MCPacks](https://mc-packs.net) is a tool used by thousands of servers to host their resource packs. Upload your resource pack to the site and take note of the `resource-pack=` and `resource-pack-sha1=` fields provided after the upload. MCPacks supports resource packs upto 95MB in size.
-
-{/* <Warning>MCPacks is not affiliated with berrybyte. Use at your own discretion.</Warning> */}
+1. Upload your pack to [MCPacks](https://mc-packs.net)
+2. Copy the `resource-pack=` and `resource-pack-sha1=` values provided
+3. MCPacks supports packs up to 95MB
 
 ### Dropbox Hosting
 
-For Dropbox, sign up and upload your resource pack. Ensure your share link allows anyone with the link to view and change `dl=0` to `dl=1` for a direct download link. Optionally, you can [create a SHA-1 hash](http://www.sha1-online.com/) with the name of the file or URL to ensure the validity of the resource pack.
+1. Upload your pack to Dropbox
+2. Get a share link and change `dl=0` to `dl=1` for direct download
+3. Optionally, [create a SHA-1 hash](http://www.sha1-online.com/) for verification
 
-<Info>You'll need a direct link to the file in order for the resource pack to work in-game. Test the link and make sure it downloads the resource pack to your computer.</Info>
+<Info>Test the link to make sure it downloads the pack directly.</Info>
 
-{/* Screenshot description: Image showing the Dropbox interface with the resource pack uploaded, highlighting the link sharing settings adjusted for direct download. */}
+## Configure Your Server
 
-## Configure Your Minecraft Server to Use the Resource Pack
-
-1. Login to the [game server panel](https://game.berrybyte.net) and navigate to the file manager. Open the `server.properties` file and make the following changes:
+1. Open `server.properties` in the file manager
+2. Add your resource pack URL and SHA-1 hash:
 
 ```yml
 # Using MCPacks
@@ -47,12 +47,12 @@ resource-pack=https://download.mc-packs.net/pack/{ID}.zip
 # Using Dropbox
 resource-pack=https://www.dropbox.com/s/<ID>/MyCoolResourcePack.zip?dl=1
 
-# Paste the SHA-1 has generated in the above step
+# SHA-1 hash (optional but recommended)
 resource-pack-sha1=4c82e70abf8cd8bd3ce117fb69ecc3e0c846915b
 ```
 
-2. Save your changes and restart the server to apply the new resource pack.
+3. Save and restart your server
 
-Once you've restarted the server, players who join in will now be prompted to use the custom resource pack! Click "**Yes**" and Minecraft will automagically download and load the resource pack for you.
+Players will be prompted to download the resource pack when they join.
 
-If you have any questions or need help, join our [Discord community server](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets).

@@ -1,0 +1,40 @@
+---
+title: "How to Update a Minecraft Server"
+sidebarTitle: "Updating server"
+description: "Guide to updating server software and modpacks on your Minecraft server."
+---
+
+Update your server software (Paper, Spigot, Forge, etc) or modpacks using one of these methods.
+
+## Manual Update
+
+1. Download the latest version from:
+   - [PaperMC](https://papermc.io/downloads)
+   - [Spigot](https://spigotmc.org/wiki/buildtools)
+   - [Forge](https://files.minecraftforge.net/)
+2. Stop your server and [create a backup](/panel/backups)
+3. Delete the old JAR file (usually `server.jar` - check your startup command)
+4. Upload the new JAR file to the same directory. Keep the same filename, or update your startup command if it changed
+5. Start your server and run `/version` to verify the update
+
+<Warning>
+  You can copy the download URL and paste it into the **Download From URL** button in the File Manager. See [this guide](/panel/importing-files#download-files-from-url) for details.
+</Warning>
+
+## Automatic Update (Lime)
+
+1. Stop your server
+2. [Create a backup](/panel/backups) (click **Create Backup** in the Backups tab)
+3. Go to the **Startup** tab and set the version to `Latest`
+4. Click **Reinstall** to update `server.jar` to the latest version
+5. Start your server and run `/version` to verify the update
+
+## Updating Modpacks
+
+1. Stop your server
+2. [Create a backup](/panel/backups) (recommended)
+3. Go to the **Modpacks** tab
+4. Find your modpack and click **Install** again
+5. Start your server
+
+Need help? [Contact support](https://berrybyte.net/ticket) or join our [Discord](https://berrybyte.net/discord).

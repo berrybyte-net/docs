@@ -1,67 +1,65 @@
 ---
-title: "How to Install Forge and Fabric Mods on Minecraft Server - Complete Modding Guide"
+title: "How to Install Forge and Fabric Mods on Minecraft Server"
 sidebarTitle: "Install mods"
-description: "Step-by-step guide to installing Forge and Fabric mods on your Minecraft server. Learn how to set up mod loaders, upload mod files, and troubleshoot common modding issues for enhanced gameplay."
+description: "Guide to installing Forge and Fabric mods on your Minecraft server."
 ---
 
-# How to Install Forge and Fabric Mods on Your Minecraft Server
+# How to Install Forge and Fabric Mods
 
-Installing mods on your Minecraft server opens up endless possibilities for enhanced gameplay, new features, and custom content. This comprehensive guide covers both Forge and Fabric mod installation, helping you transform your vanilla server into a modded experience with popular mods from CurseForge and Modrinth.
+Add mods to your server to enhance gameplay with new features and content.
 
 ## Install Forge Mods
 
-To get started with installing Forge mods onto your server, you'll need to make sure your server is set to Forge, and the appropriate server version for the mod too.
+1. Set your server to Forge:
+   - Go to **Settings** tab
+   - Select **Forge** from the Software dropdown
+   - Enter the Forge version in the **Startup** tab (e.g., `1.19.1-43.2.14`)
+   - Click **Reinstall** and wait
 
-Here's how to set your server to Forge if it already isn't:
-1. Open the **Settings** tab on the [Game Panel](https://game.berrybyte.net)
-2. Select the "**Software**" dropdown and select **Forge**
-3. Input the version of Forge you'd like in the **Startup** tab into the "**Server Version**" field
-3. Press the "**Reinstall**" button to install Forge and wait for it to complete
-
-Once the server version and Forge has been set, download the mod of your choice (from places like [CurseForge](https://cureforge.com) or [Modrinth](https://modrinth.com)) to your computer and follow these steps: 
-
-1. Open the **File Manager** tab
-2. Navigate to the `/mods` folder
-3. [Upload](/panel/importing-files) the Forge or Fabric mod you wish to install
-4. Restart your server and the Forge mod should be installed!
+2. Install the mod:
+   - Download the mod from [CurseForge](https://curseforge.com) or [Modrinth](https://modrinth.com)
+   - Go to **File Manager** and open the `/mods` folder
+   - [Upload](/panel/importing-files) the mod file
+   - Restart your server
 
 ## Install Fabric Mods
 
-Installing Fabric mods onto your Minecraft server is a simple process. Make sure the server version and the software is set to Fabric:
+1. Set your server to Fabric:
+   - Go to **Settings** tab
+   - Select **Fabric** from the Software dropdown
+   - Click **Reinstall** and wait
 
-1. Open the **Settings** tab on the [game panel](https://game.berrybyte.net)
-2. Select the "**Software**" dropdown and select **Fabric**
-3. Press the "**Reinstall**" button to install Fabric and wait for it to complete
+2. Install the mod:
+   - Download the mod from [CurseForge](https://curseforge.com) or [Modrinth](https://modrinth.com)
+   - Go to **File Manager** and open the `/mods` folder
+   - [Upload](/panel/importing-files) the mod `.jar` file
+   - Restart your server
 
-Once done, and you have the Fabric mod you wish to use downloaded and ready to upload, follow these steps to get it installed onto your Minecraft server:
-
-1. Open the **File Manager** tab
-2. Navigate to the `/mods` folder
-3. [Upload](/panel/importing-files) the Forge or Fabric mod`.jar` to that folder
-4. Restart your server and the Fabric mod should be installed!
-
-<Note>Many Fabric mods require the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) mod installed to work. Download the Fabric API mod and upload it to the `/mods` folder</Note>
+<Note>Many Fabric mods need the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) mod. Install it first.</Note>
 
 ## Common Issues
 
-- **Mods not loading after restart**: Check that the mod is compatible with your server version and mod loader
-  - **Solution**: Verify mod compatibility and ensure you're using the correct Forge/Fabric version
+**Mods not loading**
+- Mod incompatible with server version or mod loader
+- Fix: Check mod compatibility and use the correct Forge/Fabric version
 
-- **Server crashes when starting with mods**: Usually caused by incompatible mods or missing dependencies
-  - **Solution**: Check server logs for error messages and remove problematic mods one by one
+**Server crashes**
+- Incompatible mods or missing dependencies
+- Fix: Check server logs and remove problematic mods one by one
 
-- **Fabric mods not working**: Many Fabric mods require the Fabric API to function
-  - **Solution**: Download and install the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) mod
+**Fabric mods not working**
+- Missing Fabric API
+- Fix: Install the [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) mod
 
-- **Players can't join modded server**: Client-side mods must be installed on both server and client
-  - **Solution**: Ensure players have the same mods installed or use server-side only mods
+**Players can't join**
+- Client-server mod mismatch
+- Fix: Players need the same mods installed, or use server-side only mods
 
 ## Related Guides
 
-- [Installing Modpacks](/games/minecraft/installing-modpacks) - Set up complete modpack collections
-- [Changing Server Versions](/games/minecraft/changing-versions) - Switch versions for mod compatibility
-- [Server Performance with Aikar's Flags](/games/minecraft/aikars-flags) - Optimize modded server performance
+- [Installing Modpacks](/games/minecraft/installing-modpacks) - Set up modpack collections
+- [Changing Server Versions](/games/minecraft/changing-versions) - Switch versions for compatibility
+- [Server Performance](/games/minecraft/aikars-flags) - Optimize modded server performance
 - [Server Backups](/panel/backups) - Backup before installing mods
-- [File Management](/panel/importing-files) - Learn more about uploading files to your server
 
-If you run into any issues or have questions, feel free to send us a message in our [community Discord server](https://berrybyte.net/discord) or [open a support ticket](https://berrybyte.net/tickets).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/tickets).

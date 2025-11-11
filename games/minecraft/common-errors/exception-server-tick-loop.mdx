@@ -1,23 +1,25 @@
 ---
 title: "How to Fix 'Exception Server Tick Loop' Error in Minecraft"
 sidebarTitle: "Exception server tick loop"
-description: "A .json file likely may have become corrupted. This guide shows you how to fix this common error server owners face for a Minecraft server."
+description: "Fix corrupted JSON files causing server tick loop errors."
 ---
 
-You may have encountered this error message on your Minecraft server causing it to crash or prevent it from starting up. This typically means that one of your .json configuration files may have become corrupt.
+This error usually means a JSON configuration file is corrupted.
 
-<Warning>The error: `java.lang.NullPointerException: Exception in server tick loop`</Warning>
+<Warning>Error: `java.lang.NullPointerException: Exception in server tick loop`</Warning>
 
-Head to the [game control panel](https://game.berrybyte.net) and let's get this fixed:
+## Fix
 
-1. Stop the server
-2. Head to the file manager
-2. Find and delete `whitelist.json`, `banned-player.json`, and `banned-ips.json`
-3. Start the server
+1. Stop your server
+2. Go to the file manager
+3. Delete these files:
+   - `whitelist.json`
+   - `banned-player.json`
+   - `banned-ips.json`
+4. Start your server
 
-This will regenerate the files in a correct format for you. 
+The files will regenerate automatically.
 
-Alternatively, you can [restore a backup](/panel/backups#mounting) of those files or you can also make sure it's correctly formatted with a [json validator & formatter tool](https://jsonlint.com/) ensuring they have the `[]` symbol at the beginning and end of the files.
+**Alternative:** [Restore a backup](/panel/backups#mounting) or fix the JSON files with a [validator](https://jsonlint.com/) (ensure they start and end with `[]`).
 
-
-Still running into issues? Have a chat us in our [Discord community](https://berrybyte.net/discord), or [contact support team](https://berrybyte.net/support).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).

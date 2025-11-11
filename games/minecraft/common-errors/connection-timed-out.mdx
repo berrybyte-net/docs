@@ -1,57 +1,53 @@
 ---
-title: "How to Fix Minecraft 'Connection Timed Out' Error - Complete Troubleshooting Guide"
-description: "Comprehensive guide to fixing Minecraft server connection timeout errors. Learn causes, solutions, and prevention methods for network connectivity issues, server resource problems, and ISP-related timeouts."
+title: "How to Fix Minecraft 'Connection Timed Out' Error"
+description: "Guide to fixing Minecraft server connection timeout errors."
 sidebarTitle: "Connection timed out"
 ---
 
 # How to Fix Minecraft 'Connection Timed Out' Error
 
-The "connection timed out" error is one of the most frustrating issues Minecraft players encounter when trying to join servers. This comprehensive troubleshooting guide covers all common causes and proven solutions to get you back into the game, whether the issue stems from network problems, server configuration, or resource limitations.
+Fix connection timeout errors when joining Minecraft servers.
 
-## Reasons
+## Common Causes
 
-1. The game server (or a proxy like [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/) or [Velocity](https://papermc.io/software/velocity)) has insufficient
-   resources to handle the amount of players.
-2. There is an outage/issue with the host's network - you can check for incidents on our
-   [status page](https://status.berrybyte.net/).
-3. The proxy (e.g. [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/), [Velocity](https://papermc.io/software/velocity), or [Waterfall](https://papermc.io/software/waterfall)) is misconfigured (only applies if you
-   have one). Check the configuration files and make sure you've set it up correctly.
-4. There is a problem with your
-   [ISP](https://en.wikipedia.org/wiki/Internet_service_provider) (Internet Service Provider) - this is the
-   case most of the time. Restart your router or contact your internet provider for further help.
+1. Server has insufficient resources
+2. Host network outage - check [status page](https://status.berrybyte.net/)
+3. Proxy misconfigured (BungeeCord/Velocity/Waterfall)
+4. ISP/network issues (most common) - restart router or contact ISP
 
-## Remedy
+## Solutions
 
-- Double-check your proxy's configuration, if you have one.
-- Restart the Minecraft Server.
-- See if anybody else experiences these issues on your server, if not, it's most
-  likely a problem with your connection. You can test by using [mcsrvstat.us](https://mcsrvstat.us), a free website to check the status of a Minecraft server.
-- Use a VPN or proxy. We recommend using [Cloudflare's WARP](https://1.1.1.1/) - a tool that helps you connect to a network with more [optimized routes](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-routing/). This is a popular remedy especially for lower-end connections.
-- Increase the [`paper.playerconnection.keepalive`](https://docs.papermc.io/paper/reference/system-properties#paperplayerconnectionkeepalive)
-  timeout flag on your Paper-based Minecraft server. To add, insert the  `-Dpaper.playerconnection.keepalive=90` flag to your Minecraft server startup flags; this extends the keepalive timeout to 90 seconds.
-- Take an [MTR](https://www.cloudflare.com/learning/network-layer/what-is-mtr/) (my trace-route, a tool which allows one to diagnose network paths and routes) and analyze the output. [Share the output](https://berrybyte.net/tickets) with the [berrybyte](https://berrybyte.net/) team and we can identify where the issue lies.
+1. **Check proxy configuration** (if using one)
+2. **Restart your server**
+3. **Test connection** - use [mcsrvstat.us](https://mcsrvstat.us) to check server status
+4. **Use a VPN** - try [Cloudflare WARP](https://1.1.1.1/) for better routing
+5. **Increase keepalive timeout** (Paper servers):
+   - Add `-Dpaper.playerconnection.keepalive=90` to startup flags
+6. **Run MTR diagnostics** - [take an MTR](https://www.cloudflare.com/learning/network-layer/what-is-mtr/) and [share results](https://berrybyte.net/tickets) with support
 
 
 ## Common Issues
 
-- **Timeout occurs only for specific players**: Usually ISP routing or regional network issues
-  - **Solution**: Try using Cloudflare WARP or a VPN to change network routing
+**Timeout for specific players**
+- ISP routing or regional network issues
+- Fix: Use Cloudflare WARP or a VPN
 
-- **Timeout happens during peak hours**: Server resource limitations or network congestion
-  - **Solution**: Upgrade server resources or optimize server performance with Aikar's flags
+**Timeout during peak hours**
+- Server resource limitations
+- Fix: Upgrade resources or optimize with Aikar's flags
 
-- **Proxy servers causing timeouts**: Misconfigured BungeeCord, Velocity, or Waterfall setup
-  - **Solution**: Review proxy configuration files and ensure proper server connections
+**Proxy causing timeouts**
+- Misconfigured BungeeCord/Velocity/Waterfall
+- Fix: Review proxy configuration files
 
-- **Intermittent timeouts**: Network instability or packet loss between client and server
-  - **Solution**: Run MTR diagnostics and contact hosting provider with results
+**Intermittent timeouts**
+- Network instability or packet loss
+- Fix: Run MTR diagnostics and contact support
 
 ## Related Guides
 
-- [Joining Your Minecraft Server](/games/minecraft/join-server) - Basic connection troubleshooting
-- [Server Performance Optimization](/games/minecraft/aikars-flags) - Improve server resource usage
-- [Control Panel Overview](/panel/overview) - Check server health and performance
-- [Palworld Connection Issues](/games/palworld/join-server) - Cross-game connection troubleshooting
-- [General Server Management](/quickstart) - Basic server setup and management
+- [Joining Your Server](/games/minecraft/join-server) - Connection troubleshooting
+- [Server Performance](/games/minecraft/aikars-flags) - Improve performance
+- [Control Panel Overview](/panel/overview) - Check server health
 
-If none of these suggestions help or have any questions, reach out to us on our [Discord community server](https://berrybyte.net/discord).
+Need help? Ask in our [Discord](https://berrybyte.net/discord).

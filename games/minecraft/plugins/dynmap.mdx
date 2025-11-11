@@ -1,132 +1,101 @@
 ---
-title: "How to Install and Configure Dynmap Plugin - Live Minecraft Server Map Guide"
+title: "How to Install and Configure Dynmap Plugin"
 sidebarTitle: "Dynmap"
-description: "Complete guide to setting up Dynmap plugin for live Minecraft server maps. Learn installation, configuration, custom domains with reverse proxy, and troubleshooting for interactive web-based world viewing."
+description: "Guide to setting up Dynmap for live Minecraft server maps."
 ---
 
-# How to Install and Configure Dynmap Plugin for Live Server Maps
+# How to Install and Configure Dynmap
 
-Dynmap transforms your Minecraft server into an interactive web-based experience by creating live, Google Maps-style views of your worlds that players can access through any web browser. This comprehensive guide covers everything from basic installation to advanced reverse proxy configuration for custom domains.
+Dynmap creates live, web-based maps of your Minecraft worlds that players can view in any browser.
 
-There are more optimized alternatives like [BlueMap](https://github.com/BlueMap-Minecraft/BlueMap) and [squaremap](https://github.com/jpenilla/squaremap), but Dynmap is still a popular choice for many Minecraft servers.<br/>
-
-This guide will walk you through installation and usage of Dynmap on your [Minecraft server](https://berrybyte.net/minecraft-server-hosting)!
+Note: More optimized alternatives include [BlueMap](https://github.com/BlueMap-Minecraft/BlueMap) and [squaremap](https://github.com/jpenilla/squaremap).
 
 ## Installation
 
-<Warning>
-    You will need a public IP or a port forwarding service to allow other people to use your Dynmap, if you're running your Minecraft server locally.
-</Warning>
+1. Download Dynmap from [SpigotMC](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) (Bukkit) or [CurseForge](https://www.curseforge.com/minecraft/mc-mods/dynmapforge) (Forge/Fabric)
+2. Place the JAR in `plugins` (Bukkit) or `mods` (Forge/Fabric) folder
+3. Restart your server
+4. Stop the server after it starts
+5. Create a port in **Network** tab
+6. Open `plugins/dynmap/configuration.txt`
+7. Set the port and web path (e.g., `/dynmap`)
+8. Start your server
 
-To install and configure Dynmap on your Minecraft server, follow these steps:
+<Warning>You need a public IP or port forwarding for others to access Dynmap.</Warning>
 
-1. Download the latest version of the Dynmap plugin from [SpigotMC](https://www.spigotmc.org/resources/dynmap%C2%AE.274/) or the Dynmap mod from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/dynmapforge) (if you're running a modded server).
-2. Place the downloaded JAR file in the `plugins`/`mods` (depends on your server software; `plugins` for Bukkit-based servers, `mods` for Forge and Fabric) folder of your Minecraft server. Refer to [this guide](/panel/importing-files) for help.
-3. Restart the server. The plugin will automatically be installed and activated
-4. When the server has fully started, stop the server to start configuring the plugin
-5. Create a port in the "**Network**" on the game panel
-6. Navigate to the `plugins/dynmap` folder in your server's directory
-7. Edit the `configuration.txt` file and set the port to the one created in the 5th step, and a URL path you want to use for the Dynmap web interface (e.g. /dynmap), and save
-8. Start the server again. Dynmap will now be fully installed and configured
+## Reverse Proxy (Custom Domain)
 
-## Reverse proxy
+Use a reverse proxy to access Dynmap with a custom domain instead of an IP address.
 
-To use a custom domain for Dynmap instead of a long numerical IP, you can use a [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) which allows you to access Dynmap using a custom domain name!
+### With berrybyte (Lime)
 
-#### With Lime at berrybyte
+1. Create a DNS record pointing to `cotton.api.berrybyte.network` (set Cloudflare to DNS only if using it)
+2. Go to **Proxies Manager** and click **Create Proxy**
+3. Enter your domain in `Source` and the Dynmap port allocation in `Allocation`
+4. Click **Create**
 
-If you have a [Minecraft server from berrybyte](https://berrybyte.net/minecraft-server-hosting), we've simplified all steps below to a few buttons on [Lime](https://game.berrybyte.net), where you can easily set up a reverse proxy for Dynmap using the Proxies Manager tool. We take care of SSL certificates and all the configuration for you.
+### Local/Other Provider (Advanced)
 
-1. Create a DNS record for your custom domain to point to `cotton.api.berrybyte.network`. If you're using [Cloudflare](https://cloudflare.com), make sure to set the proxy status to DNS only.
-2. Head to the Proxies Manager tool and click on the "**Create Proxy**" button.
-3. In `Source`, input the domain used in step 1. In `Allocation`, input the allocation you created for Dynmap in the installation steps and press "**Create**".
-
-Head to your domain, and it should be all ready and configured!
-
-#### Locally or at another provider (Advanced)
-
-<Warning>
-    This part of the guide presumes you have a Debian/Ubuntu-based server, steps may differ for other OSs.
-</Warning>
-
-**Automatically:**
-
-All the steps stated below after the 2nd step have been simplified to a single command for your convenience:
-
-```bash dynmap.conf
+**Automatic setup:**
+```bash
 curl -s https://cdn.berrybyte.net/scripts/dynmap.sh | sudo bash
 ```
 
-**Manually:**
+**Manual setup:**
+1. Set up a server with Nginx: `sudo apt update && sudo apt -y install nginx`
+2. Create DNS record pointing to the proxy server IP
+3. Add Nginx config:
 
-1. Set up a server to act as the reverse proxy. This can be a dedicated physical or virtual machine from a public cloud provider (order one at https://berrybyte.net/vps ;) ).
-2. Install a web server on the machine which you intend to run the reverse proxy on (e.g. Nginx, Apache, etc.): `sudo apt update && sudo apt -y install nginx`
-3. Set up a DNS record for your custom domain to point to the IP address of the reverse proxy server.
-4. Configure the web server on the reverse proxy server to act as the proxy for Dynmap. This will involve adding a configuration block to the web server's configuration file that specifies the custom domain you want to use for Dynmap and the IP address and port of the Minecraft server where Dynmap is running.
-
-```nginx dynmap.conf
-server {                                                                                                                                                   
+```nginx
+server {
     server_name your-domain.com;
     listen 80;
-    listen [::]:80;
-    access_log /var/log/nginx/reverse-access.log;
-    error_log /var/log/nginx/reverse-error.log;
     location / {
-        proxy_pass http://YOUR-REVERSE-PROXY-IP-ADDRESS;
+        proxy_pass http://YOUR-SERVER-IP:PORT;
     }
-} 
+}
 ```
 
-5. Restart the web server to apply the changes:
-
-```bash
-sudo systemctl restart nginx
-```
-
-6. Test the reverse proxy by accessing Dynmap using your custom domain.
-
-Note that setting up a reverse proxy can be a complex process, and it is recommended that you have some experience with web servers and network configuration before attempting it. If you are unfamiliar with these topics, it may be helpful to seek the assistance of a qualified system administrator or engineer.
+4. Restart Nginx: `sudo systemctl restart nginx`
 
 ## Usage
 
-To view the Dynmap map, open a web browser and go to the IP address of the server, followed by the port and the `webprefix` path (if you've set one in the configuration file), e.g. http://yourdomain.com:20029/dynmap; this will launch Dynmap's web interface!
+Access Dynmap at `http://your-server-ip:port/webpath` (e.g., `http://yourdomain.com:20029/dynmap`).
 
-On the left side of the interface, you will see a list of available maps. You can switch between these maps using the dropdown menu at the top. On the right side of the interface, you will see a list of players currently online on the server. You can click on a player's name to view their location on the map. You can also use the search bar at the top of the interface to search for specific locations or players on the map.
+- Switch between maps using the dropdown
+- View online players on the right
+- Click player names to see their location
+- Use the search bar to find locations or players
 
 ## Customization
 
-Dynmap has a wide range of customization options, which can be accessed by clicking on the "**Configure Dynmap**" button at the top of the web interface. From here, you can adjust settings such as the map's zoom level, the visibility of players and markers on the map, and the appearance of the map itself.
+Click **Configure Dynmap** in the web interface to adjust zoom, player visibility, and map appearance.
 
-For more advanced customization options, you can edit the configuration.txt file in the `plugins/dynmap` folder on your server. This file contains detailed documentation for all available customization options.
-
-## Troubleshooting
-
-If you are having trouble using Dynmap, here are a few common issues and their solutions:
-
-- If the Dynmap web interface is not loading, check the `server.log` file in the logs folder of your server for any error messages related to Dynmap. This can help identify the cause of the issue.
-- If the map is not showing the correct area, check the `worlds.txt` file in the `plugins/dynmap` folder to ensure that the correct world is being mapped.
-- If the map is not updating in real-time, check the `updaterate` option in the configuration.txt file. This setting determines how often the map is updated, and can be adjusted as needed.
+For advanced options, edit `plugins/dynmap/configuration.txt`.
 
 ## Common Issues
 
-- **Dynmap web interface won't load**: Usually caused by port configuration or firewall issues
-  - **Solution**: Verify the port is correctly configured and accessible, check server firewall settings
+**Web interface won't load**
+- Port or firewall issue
+- Fix: Verify port configuration and firewall settings
 
-- **Map shows blank or doesn't update**: World mapping configuration or permissions issue
-  - **Solution**: Check `worlds.txt` file and ensure correct world is mapped, verify plugin permissions
+**Map blank or not updating**
+- World mapping or permissions issue
+- Fix: Check `worlds.txt` and verify permissions
 
-- **Players can't access Dynmap externally**: Network configuration or port forwarding issue
-  - **Solution**: Ensure port is properly forwarded and accessible from external networks
+**Players can't access externally**
+- Network/port forwarding issue
+- Fix: Ensure port is forwarded and accessible
 
-- **High server resource usage**: Dynmap can be resource-intensive during initial map generation
-  - **Solution**: Consider using alternatives like BlueMap or squaremap for better performance
+**High resource usage**
+- Resource-intensive during initial generation
+- Fix: Consider BlueMap or squaremap alternatives
 
 ## Related Guides
 
-- [Server Network Configuration](/panel/overview) - Learn about server networking features
-- [Installing Plugins](/games/minecraft/installing-mods) - General plugin installation guide
-- [Server Performance Optimization](/games/minecraft/aikars-flags) - Optimize server for plugin usage
-- [Chunky Plugin](/games/minecraft/plugins/chunky) - Pre-generate chunks for better map performance
-- [Server Backups](/panel/backups) - Backup before installing plugins
+- [Server Network Configuration](/panel/overview) - Networking features
+- [Installing Plugins](/games/minecraft/installing-mods) - Plugin installation
+- [Server Performance](/games/minecraft/aikars-flags) - Optimize performance
+- [Chunky Plugin](/games/minecraft/plugins/chunky) - Pre-generate chunks
 
-If you continue to experience issues with Dynmap, you can ask for help on our [Discord server](https://berrybyte.net/discord)!
+Need help? Ask in our [Discord](https://berrybyte.net/discord).

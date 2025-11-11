@@ -1,57 +1,54 @@
 ---
 title: "How to Change Minecraft Server Version"
 sidebarTitle: "Changing Minecraft versions"
-description: "Step-by-step guide to changing your Minecraft server version safely. Learn how to upgrade or downgrade server versions, manage Java compatibility, and preserve your world data during version changes."
+description: "Guide to changing your Minecraft server version safely."
 ---
 
 # How to Change Your Minecraft Server Version
 
-Changing your Minecraft server version allows you to access new features, maintain compatibility with player clients, or revert to previous versions for stability. This guide covers the complete process of version management, including Java compatibility requirements and best practices for preserving your server data during transitions.
+Change your server version to access new features or maintain compatibility with players.
 
-## Changing the version of your Minecraft Server
+## Changing the Version
 
-1. Stop your server and take a [backup](/panel/backups)
-2. Navigate to "**Startup**" tab, and change the `Version` field to the version you wish to use
-3. In the "**Settings**" tab, press "**Reinstall**" to start the update process
-4. Start the server and run `/version` command to check if the version has been changed
+1. Stop your server and [create a backup](/panel/backups)
+2. Go to the **Startup** tab and change the `Version` field
+3. Go to the **Settings** tab and click **Reinstall**
+4. Start your server and run `/version` to verify
 
-<Warning>Downgrading server versions is far more difficult as you cannot port whole worlds back versions without a backup. It requires you to manually move builds with schematics, and proper checking for new blocks.</Warning>
+<Warning>Downgrading is difficult and can corrupt worlds. Always backup first and check for incompatible blocks.</Warning>
 
 
-### What Java version do I need for each version in Minecraft?
+### Java Version Requirements
 
-You may encounter a Java error in the console when updating a new version, this
-could mean that you have an incompatible Java version. To fix this, you can
-update your Java version or change the `Java Version` variable in the
-"**Settings**" tab to the appropriate version:
+If you get a Java error, change the `Java Version` in the **Settings** tab:
 
-    * **Java 8**: Minecraft 1.14 - 1.16.5
-    * **Java 16**: Minecraft 1.17 - 1.17.1
-    * **Java 17**: Minecraft 1.18 - Newest (Recommended - Stable)
-    * **Java 18 - 21**: Newest
-
-And voilà, you're done! You can now enjoy the new version of Minecraft on your server!
+- **Java 8**: Minecraft 1.14 - 1.16.5
+- **Java 16**: Minecraft 1.17 - 1.17.1
+- **Java 17**: Minecraft 1.18+ (Recommended)
+- **Java 18-21**: Latest versions
 
 ## Common Issues
 
-- **Server won't start after version change**: Usually caused by Java version incompatibility
-  - **Solution**: Update Java version in Settings tab to match Minecraft version requirements
+**Server won't start**
+- Java version incompatibility
+- Fix: Update Java version in Settings tab
 
-- **World corruption after downgrading**: Newer world data isn't compatible with older versions
-  - **Solution**: Restore from backup taken before version change, or use world conversion tools
+**World corruption after downgrading**
+- Newer world data isn't compatible with older versions
+- Fix: Restore from backup or use conversion tools
 
-- **Plugins stop working after update**: Plugin compatibility varies between Minecraft versions
-  - **Solution**: Update plugins to versions compatible with your new Minecraft version
+**Plugins stop working**
+- Plugin compatibility varies between versions
+- Fix: Update plugins to compatible versions
 
-- **Players can't connect after version change**: Client-server version mismatch
-  - **Solution**: Ensure all players update their Minecraft client to match server version
+**Players can't connect**
+- Client-server version mismatch
+- Fix: Have players update their Minecraft client
 
 ## Related Guides
 
-- [Server Backups](/panel/backups) - Protect your data before version changes
-- [Updating Server JARs](/games/minecraft/updating-jars) - Keep server software current
-- [Installing Modpacks](/games/minecraft/installing-modpacks) - Version-specific modpack setup
-- [Server Performance Optimization](/games/minecraft/aikars-flags) - Optimize for different versions
-- [Control Panel Overview](/panel/overview) - Understanding server management interface
+- [Server Backups](/panel/backups) - Backup before version changes
+- [Updating Server](/games/minecraft/updating) - Keep server software current
+- [Installing Modpacks](/games/minecraft/installing-modpacks) - Version-specific setup
 
-Running into an issue with changing the version? Shoot us a message on our [community Discord server](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).
+Need help? Ask in our [Discord](https://berrybyte.net/discord) or [contact support](https://berrybyte.net/support).
