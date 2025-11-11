@@ -5,153 +5,73 @@ description: "Complete guide to creating, restoring, and managing game server ba
 icon: "floppy-disks"
 ---
 
-Our team truly believes that the key to success is backups. We're not kidding.
-Backups are an essential tool for everyone, whether they are server developers,
-junior enthusiasts, or even the average end-user. **Backups make life safe.**
+Create backups to protect your server data. We also take daily off-site backups automatically.
 
-Here at berrybyte, we've developed and fine-tuned a set of backup tools to make
-your life easy. In addition to you taking your own backups, we take **daily
-off-site backups** on every server to ensure the most safe and available service for our
-users. We also utilize **data deduplication**, and **data mirroring** to further make
-the backups more efficient.
+## Creating Backups
 
-To take things even further, we've added additional functionality to the normal
-backup experience, including:
-
-## Creating
-
-To create a 1:1 copy of your server to store safely, head to
-https://game.berrybyte.net/`server-id`/backups, replacing the `server-id` value
-with your own. This is found beside the IP address and the server software text
-opposite the power controls.
+Go to the **Backups** tab in your game panel and click **Create Backup**.
 
 <Frame>
   <img src="/images/panel/backups.png" />
 </Frame>
 
-Below the description of the backup system, you can find a button named "**Create
-Backup**", which will open a modal with information you can fill out:
+Fill out the form:
 
 <Frame>
   <img src="/images/panel/backups-2.png" />
 </Frame>
 
-- `Backup name`: Name it something memorable, or alternatively you can leave
-  this empty which will be autofilled with a timestamp.
-- `Ignored Files & Directories`: If there are any files or folders you would
-  like to ignore and not take a backup of, list them here. You will need to
-  enter the path of the directory/file relative to the main directory, e.g.
-  `/plugins/Dynmap/*`. This ignores all files inside the `Dynmap` directory.
-- `Locked`: Set a lock on the backup to prevent accidental deletions. You can
-  toggle this by clicking the three dots on the specified backup to remove or
-  enable the lock.
+- **Backup name**: Give it a name, or leave it empty for an automatic timestamp
+- **Ignored Files & Directories**: List files/folders to skip (e.g., `/plugins/Dynmap/*`)
+- **Locked**: Lock the backup to prevent accidental deletion
 
-## Deleting
+## Deleting Backups
 
-The Basic plan comes with 3 backup slots, Minecraft+ comes with 8 backup slots,
-and Minecraft Elder comes with 10. If you are out of slots, you can delete a
-backup to create space for a new one. This can be done by pressing the three
-dots on the specified backup and pressing "**Delete**". A confirmation modal will
-pop up which you can confirm or deny the deletion process. 
+Backup slots: Basic (3), Minecraft+ (8), Minecraft Elder (10). 
 
-<Warning>These backups **CANNOT** be recovered, so delete at your own risk.</Warning>
+To delete a backup, click the three dots and select **Delete**. Confirm when prompted.
 
-## Restoring
+<Warning>Deleted backups **CANNOT** be recovered.</Warning>
 
-Now that you've created some backups, and you have a situation where you need to
-restore it. A bad plugin configuration, or someone raided and nuked your SMP
-(we've all been there).
+## Restoring Backups
 
-Restoring backups is as easy as pressing two buttons! You can press the three
-dots on the backup you would like to restore, and a modal will pop up asking you
-whether you would like to delete all files before restoring the backup. If
-selected, this **CANNOT** be reversed, so restore at your own risk. An advice
-would be to take a backup of the server before restoring it if you are unsure
-whether it may fix or break it.
+Click the three dots on the backup you want to restore. Choose whether to delete all files before restoring.
 
 <Frame>
   <img src="/images/panel/backups-3.png" />
 </Frame>
 
-## Mounting
+**Tip:** Create a backup of your current server before restoring, just in case.
 
-Sometimes, you may not want to restore the whole 1:1 copy of the server you
-created, as that would overwrite the whole server. You may only want to restore
-specific files, like a config.yml from a plugin you accidentally misconfigured,
-or deleted the `server.properties` file by accident and want to restore that
-without losing all of your progress.
+## Mounting Backups
 
-All these reasons inspired us to create a **Backup Mounter**. This feature
-allows you to **mount** a backup _as a folder_ to your file manager, where you
-can restore specific files or folders!
+Need to restore just a few files? Mount a backup as a folder to pick and choose what to restore.
 
 <Warning>
-  During the process of a mounted backup, you may not be able to run power
-  controls or do similar tasks until it is unmounted.
+  You can't use power controls while a backup is mounted. Unmount it first.
 </Warning>
 
 <Frame>
   <img src="/images/panel/backups-4.png" />
 </Frame>
 
-To mount a backup, press the three dots on the backup you would like to mount,
-and it will mount the backup in your file manager.
+**To mount:** Click the three dots on a backup and select mount. It will appear as a folder in your file manager.
 
 <Frame>
   <img src="/images/panel/backups-5.png" />
 </Frame>
 
-To unmount the backup, press the icon on the mounted backup folder inside the
-file manager, and it will unmount the backup for you. Now, you can simply go
-into the folder, select the specific files you want to restore and either press
-"**Restore**" which restores the file/folder back to its relative directory in the
-server, or "**Move**" which allows you to restore the file/folder to a different
-directory - use the `../` path before the file/folder, in the popup modal,
-you're wanting to restore to, to move out of the mounted backup folder and
-restore to a custom path.
+**To restore files:** Open the mounted folder, select files, then click **Restore** (restores to original location) or **Move** (restores to a different path).
 
-## Off-site backups
+## Off-Site Backups
 
-As well as you taking your own backups, we take redundant backups to our
-off-site servers **every 24 hours** with a retention of 14 days. To restore a backup,
-[create a ticket](https://berrybyte.net/ticket) in the client area, and provide:
+We automatically back up your server to off-site servers every 24 hours (kept for 14 days).
 
-- Your server ID (**"Settings"** tab -> **"Debug Information"**)
-- Email address
-- The date of the backup you want restored
-
-Once we have this information, we'll restore the backup for you.
+To restore an off-site backup, [create a ticket](https://berrybyte.net/ticket) with:
+- Your server ID (Settings → Debug Information)
+- Your email address
+- The backup date you want restored
 
 <Warning>
-  We recommend taking another backup before we restore the backup for you, as
-  rolling back restored backups is not possible.
-</Warning>
-
-
-## Technology
-
-### Deduplication
-
-Our backup system uses advanced techniques such as
-[data deduplication](https://en.wikipedia.org/wiki/Data_deduplication).<br/>
-Deduplication is a technique where after you take the **initial full server
-backup**, the backups created after it only saves the files that were changed.
-
-**Example:**
-
-- You take the initial backup of your server which creates a 1:1 copy.
-- To introduce some new features, you start by adding two new plugins.
-- You take a backup again, but this time it only backs up the two plugins you
-  installed.
-
-The idea behind the implementation of this system is to make backups significantly more efficient, quicker, and allow us to offer more backup slots for all servers.
-
-## Related Guides
-
-- [Control Panel Overview](/panel/overview) - Understanding your server management interface
-- [Server Configuration Best Practices](/games/palworld/configure-server-settings) - Backup before making changes
-- [Minecraft Server Management](/games/minecraft/join-server) - Game-specific server management
-- [Getting Started Guide](/quickstart) - Basic server setup and management
-- [File Management](/panel/importing-files) - Working with server files
-
-If you need help, reach out to us on our [Community Discord](https://berrybyte.net/discord) or in a [ticket](https://berrybyte.net/ticket). 
+  Create a backup of your current server before we restore, as rollbacks aren't possible.
+</Warning> 

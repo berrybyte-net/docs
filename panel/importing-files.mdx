@@ -5,90 +5,51 @@ description: "Complete guide to uploading files to your game server. Learn SFTP,
 icon: "file-import"
 ---
 
-## Web upload
+## Web Upload
 
-<Info>This method of upload is limited to **100MB**.</Info>
+<Info>Limited to **100MB**.</Info>
 
-To directly upload files to the panel, you can head to the **File Manager** tab,
-and drag-and-drop the files to the screen.
+Go to **File Manager** and drag-and-drop files to upload.
 
-When trying to directly upload a folder to the file manager, you will encounter an error that reads: `Failed to get multipart form data from request`.
-You will need to archive the folder using a tool like [7Zip](https://7zip.org) or [WinRAR](https://winrar.org) and upload it that way.
-Once uploaded, you can press the three dots and press the **Unarchive** button.
+**Uploading folders?** Zip them first (use [7Zip](https://7zip.org) or [WinRAR](https://winrar.org)), then upload and click **Unarchive**.
 
-### The following archive types are supported:
+Supported formats: `.zip`, `.7z`, `.tar.gz`
 
-- .zip
-- .7z
-- .tar.gz
+## Server Importer
 
-## Server importer
+<Info>No size limit.</Info>
 
-<Info>This method of upload does **not** have a size limitation.</Info>
-
-On the panel, we've built in a tool to import your server's files from another
-host or server directly into the panel. This tool is located in the **File
-Manager** tab, and is the **Import Files** button. Refer to the GIF below for a
-visual example.
+Import files directly from another server. Go to **File Manager** and click **Import Files**.
 
 <Frame>
   <img src="/images/general/importing.gif" />
 </Frame>
 
-There, you can fill in the fields with the details of the SFTP/FTP/FTPS
-credentials from your old host. Normally, the base directory can be left as
-default for most users, unless you only want to import a specific folder. For
-example, if you only want to import the `plugins` folder, you would fill the
-field as `/plugins` and the panel will disregard all other files except for that
-specific folder.
+Enter your old server's SFTP/FTP/FTPS credentials. Leave the base directory as default, or specify a folder (e.g., `/plugins`) to import only that folder.
 
-Once you've filled in the fields, you can press the **Import Files** button.
-This will import all of your server's files, like your server's configuration
-files, such as the `server.properties` file, and your server's plugins, and
-worlds (unless you specified otherwise).
+Click **Import Files** to start the transfer.
 
-## Importing via SFTP
+## SFTP Upload
 
-<Info>This method of upload does **not** have a size limitation.</Info>
+<Info>No size limit. Recommended for large files.</Info>
 
-[SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) is a secure way
-to transfer files from your computer to the panel. This is a great way to upload
-your server's files to the panel, and is the recommended way to upload your
-server's files especially if the files are stored on your computer, or if the
-files are larger than 100MB.
+1. Download an SFTP client: [WinSCP](https://winscp.net/eng/index.php) (recommended) or [FileZilla](https://filezilla-project.org)
+2. Go to **Settings** and click **Launch SFTP**
+3. Enter your panel password when prompted
+4. Drag-and-drop files from your computer into the SFTP client
 
-1. Download a SFTP client such as [WinSCP](https://winscp.net/eng/index.php)
-   (recommended) or [FileZilla](https://filezilla-project.org).
-2. Once installed, head to the **Settings** tab, and press the **Launch SFTP**
-   button.
-3. You will be prompted with a window to enter your SFTP password, it will be
-   the same password used to log in to the control panel.
-4. Locate the files/directories on your computer that you want to transfer, and
-   drag-and-drop them into the window of your FTP client. This will upload the
-   files to the panel and a rough ETA (estimated time of arrival) will be
-   displayed normally at the bottom of the screen.
+**Slow transfer?** Transferring many small files is slower than one large file. Zip your files first, then [unarchive](/panel/unarchiving) them on the panel.
 
-The speed of the transfer may seem significantly low, however in most cases that is due to importing hundreds (sometimes even thousands!) of several smaller files rather than one big file.
+## Download from URL
 
-<Tip>To speed up the SFTP import, archive your files into any one of the [supported archive types](#the-following-archive-types-are-supported). Then, transfer that archive through SFTP and [unarchive](/panel/unarchiving) it on the panel directly.</Tip>
+<Info>No size limit.</Info>
 
-## Download files from a URL
+Download files directly from a URL into your panel. Great for plugins, resource packs, or server JARs.
 
-<Info>This method of upload does **not** have a size limitation.</Info>
-
-You can also download files from a URL directly into the panel. This is a great
-way to download a plugin, a resource pack or a server JAR from a website and
-upload it directly into the panel.
-
-1. Head to the **File Manager** tab, and press the **Download from URL** button.
-2. You will be prompted with a window to enter the URL of the file you want to
-   download. You can also enter the name of the file you want to download, and
-   the location you want to download it to.
-3. Once you've filled in the fields, you can press the **Download** button. This
-   will download the file from the URL, and upload it to the panel.
+1. Go to **File Manager** and click **Download from URL**
+2. Enter the file URL, filename, and destination folder
+3. Click **Download**
 
 <Frame>
   <img src="/images/general/importing-2.gif" />
 </Frame>
-
-If you need help, reach out to us on [Discord](https://berrybyte.net/discord) or in a [ticket](https://berrybyte.net/ticket).
