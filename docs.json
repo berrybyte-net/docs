@@ -30,21 +30,24 @@
               {
                 "group": "Help & Support",
                 "pages": [
+                  "help/billing-and-payments",
                   "help/server-pending",
                   "help/upgrade-plan",
                   "help/cancel-plan",
                   "help/troubleshooting",
-                  "help/free-trial"
+                  "help/free-trial",
+                  "help/refunds"
                 ]
               },
               {
-                "group": "Game Panel",
+                "group": "Server Management",
                 "pages": [
-                  "panel/overview",
-                  "panel/backups",
-                  "panel/importing-files",
-                  "panel/recycle-bin",
-                  "panel/sub-users"
+                  "server/backups",
+                  "server/connection-issues",
+                  "server/importing-files",
+                  "server/region-selection",
+                  "server/start-stop-restart",
+                  "server/sub-users"
                 ]
               }
             ]
