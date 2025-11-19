@@ -5,354 +5,83 @@ description: "How to troubleshoot common game server issues including connection
 icon: "wrench"
 ---
 
-# Server Troubleshooting Guide
+# Server Troubleshooting
 
-Having issues with your game server? This comprehensive troubleshooting guide covers the most common problems and their solutions. Whether you're dealing with connection issues, performance problems, or server crashes, we'll help you get back up and running quickly.
+Having issues? Start here.
 
-## Quick Diagnostic Checklist
+## Quick Checklist
 
-Before diving into specific issues, run through this quick checklist:
+- [ ] Server showing as "Online" in the panel?
+- [ ] Using the correct server IP address?
+- [ ] Game client updated?
+- [ ] Server restarted recently?
+- [ ] Any errors in the console?
 
-- [ ] Is your server showing as "Online" in the control panel?
-- [ ] Are you using the correct server IP address?
-- [ ] Is your game client updated to the latest version?
-- [ ] Have you restarted your server recently?
-- [ ] Are there any error messages in the server console?
+## Connection Issues
 
-## Common Connection Issues
+### Can't Connect to Server
 
-### Cannot Connect to Server
+1. **Check server status** - Make sure it's online in your panel
+2. **Verify IP and port** - Copy the exact IP from your panel
+3. **Check game version** - Make sure your game client matches the server version
+4. **Try restarting** - Stop and start the server
+5. **Check firewall** - Temporarily disable to test if it's blocking
 
-**Symptoms**: Game client shows "Connection failed", "Server not found", or timeout errors.
+### Server Shows Offline
 
-**Solutions**:
-
-1. **Verify Server Status**
-   - Check if server is online in your control panel
-   - Look for any error messages in the console
-   - Restart the server if it appears stuck
-
-2. **Check Server IP and Port**
-   - Copy the exact IP address from your panel
-   - Ensure you're using the correct port number
-   - Some games require specific port formats
-
-3. **Firewall and Network Issues**
-   - Temporarily disable your firewall to test
-   - Check if your ISP blocks gaming ports
-   - Try connecting from a different network
-
-4. **Game Version Mismatch**
-   - Ensure your game client matches the server version
-   - Update your game client if needed
-   - Check server version in the control panel
-
-### Server Shows Offline When It Should Be Online
-
-**Symptoms**: Control panel shows server as offline despite being started.
-
-**Solutions**:
-
-1. **Force Server Restart**
-   - Stop the server completely
-   - Wait 30 seconds
-   - Start the server again
-
-2. **Check Server Resources**
-   - Monitor RAM and CPU usage
-   - Upgrade if consistently at 100%
-   - Clear unnecessary files
-
-3. **Review Server Logs**
-   - Check console for error messages
-   - Look for crash reports
-   - Identify problematic plugins/mods
+1. **Force restart** - Stop, wait 30 seconds, then start again
+2. **Check resources** - Monitor RAM/CPU usage, upgrade if needed
+3. **Check console** - Look for error messages or crash reports
 
 ## Performance Issues
 
-### Server Lag and Low Performance
+### Server Lag
 
-**Symptoms**: High latency, delayed responses, choppy gameplay.
-
-**Solutions**:
-
-1. **Resource Optimization**
-   - Monitor RAM usage (should stay below 80%)
-   - Check CPU utilization
-   - Consider upgrading your plan
-
-2. **Plugin/Mod Management**
-   - Disable unnecessary plugins/mods
-   - Update all plugins to latest versions
-   - Remove conflicting modifications
-
-3. **World Optimization**
-   - Reduce world size if possible
-   - Clear unused chunks
-   - Limit entity spawning
-
-4. **Server Settings Tuning**
-   - Adjust view distance settings
-   - Optimize tick rate settings
-   - Configure garbage collection (Java games)
+1. **Check resources** - Monitor RAM (should stay below 80%) and CPU usage
+2. **Disable unnecessary plugins/mods** - Remove or update outdated ones
+3. **Optimize world** - Clear unused chunks, limit entity spawning
+4. **Adjust settings** - Lower view distance, optimize tick rate
+5. **Upgrade plan** - If resources are consistently maxed out
 
 ### High Memory Usage
 
-**Symptoms**: Server running out of RAM, frequent crashes, slow performance.
+1. **Check RAM usage** - Monitor in your panel
+2. **Restart regularly** - Helps clear memory leaks
+3. **Update plugins/mods** - Old versions can cause issues
+4. **Upgrade RAM** - If you're consistently running out
 
-**Solutions**:
+## Server Crashes
 
-1. **Memory Allocation**
-   - Check current RAM usage in panel
-   - Upgrade to higher RAM plan if needed
-   - Optimize Java heap settings (Minecraft)
+### Frequent Crashes
 
-2. **Memory Leaks**
-   - Restart server regularly
-   - Update plugins/mods
-   - Remove problematic modifications
-
-3. **World Size Management**
-   - Use world border plugins
-   - Pre-generate chunks efficiently
-   - Clean up old/unused areas
-
-## Server Crashes and Errors
-
-### Frequent Server Crashes
-
-**Symptoms**: Server stops unexpectedly, requires manual restart.
-
-**Solutions**:
-
-1. **Identify Crash Causes**
-   - Review crash logs in console
-   - Check for out-of-memory errors
-   - Look for plugin/mod conflicts
-
-2. **Update Everything**
-   - Update server software
-   - Update all plugins/mods
-   - Update Java version (if applicable)
-
-3. **Hardware Issues**
-   - Monitor server resources
-   - Check for overheating
-   - Contact support if hardware-related
+1. **Check crash logs** - Look in console for error messages
+2. **Update everything** - Server software, plugins/mods, Java version
+3. **Check for conflicts** - Disable plugins/mods one by one to find the issue
+4. **Check resources** - Out of memory? Upgrade your plan
 
 ### Startup Errors
 
-**Symptoms**: Server fails to start, shows error messages during boot.
+1. **Check configuration** - Verify server.properties and file permissions
+2. **Restore from backup** - If files are corrupted
+3. **Check dependencies** - Make sure Java version is compatible
+4. **Update server software** - Use the latest version
 
-**Solutions**:
+## Game-Specific Guides
 
-1. **Configuration Issues**
-   - Check server.properties file
-   - Verify all file permissions
-   - Reset to default configuration if needed
+**Minecraft**: [Connection issues](/games/minecraft/common-errors/connection-timed-out) • [Performance](/games/minecraft/aikars-flags) • [RCON setup](/games/minecraft/setting-up-rcon)
 
-2. **File Corruption**
-   - Restore from recent backup
-   - Re-upload server files
-   - Verify file integrity
+**Palworld**: [Server crashes](/games/palworld/fix-server-crashes) • [Xbox errors](/games/palworld/xbox-platform-error) • [Connection help](/games/palworld/join-server)
 
-3. **Dependency Problems**
-   - Install required dependencies
-   - Check Java version compatibility
-   - Update server software
+**V Rising**: [Admin setup](/games/vrising/become-an-admin) • [Player management](/games/vrising/ban-and-kick-players) • [Configuration](/games/vrising/configure-server-settings)
 
-## Game-Specific Issues
+## Need More Help?
 
-### Minecraft Servers
-
-**Common Issues**:
-- [Connection Timed Out](/games/minecraft/common-errors/connection-timed-out)
-- [Exception in Server Tick Loop](/games/minecraft/common-errors/exception-server-tick-loop)
-- [Failed to Check Session Lock](/games/minecraft/common-errors/failed-to-check-session-lock)
-- [Kicked for Flying](/games/minecraft/common-errors/kicked-for-flying)
-
-**Quick Fixes**:
-- Use [Aikar's Flags](/games/minecraft/aikars-flags) for performance
-- Configure [RCON](/games/minecraft/setting-up-rcon) for remote management
-- Set up [Dynmap](/games/minecraft/plugins/dynmap) for world visualization
-
-### Palworld Servers
-
-**Common Issues**:
-- [Server Crashes](/games/palworld/fix-server-crashes)
-- [Xbox Platform Errors](/games/palworld/xbox-platform-error)
-- [Connection Problems](/games/palworld/join-server)
-
-**Quick Fixes**:
-- Enable [automatic backups](/games/palworld/enable-autosave-automatic-backups)
-- Configure [server settings](/games/palworld/configure-server-settings) properly
-- Set up [admin permissions](/games/palworld/become-an-admin)
-
-### V Rising Servers
-
-**Common Issues**:
-- [Admin Setup](/games/vrising/become-an-admin)
-- [Player Management](/games/vrising/ban-and-kick-players)
-- [Server Configuration](/games/vrising/configure-server-settings)
-
-## Advanced Troubleshooting
-
-### Using Server Console
-
-The server console is your best friend for troubleshooting:
-
-1. **Reading Logs**
-   - Look for ERROR or WARN messages
-   - Note timestamps of issues
-   - Search for specific error codes
-
-2. **Running Commands**
-   - Use admin commands to diagnose issues
-   - Check player counts and connections
-   - Monitor resource usage
-
-3. **Log Analysis**
-   - Download logs for detailed analysis
-   - Use log analysis tools
-   - Share logs with support when needed
-
-### Network Diagnostics
-
-**Testing Connectivity**:
-
-1. **Ping Test**
-   ```bash
-   ping your-server-ip
-   ```
-
-2. **Port Testing**
-   - Use online port checkers
-   - Test from multiple locations
-   - Verify port forwarding
-
-3. **Traceroute Analysis**
-   ```bash
-   traceroute your-server-ip
-   ```
-
-### File System Issues
-
-**Common File Problems**:
-
-1. **Permissions**
-   - Ensure proper file permissions
-   - Check ownership settings
-   - Reset permissions if needed
-
-2. **Disk Space**
-   - Monitor available storage
-   - Clean up old logs and backups
-   - Upgrade storage if needed
-
-3. **File Corruption**
-   - Verify file integrity
-   - Restore from backups
-   - Re-upload corrupted files
-
-## Prevention and Maintenance
-
-### Regular Maintenance Tasks
-
-**Daily**:
-- Check server status and performance
-- Monitor player activity
-- Review console for errors
-
-**Weekly**:
-- Create server backups
-- Update plugins/mods
-- Clean up old files
-
-**Monthly**:
-- Update server software
-- Review and optimize settings
-- Analyze performance trends
-
-### Monitoring Tools
-
-**Built-in Monitoring**:
-- Use panel resource graphs
-- Set up alert notifications
-- Monitor player connections
-
-**External Tools**:
-- Server monitoring services
-- Performance analysis tools
-- Uptime monitoring
-
-## When to Contact Support
-
-Contact our support team when:
-
-- Hardware issues are suspected
-- Multiple troubleshooting attempts have failed
-- You need assistance with complex configurations
-- Server performance is consistently poor despite optimization
-
-**How to Contact Support**:
-
-- **Live Chat**: [berrybyte.net/contact](https://berrybyte.net/contact)
-- **Email**: support@berrybyte.net
-- **Discord**: [Community Server](https://discord.com/invite/Pv8DMpXtma)
-
-**Information to Include**:
-- Server ID and game type
-- Detailed description of the issue
-- Steps you've already tried
+**Still stuck?** Contact support with:
+- Your server ID and game type
+- What you've already tried
 - Console logs or error messages
-- Timeline of when issues started
 
-## Related Resources
-
-<CardGroup cols={2}>
-  <Card title="Control Panel Guide" href="/panel/overview" icon="window">
-    Learn to use your server management interface
-  </Card>
-  <Card title="Backup & Recovery" href="/panel/backups" icon="floppy-disks">
-    Protect your server data with regular backups
-  </Card>
-  <Card title="Getting Started" href="/quickstart" icon="rocket-launch">
-    Complete server setup walkthrough
-  </Card>
-  <Card title="Game-Specific Guides" href="/games/minecraft/introduction" icon="gamepad">
-    Detailed guides for your specific game
-  </Card>
-</CardGroup>
-
-## Emergency Procedures
-
-### Server Down Emergency
-
-1. **Immediate Actions**
-   - Check server status in panel
-   - Attempt server restart
-   - Check for maintenance notifications
-
-2. **If Restart Fails**
-   - Review console logs
-   - Contact support immediately
-   - Inform players of the issue
-
-3. **Data Recovery**
-   - Restore from latest backup if needed
-   - Document any data loss
-   - Implement prevention measures
-
-### Security Incidents
-
-1. **Suspected Breach**
-   - Change all passwords immediately
-   - Review access logs
-   - Contact support for investigation
-
-2. **Malicious Activity**
-   - Ban problematic players
-   - Restore from clean backup
-   - Implement additional security measures
-
-Remember: Most server issues can be resolved quickly with the right approach. Don't hesitate to reach out to our support team if you need assistance!
+**Contact us:**
+- [Live Chat](https://berrybyte.net/contact)
+- Email: support@berrybyte.net
+- [Discord](https://discord.com/invite/Pv8DMpXtma)
