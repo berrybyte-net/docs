@@ -112,6 +112,15 @@
                 ]
               },
               {
+                "group": "Hytale",
+                "pages": [
+                  "games/hytale/introduction",
+                  "games/hytale/setup-server",
+                  "games/hytale/join-server",
+                  "games/hytale/authenticate-server"
+                ]
+              },
+              {
                 "group": "Rust",
                 "pages": [
                   "games/rust/introduction",
