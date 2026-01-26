@@ -1,0 +1,48 @@
+---
+title: "How to Configure Hytale Server Settings"
+sidebarTitle: "Server settings"
+description: "Learn where to edit config.json to change Hytale server settings like name, password, max players, view distance, and default game mode."
+---
+
+# How to Configure Hytale Server Settings
+
+Hytale server settings are controlled by your server's `config.json`. Editing this file lets you customize things like your server name, password, max players, and performance-related settings (like view distance).
+
+If you don’t have a server yet, start with [Hytale server hosting](https://berrybyte.net/hytale-server-hosting).
+
+## Where to edit the Hytale server config
+
+1. Open your server panel
+2. Navigate to the **Files** tab
+3. Find and open `config.json` (usually in the root server directory)
+4. Make your changes
+5. **Save** the file
+6. Restart the server to apply changes
+
+<Note>
+Stop/restart your server before editing `config.json`, otherwise your changes may not apply correctly.
+</Note>
+
+## Hytale `config.json` server settings
+
+Below is a simple reference table of common Hytale dedicated server settings found in `config.json`.
+
+| Setting (Key) | Type | What it does |
+| --- | --- | --- |
+| `ServerName` | String | Sets the public server name shown in the server list. |
+| `MOTD` | String | Message of the day shown under your server name. |
+| `Password` | String | Sets a join password. Use `""` for a public server. |
+| `MaxPlayers` | Number | Maximum number of players that can join at once. |
+| `MaxViewRadius` | Number | View distance in chunks. Higher values usually require more RAM/CPU. |
+| `LocalCompressionEnabled` | Boolean | Enables network compression. Can reduce bandwidth usage (may slightly increase CPU). |
+| `Version` | Number | Config format version. Typically leave this unchanged. |
+| `Defaults.World` | String | Default world folder name the server loads/creates. |
+| `Defaults.GameMode` | String | Default game mode for new players (commonly `ADVENTURE` or `CREATIVE`). |
+| `ConnectionTimeouts` | Object | Controls how long the server waits before timing out clients. (Advanced) |
+| `RateLimit` | Object | Packet rate limiting to reduce spam/abuse. (Advanced) |
+| `PlayerStorage` | Object | Controls how/where player data is saved. (Advanced) |
+| `DisplayTmpTagsInStrings` | Boolean | Development/diagnostic option for displaying raw formatting tags. (Advanced) |
+
+## Admin commands (in-game)
+
+Some settings can be adjusted in-game if you have admin access. Join your server and run `/help` to see what admin commands are available on your Hytale server.

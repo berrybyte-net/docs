@@ -117,7 +117,9 @@
                   "games/hytale/introduction",
                   "games/hytale/setup-server",
                   "games/hytale/join-server",
-                  "games/hytale/authenticate-server"
+                  "games/hytale/authenticate-server",
+                  "games/hytale/configure-server-settings",
+                  "games/hytale/install-mods"
                 ]
               },
               {
