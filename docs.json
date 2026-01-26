@@ -119,7 +119,12 @@
                   "games/hytale/join-server",
                   "games/hytale/authenticate-server",
                   "games/hytale/configure-server-settings",
-                  "games/hytale/install-mods"
+                  "games/hytale/install-mods",
+                  "games/hytale/set-server-password",
+                  "games/hytale/set-motd",
+                  "games/hytale/add-admin",
+                  "games/hytale/enable-whitelist",
+                  "games/hytale/import-singleplayer-data"
                 ]
               },
               {

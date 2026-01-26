@@ -1,0 +1,27 @@
+---
+title: "How to Set a Custom MOTD on a Hytale Server"
+sidebarTitle: "Set MOTD"
+description: "Learn how to change your Hytale server MOTD (message of the day) by editing config.json."
+---
+
+# Setting a Custom MOTD on a Hytale Server
+
+Your Hytale server MOTD (Message of the Day) is the short text players see under your server name in the server list.
+
+If you don’t have a server yet, start with [Hytale server hosting](https://berrybyte.net/hytale-server-hosting).
+
+## Change the MOTD in `config.json`
+
+1. Open your server panel
+2. Navigate to the **Files** tab
+3. Find and open `config.json`
+4. Find the MOTD setting near the top:
+   ```json
+   "MOTD": "",
+   ```
+5. Replace it with your custom message:
+   ```json
+   "MOTD": "Welcome to our Hytale server!",
+   ```
+6. **Save** the file
+7. Restart your server
